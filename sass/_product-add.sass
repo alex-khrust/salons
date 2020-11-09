@@ -1,0 +1,66 @@
+.page__product-add
+  .product-add
+    width: 100%
+    height: auto
+    display: flex
+    flex-flow: column
+
+    h1
+      margin: 35px auto 20px
+      font-weight: bold
+      font-size: 20px
+      letter-spacing: 0.1em
+
+    form
+      width: 100%
+      max-width: 810px
+      padding: 20px 15px
+      margin: 0 auto
+      display: flex
+      flex-flow: columns
+      justify-content: center
+      align-items: center
+      background: #FFFFFF
+      box-shadow: 0px 2px 25px rgba(0, 0, 0, 0.15)
+      border-radius: 10px
+      @media ( min-width: 580px )
+        flex-flow: row wrap
+        justify-content: space-between
+        align-items: flex-start
+      @media ( max-width: 768px )
+        max-width: 540px
+      @media ( min-width: 850px )
+        padding: 30px 50px
+
+      .flex-column
+        width: 100%
+        max-width: 243px
+
+      textarea
+        height: 158px
+
+      .media__add
+        width: 100%
+        height: auto
+        max-width: 170px
+        max-height: 160px
+        margin: 10px 0 0
+        @media ( min-width: 768px )
+          margin: 0
+        h2
+          font-weight: 600
+          font-size: 16px
+        .gallery
+          grid-auto-flow: row
+          overflow-y: auto
+          padding: 0
+        .btn
+          margin-bottom: 0
+
+      &>.btn
+        height: 44px
+        margin: 30px auto 0
+        @media ( min-width: 580px )
+          margin: 73px 0 0 auto
+        @media ( min-width: 768px )
+          margin: 70px 0 0 auto

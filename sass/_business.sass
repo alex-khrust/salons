@@ -1,0 +1,466 @@
+.page__business
+  overflow: hidden
+  margin-bottom: 0
+
+  .hero
+    width: 100%
+    height: auto
+    // position: relative
+    &::before
+      content: ''
+      position: absolute
+      width: 100vw
+      height: 611px
+      left: 0
+      top: 0
+      z-index: -1
+      background: url(../images/src/bg-bsns.jpg) no-repeat center / cover, 100vw
+
+    // &::before
+    //   content: ''
+    //   position: absolute
+    //   width: 190.39px
+    //   height: 198.39px
+    //   left: -103px
+    //   top: 15px
+    //   z-index: -1
+    //   background: url(../images/src/bg-mini-figure.svg) no-repeat center
+    // &::after
+    //   content: ''
+    //   position: absolute
+    //   width: 582px
+    //   height: 474px
+    //   left: 250px
+    //   top: 30px
+    //   z-index: -1
+    //   background: url(../images/src/bg-figure.svg) no-repeat
+    //   @media ( min-width: 410px )
+    //     left: 450px
+    //   @media ( min-width: 768px )
+    //     left: 500px
+    //   @media ( min-width: 992px )
+    //     left: 761px
+
+
+    .hero__chapter
+      width: 100%
+      height: auto
+      max-width: 976px
+      min-height: 293px
+      margin: 0 auto 80px
+      position: relative
+      display: flex
+      flex-flow: column
+      align-items: center
+      text-align: center
+      @media ( min-width: 768px )
+        justify-content: center
+        align-items: flex-start
+        margin: 80px auto 175px
+        text-align: left
+
+    h1
+      width: 100%
+      max-width: 433px
+      font: 25px bold $lato
+      line-height: 33px
+      color: #4D4D4D
+      margin-bottom: 30px
+      order: 1
+
+    .subtitle
+      width: 100%
+      max-width: 433px
+      font-size: 16px
+      font-weight: 300
+      line-height: 21px
+      margin-bottom: 30px
+      order: 3
+      @media ( min-width: 768px )
+        order: 2
+
+    .video
+      width: 100%
+      max-width: 416px
+      max-height: 293px
+      margin-bottom: 30px
+      box-shadow: -15px 19px 40px rgba(0, 0, 0, 0.25)
+      order: 2
+      &::after
+        width: 52px
+        height: 52px
+      @media ( min-width: 768px )
+        max-width: 310px
+        margin-bottom: 0
+        position: absolute
+        top: 50%
+        right: 0
+        transform: translateY(-50%)
+        order: 4
+      @media ( min-width: 880px )
+        max-width: 416px
+        &::after
+          width: 78px
+          height: 78px
+      @media ( min-width: 1080px )
+        max-width: 552px
+
+    .btn
+      height: 44px
+      order: 4
+      @media ( min-width: 768px )
+        order: 3
+
+    .hero__desc
+      width: 100%
+      height: auto
+      max-width: 550px
+      margin: 0 auto
+      display: flex
+      flex-flow: column
+      text-align: center
+
+      span
+        font-size: 16px
+        font-weight: 300
+        line-height: 21px
+
+      h3
+        font-size: 16px
+        font-weight: 550
+        line-height: 1.58
+        margin: 20px 0
+
+      p
+        font-size: 16px
+        line-height: 1.34
+
+  section
+    margin-bottom: 80px
+
+  h2
+    font-size: 20px
+    font-weight: bold
+    line-height: 1.34
+    text-align: center
+    margin-bottom: 30px
+  
+  .top
+    width: 100%
+    max-width: 1170px
+    display: flex
+    align-items: baseline
+    justify-content: center
+    flex-flow: wrap
+    margin-bottom: 20px
+    @media ( min-width: 1280px )
+      justify-content: flex-start
+    h2
+      margin-right: 10px
+      margin-bottom: 10px
+    a
+      font-weight: bold
+      font-size: 18px
+      color: $red
+      margin-bottom: 10px
+
+  .section-advantages,
+  .automation,
+  .advantages-red
+    width: 100%
+    height: auto
+    position: relative
+    margin-bottom: 70px
+    &__list
+      display: flex
+      flex-flow: row wrap
+      align-items: center
+      justify-content: space-evenly
+
+      li
+        width: 100%
+        height: auto
+        max-width: 295px
+        margin: 20px 10px
+        display: flex
+        flex-flow: column
+        align-items: center
+        @media ( min-width: 992px )
+          margin: 10px
+        img
+          width: 126px
+          height: 126px
+          margin-bottom: 30px
+          object-fit: cover
+          display: inline-block
+          background: #89969F
+          border-radius: 50%
+        p
+          font-size: 16px
+          line-height: 1.34
+          text-align: center
+          margin-bottom: 0
+
+  .automation
+    width: 100%
+    max-width: 650px
+    margin: 0 auto 80px
+    @media ( min-width: 1200px )
+      max-width: 100%
+    &__list
+      @media ( max-width: 400px )
+        justify-content: space-between
+      li
+        max-width: 155px
+        @media ( max-width: 400px )
+          max-width: 130px
+          margin: 20px 0
+        img
+          border-radius: 10px
+
+  .advantages-red
+    width: 100%
+    padding: 50px 0
+    color: #fff
+    margin-bottom: 80px
+    &::before
+      content: ''
+      position: absolute
+      top: 50%
+      left: 50%
+      width: 100vw
+      height: 100%
+      transform: translate(-50%, -50%)
+      display: inline-block
+      background: linear-gradient(252.07deg, #EC405D 48.9%, #C1223D 95.6%)
+      border-radius: 10px
+      z-index: -1
+    &__list
+      li
+        img
+          background: #fff
+
+  .benefit
+    display: flex
+    flex-flow: column
+    align-items: center
+    h2
+      width: 100%
+      max-width: 600px
+      height: auto
+    img
+      width: 100%
+      height: auto
+      max-width: 572px
+      max-height: 356px
+      // min-height: 356px
+      display: flex
+      object-fit: cover
+      background: #888888
+      border-radius: 10px
+  
+  .tariffs
+    max-width: 730px
+    @media ( min-width: 1200px )
+      max-width: 100%
+    &__list
+      width: 100%
+      display: flex
+      justify-content: space-evenly
+      flex-flow: row wrap
+      &>li
+        padding: 0 0 23px
+        @media ( min-width: 768px )
+          max-width: 270px
+          padding: 0 0 23px
+        .flex-row
+          @media ( min-width: 768px )
+            flex-flow: column
+        .video
+          @media ( min-width: 768px )
+            max-width: 100%
+            height: 165px
+            
+        .advantages
+          width: 100%
+          margin: 15px 0 10px
+          position: relative
+          display: flex
+          flex-flow: column
+          @media ( min-width: 768px )
+            margin: 15px 0 10px
+            padding: 0 15px
+          &__list
+            margin-top: 15px
+            margin-left: 0
+            order: 2
+            @media ( min-width: 768px )
+              margin-top: 15px
+              margin-left: 0
+        .cost
+          position: relative
+          top: unset
+          right: unset
+          display: flex
+          align-items: center
+          order: 1
+          @media ( min-width: 768px )
+            top: unset
+            right: unset
+          &-now
+            padding: 0 5px 
+            color: #fff
+            font-weight: bold
+            font-size: 24px
+            line-height: 134.3%
+            border-radius: 7px
+            order: 1
+          &-old
+            margin-left: 15px
+            margin-right: 0
+            font-weight: bold
+            font-size: 20px
+            line-height: 1.34
+            position: relative
+            order: 2
+
+        .tariff-desc
+          text-align: left
+          @media ( min-width: 768px )
+            padding: 0 15px
+        .btn
+          margin-top: 20px
+
+  .helpful
+    width: 100%
+    max-width: 650px
+    margin: 0 auto 80px
+    @media ( min-width: 1200px )
+      max-width: 100%
+    &__list
+      display: flex
+      flex-flow: row wrap
+      align-items: center
+      justify-content: space-evenly
+      li
+        width: 270px
+        height: auto
+        min-height: 319px
+        margin: 10px
+        display: flex
+        flex-flow: column
+        background: #FFFFFF
+        box-shadow: 0px 4px 22px rgba(0, 0, 0, 0.07)
+        border-radius: 10px
+    &__media
+      width: 100%
+      height: 187px
+      border-radius: 10px
+      box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.08)
+      overflow: hidden
+      *
+        width: 100%
+        height: 100%
+        object-fit: cover
+
+    &__desc
+      padding: 30px 15px
+      line-height: 1.34
+      h3
+        font-size: 14px
+      p
+
+  .important
+    width: 100%
+    max-width: 1240px
+    height: auto
+    margin: 0 auto 80px
+    @media ( min-width: 1280px )
+      .top
+        margin-left: 35px
+    &__list
+      width: 100%
+      height: auto
+      display: flex
+      flex-flow: row wrap
+      justify-content: space-evenly
+      font-weight: bold
+      font-size: 14px
+      @media ( min-width: 1280px )
+        justify-content: space-between
+      li
+        margin: 10px 25px
+        display: flex
+        a
+          width: 100%
+          height: auto
+          padding: 10px
+
+  .newbie
+    width: auto
+    height: auto
+    max-width: 832px
+    padding: 15px 15px 25px
+    margin: 0 auto 40px
+    position: relative
+    display: flex
+    flex-flow: column
+    align-items: center
+    background: #FFFFFF
+    border-radius: 10px
+    @media ( min-width: 838px )
+      // max-height: 200px
+      padding: 50px
+      flex-flow: row wrap
+      // align-items: center
+      justify-content: space-between
+      h2,
+      p
+        width: 100%
+        max-width: 455px
+        text-align: left !important
+      p
+        margin-bottom: 0 !important
+      .btn
+        position: absolute
+        right: 50px
+        bottom: 78px
+        // margin-bottom: 28px
+    p
+      width: 100%
+      max-width: 455px
+      margin-bottom: 40px
+      font-size: 16px
+      line-height: 1.34
+      text-align: center
+
+
+    .btn
+      height: 44px
+
+
+.important
+  width: 100%
+  max-width: 1240px
+  height: auto
+  margin: 0 auto 80px
+  @media ( min-width: 1280px )
+    .top
+      margin-left: 35px
+  &__list
+    width: 100%
+    height: auto
+    display: flex
+    flex-flow: row wrap
+    justify-content: space-evenly
+    font-weight: bold
+    font-size: 14px
+    @media ( min-width: 1280px )
+      justify-content: space-between
+    li
+      margin: 10px 25px
+      display: flex
+      a
+        width: 100%
+        height: auto
+        padding: 10px

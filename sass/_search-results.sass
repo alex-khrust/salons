@@ -1,0 +1,217 @@
+.page__search-results
+  margin-top: 20px
+
+.search-results
+  width: 100%
+  max-width: 1170px
+  margin: 0 auto
+  display: flex
+  flex-flow: column
+  align-items: center
+  @media ( min-width: 1200px )
+    align-items: flex-start
+
+  &>h1
+    font-size: 16px
+    color: #fff
+    line-height: 1.35
+    margin: 0 0 10px
+    @media ( min-width: 1200px )
+      margin: 20px 0 10px
+
+.search-results__list,
+.salons__list
+  width: 100%
+  max-width: 100%
+  height: auto
+  display: grid
+  grid-template-columns: repeat(auto-fill, minmax(auto, 370px))
+  grid-auto-rows: minmax(auto-fill, 560px)
+  grid-auto-flow: row
+  grid-gap: 30px
+  align-items: start
+  justify-content: center
+  @media ( min-width: 650px )
+    max-width: 100%
+  &>li
+    width: 100%
+    max-width: 370px
+    height: auto
+    max-width: 560px
+    background: #FFFFFF
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.15)
+    border-radius: 10px
+    margin: 0
+    .filial__photo, 
+    .filial__photo img
+      width: 100%
+      height: 100%
+      max-height: 220px
+      object-fit: cover
+      border-radius: 10px
+      position: relative
+    .filial__photo a
+      width: 100%
+      height: 100%
+      display: flex
+      &::before
+        content: ''
+        position: absolute
+        top: 0
+        left: 0
+        width: 100%
+        height: 100%
+        display: flex
+        align-items: center
+        justify-content: center
+        font-size: 16px
+        font-weight: bold
+        color: $red
+        background: rgba(0, 0, 0, 0.5) 100%
+        border-radius: 10px
+        z-index: 1
+        transition: .3s
+        opacity: 0
+      &::after
+        content: 'Посмотреть'
+        position: absolute
+        top: 50%
+        left: 50%
+        transform: translate(-50%, -50%)
+        width: 170px
+        height: 32px
+        padding: 8px 10px
+        display: flex
+        align-items: center
+        justify-content: center
+        font-size: 14px
+        font-weight: bold
+        color: $red
+        background: #000
+        border: 2px solid $red
+        border-radius: 22px
+        z-index: 2
+        transition: .3s
+        opacity: 0
+      &:hover
+        &::before,
+        &::after
+          opacity: 1
+
+    .stars
+      padding: 7px 14px
+      position: absolute
+      bottom: 0
+      right: 0
+      background: #FFFFFF
+      border-radius: 12px 0px 10px
+      z-index: 1
+    .inner
+      width: 100%
+      height: auto
+      padding-right: 35px
+      margin-bottom: 25px
+      position: relative
+      a
+        width: auto
+        &:hover
+          h3
+            color: $red
+      h3
+        font-weight: bold
+        font-size: 18px
+        margin-bottom: 5px
+        transition: .3s
+
+    .filial__desc
+      padding: 30px 15px 15px
+      justify-content: flex-start
+      &>.btn
+        height: 44px
+        margin: 30px auto 5px
+        @media ( min-width: 810px )
+          margin: 50px auto 5px
+      
+
+.form__search-results
+  width: 100%
+  margin-bottom: 25px
+  align-items: center
+  &::before
+    content: ''
+    position: absolute
+    width: 100%
+    height: 305px
+    // bottom: 0
+    top: 75px
+    left: 0
+    background: url(../images/src/search-results-bg.jpg) no-repeat right / cover, 100vw
+    z-index: -1 
+  
+  .btn
+    max-width: 346px
+    box-shadow: 0px 10px 19px rgba(236, 64, 93, 0.64)
+    &:hover
+      box-shadow: 0px 6px 8px 0px rgba(236, 64, 93, 0.64)
+    // &:active
+		//   box-shadow: 1px 1px 1px 0px rgba(236, 64, 93, 0.64)
+  @media ( min-width: 1200px )
+    width: 100%
+    max-width: 100%
+    margin-bottom: 45px
+    display: flex
+    flex-flow: row
+    align-items: center
+    justify-content: space-between
+    &::before
+      height: 187px
+
+
+    input, 
+    select
+      margin-bottom: 0
+
+    .btn
+      max-width: 170px
+
+    .input__wrap
+      max-width: 243px
+
+    .select
+      margin-left: 30px
+
+  .chbx-search
+    width: auto
+    margin: 5px 0 15px
+    display: flex
+    align-items: center
+    @media ( min-width: 1200px )
+      margin: 0 15px
+    .chbx
+      width: 105px
+      margin: 0 15px
+      display: flex
+      align-items: flex-start
+      label
+        width: 15px
+        height: 15px
+        position: relative
+        &:hover 
+          span
+            color: $red
+        span
+          position: relative
+          left: 25px
+          width: auto
+          white-space: nowrap
+          color: #fff
+          font-weight: 500
+          font-size: 14px
+          transition: .3s
+        &::before
+          border-color: #fff
+      input
+        &:checked + label::before
+          border-color: $red
+        &:checked + label span
+          color: $red

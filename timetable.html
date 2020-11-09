@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+
+	<meta charset="utf-8">
+	<title>ВсеСалоны</title>
+	<meta name="description" content="ВсеСалоны">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+	<link rel="icon" href="images/favicon.png">
+	<meta property="og:image" content="images/dest/preview.jpg">
+	<meta property="og:type" content="website">
+  <meta property="og:url" content="">
+  <meta property="og:site_name" content="">
+  <meta property="og:title" content="">
+	<link rel="stylesheet" href="css/app.min.css">
+
+</head>
+
+<body>
+
+	<header class="header">
+		<div class="container">
+			<a href="#" class="logo">
+				<img src="images/src/logo.svg" alt="логотип">
+				<span>ВсеСалоны</span>
+      </a>
+      
+      <button class="place">Киев</button>
+
+			<nav class="header__nav">
+				<div class="nav__header">
+					<a href="#" class="logo">
+						<img src="images/src/logo.svg" alt="логотип">
+						<span>ВсеСалоны</span>
+					</a>
+					<button class="navBurger" role="navigation" id="navToggle">
+						<span class="navBurger-line active"></span>
+					</button>
+				</div>
+				
+				<ul class="menu">
+					<li class="menu__item menu__item--salons">
+						<a href="#">Салоны</a>
+					</li>
+					<li class="menu__item menu__item--articles">
+						<a href="#">Статьи</a>
+					</li>
+					<li class="menu__item menu__item--reviews">
+						<a href="#">Отзывы</a>
+					</li>
+					<li class="menu__item menu__item--questions">
+						<a href="#">Вопросы</a>
+					</li>
+				</ul>
+			</nav>
+      
+      <div class="languages">
+        <a class="active" href="#">RU</a>
+        <a href="#">UA</a>
+      </div>
+
+			<div class="enter">
+				<a class="login" href="login.html">Войти</a>
+				<a class="signup active" href="signup.html">Регистрация</a>
+      </div>
+      
+			<div class="header-btns">
+				<button class="enter-btn"></button>
+				<button class="navBurger" role="navigation" id="navToggle">
+					<span class="navBurger-line"></span>
+				</button>
+			</div>
+
+			<div class="overlay"></div>
+		</div>
+	</header>
+
+  <div class="breadcrumbs">
+    <ul class="breadcrumbs__list">
+      <li><a href="#">Главная</a></li>
+      <li><a href="staff.html">Сотрудники</a></li>
+      <li><a href="add-worker.html">Добавить сотрудника</a></li>
+      <li><a href="timetable.html">Расписание</a></li>
+    </ul>
+  </div>
+
+	<main class="page__timetable">
+		<div class="container">
+
+			<section class="timetable">
+        <form id="form__timetable" action="" method="POST">
+
+          <div class="flex-column">
+            <div class="timetable__input-list">
+              <h1>Расписание</h1>
+  
+              <div class="input__wrap select">
+                <select name="" id="">
+                  <option value disabled selected>Ваш выбор</option>
+                  <option value="">Парикмахер</option>
+                  <option value="">Визажист</option>
+                  <option value="">Стилист</option>
+                  <option value="">Барбер</option>
+                </select>
+              </div>
+
+            </div>
+
+            <div class="working__day">
+              <h2>Выберите рабочие дни</h2>
+              <div class="wrap-inner">
+                <div class="chbx">
+                  <input id="Mo" type="checkbox">
+                  <label for="Mo">ПН</label>
+                </div>
+                <div class="chbx">
+                  <input id="Tu" type="checkbox">
+                  <label for="Tu">ВТ</label>
+                </div>
+                <div class="chbx">
+                  <input id="We" type="checkbox">
+                  <label for="We">СР</label>
+                </div>
+                <div class="chbx">
+                  <input id="Th" type="checkbox">
+                  <label for="Th">ЧТ</label>
+                </div>
+                <div class="chbx">
+                  <input id="Fr" type="checkbox">
+                  <label for="Fr">ПТ</label>
+                </div>
+                <div class="chbx">
+                  <input id="Sa" type="checkbox">
+                  <label for="Sa">СБ</label>
+                </div>
+                <div class="chbx">
+                  <input id="Su" type="checkbox">
+                  <label for="Su">ВС</label>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="flex-column">
+            <div class="working__add">
+
+              <div class="data-start">
+                <div class="wrap-inner">
+                  <div class="input__wrap">
+                    <label for="">Дата начала</label>
+                    <input type="date">
+                  </div>
+                </div>
+              </div>
+              
+              <div class="working__time">
+                <div class="time">
+                  <h2>Рабочие часы</h2>
+                  <div class="wrap-inner">
+                    <div class="input__wrap">
+                      <label for="">С</label>
+                      <input type="time">
+                    </div>
+                    <div class="input__wrap">
+                      <label for="">До</label>
+                      <input type="time">
+                    </div>
+                  </div>
+                </div>
+                <div class="break disabled">
+                  <h2>Перерыв</h2>
+                  <div class="chbx">
+                    <input id="break-chbx-1" type="checkbox">
+                    <label for="break-chbx-1"></label>
+                  </div>
+                  <div class="wrap-inner">
+                    <div class="input__wrap">
+                      <label for="break__start">С</label>
+                      <input id="break__start" type="time" disabled>
+                    </div>
+                    <div class="input__wrap">
+                      <label for="break__end">До</label>
+                      <input id="break__end" type="time" disabled>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+            </div>
+          </div>
+
+        </form>
+        <button type="submit" form="form__timetable" class="submit-registration btn">Далее</button>
+      </section>
+
+		</div>
+	</main>
+
+	<div id="login__popup" class="popup">
+		<div class="overlay"></div>
+		<div class="enter__form">
+			<h2 class="top-title">Авторизация</h2>
+			<button class="close-btn">
+				<span></span>
+			</button>
+			<form class="popup-form__login" action="" method="POST">
+
+				<div class="input__wrap">
+					<label for="popup-login__phone">Номер телефона</label>
+					<input id="popup-login__phone" type="tel" name="phone" placeholder="Номер телефона" required>
+				</div>
+
+				<div class="input__wrap">
+					<label for="popup-login__password">Пароль</label>
+					<input id="popup-login__password" type="password" name="password" placeholder="Пароль" required>
+					<span class="fa-eye field-icon toggle-password"></span>
+				</div>
+
+				<a class="active" href="#">Забыли пароль?</a>
+
+				<button class="btn">Войти</button>
+			</form>
+
+			<span class="no-account">Нет аккаунта? <a class="active" href="#">Зарегистрироваться</a></span>
+		</div>
+  </div>
+  
+
+	<script src="js/libs.min.js"></script>
+	<script src="js/app.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>ВсеСалоны</title>
+    <meta name="description" content="ВсеСалоны">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+    <link rel="icon" href="images/favicon.png">
+    <meta property="og:image" content="images/dest/preview.jpg">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="">
+    <meta property="og:site_name" content="">
+    <meta property="og:title" content="">
+    <link href="/css/custom.css" rel="stylesheet" />
+    <link href="/css/app.min.css" rel="stylesheet" />
+    <link href="/css/toastr.min.css" rel="stylesheet" />
+    <link href="/css/sweetalert2.min.css" rel="stylesheet" />
+
+
+    <link ref="icon" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css"
+        type="text/css" />
+</head>
+
+<body>
+    <div id="overlay" style="display:none;">
+        <div class="spinner"></div>
+    </div>
+
+    <header class="header authorized">
+        <div class="container">
+            <a href="/" class="logo">
+                <img src="/images/src/logo.svg" alt="логотип">
+                <span>ВсеСалоны</span>
+            </a>
+
+
+
+            <nav class="header__nav">
+                <div class="nav__header">
+                    <a href="#" class="logo">
+                    </a>
+                    <button class="close-btn" role="close menu">
+                        <span></span>
+                    </button>
+                </div>
+
+                <ul class="menu">
+
+                    <li class="menu__item menu__item--salons">
+                        <a href="/SalonOwner/Index/">Мои салоны</a>
+                    </li>
+                    <li class="menu__item menu__item--video">
+                        <a href="/Video/">Видео</a>
+                    </li>
+                    <li class="menu__item menu__item--articles">
+                        <a href="/Article/">Статьи</a>
+                    </li>
+                    <li class="menu__item menu__item--group">
+                        <a href="https://www.facebook.com/groups/354459475870678" target="_blank">Группа</a>
+                    </li>
+
+
+
+
+
+
+                </ul>
+            </nav>
+
+            <!-- <div class="languages">
+                <a class="active" href="#">RU</a>
+                <a href="#">UA</a>
+            </div>
+               -->
+            <div class="enter">
+                <a class="login" href="login.html">Войти</a>
+                <a class="signup active" href="signup.html">Регистрация</a>
+            </div>
+
+            <div class="user__nav">
+
+                <a href="javascript:document.getElementById('logoutForm').submit()" class="exit tooltip">
+
+                    <span class="tooltiptext">Выход</span>
+                </a>
+
+
+                <a href="#" class="favorites tooltip">
+                    <span class="tooltiptext">Избранные</span>
+                </a>
+                <a href="#" class="user">
+                    <img src="/images/src/demo/Konstantin-Konstantinov.jpg" alt="">
+                    <span class="name"></span>
+
+                </a>
+            </div>
+            <div class="user__nav--mobile">
+                <button class="close-btn" role="close menu">
+                    <span class=""></span>
+                </button>
+
+                <a href="javascript:document.getElementById('logoutForm').submit()" class="exit">
+                    <span class="text">Выход</span>
+                </a>
+                <!-- <a href="#" class="message">
+                <span class="text">Сообщения</span>
+            </a>
+            <a href="#" class="notification">
+                <span class="text">Уведомления</span>
+                <span class="notification-sum">3</span>
+            </a>-->
+
+                <a href="#" class="favorites">
+                    <span class="text">Избранное</span>
+                </a>
+                <a href="#" class="user">
+                    <img src="images/src/demo/Konstantin-Konstantinov.jpg" alt="">
+                    <span class="name">Константин Константинович</span>
+                    <span class="notification-sum">3</span>
+                </a>
+            </div>
+            <div class="header-btns">
+                <button class="enter-btn"></button>
+                <button class="navBurger" role="navigation" id="navToggle">
+                    <span class="navBurger-line"></span>
+                </button>
+            </div>
+
+            <div class="overlay"></div>
+        </div>
+    </header>
+
+
+    <form action="/Account/LogOff" class="navbar-right" id="logoutForm" method="post"><input
+            name="__RequestVerificationToken" type="hidden"
+            value="7-cgvPv4gsG2inwFsfAGoWEZ_mGnBZPsM1poZE7mmq1Mek0CQlE9NqykzL_pbup7fdjC7Sp4hmNtQ70TKwQ2FqiQzsfY1zRtHBhYp1mfupc5UXDHzl5eyASZ5DHbyAPK0ufcnwvqj2KQMJ7u8J-phA2" />
+    </form>
+    <script src="/js/libs.min.js"></script>
+
+    <script src="/js/toastr.js"></script>
+
+    <script src="/js/jquery-ui.min.js"></script>
+    <script src="/js/app.js"></script>
+    <script src="/js/custom.js"></script>
+    <script src="/js/home.js"></script>
+    <script src="/js/jquery.mask.min.js"></script>
+    <script src="/js/sweetalert.js"></script>
+
+
+
+
+
+
+    <div class="breadcrumbs">
+        <ul class="breadcrumbs__list">
+            <li><a href="#">Главная</a></li>
+            <li><a href="#">Добавление салона</a></li>
+        </ul>
+    </div>
+
+    <script type="text/javascript">
+        function TimeCorect() {
+            var wFrom = $("#WorkingTimeFrom").val();
+            var wTo = $("#WorkingTimeTo").val();
+
+
+            var wBreakFrom = $("#break__start").val();
+            var wBreakTo = $("#break__end").val();
+
+            if (wFrom >= wTo) {
+                var elFrom = $("#WorkingTimeFrom")[0];
+                var elTo = $("#WorkingTimeTo")[0];
+                return [false, 'Имя'];
+            }
+            if (((wBreakFrom === undefined || wBreakFrom === null) && wBreakTo !== null) ||
+                (wBreakFrom !== null && (wBreakTo === undefined || wBreakTo) === null)) {
+
+                return [false, ' Повтор номера телефона'];
+            }
+
+            if (wBreakFrom !== undefined && wBreakFrom !== null && wBreakFrom.length > 0 && wBreakTo !== undefined && wBreakTo !== null && wBreakTo.length > 0) {
+                if (wBreakFrom >= wBreakTo) {
+                    return [false, 3];
+                }
+
+                if (wBreakFrom < wFrom || wBreakTo > wTo) {
+                    return [false, 'Город'];
+                }
+            }
+
+            return [true, 0];
+            //return [false, 'E-mail'];
+        }
+
+    </script>;
+
+    <main class="page__registration-salon">
+        <div class="container">
+
+            <section class="registration-salon">
+                <form id="form__registration-salon" action="/SalonOwner/SaveSalon" method="POST">
+                    <input data-val="true" data-val-number="The field OwnerId must be a number."
+                        data-val-required="The OwnerId field is required." id="OwnerId" name="OwnerId" type="hidden"
+                        value="252" />
+                    <input data-val="true" data-val-number="The field SalonId must be a number."
+                        data-val-required="The SalonId field is required." id="SalonId" name="SalonId" type="hidden"
+                        value="0" />
+                    <input id="CurrentAddress" name="CurrentAddress" type="hidden" value="" />
+                    <input data-val="true" data-val-required="The IsAddressUpdated field is required."
+                        id="IsAddressUpdated" name="IsAddressUpdated" type="hidden" value="False" />
+                    <input id="DaysCommaSeparated" name="DaysCommaSeparated" type="hidden" value="" />
+                    <input id="CityName" name="CityName" type="hidden" value="" />
+                    <input data-val="true" data-val-number="The field Area must be a number." id="AreaId" name="Area"
+                        type="hidden" value="" />
+                    <input id="MainPhotoFile" name="MainPhotoFile" type="hidden" value="" />
+                    <div class="salon-desс__add">
+                        <h1 style="font-size: large !important;">Добавление салона</h1>
+
+                        <div class="input__wrap">
+                            <label for="salon__name">Название салона</label>
+                            <input id="salon__name" name="Name" oninput="setCustomValidity(&#39;&#39;)"
+                                oninvalid="this.setCustomValidity(&#39;Пожалуйста, заполните поле&#39;)"
+                                pattern="^[А-Яа-яЁёA-Za-z0-9\s]{3,100}" placeholder="Название салона" required=""
+                                type="text" value="" />
+                        </div>
+                        <label for="salon__name">Город</label>
+                        <div class="input__wrap select">
+                            <select data-val="true" data-val-number="The field CityId must be a number."
+                                data-val-required="The CityId field is required." id="city" name="CityId"
+                                oninput="setCustomValidity(&#39;&#39;)"
+                                oninvalid="this.setCustomValidity(&#39;Пожалуйста, заполните поле&#39;)" required="">
+                                <option value="">Город</option>
+                                <option value="6">Bansk&#225; Bystrica</option>
+                                <option value="24">Bardejov</option>
+                                <option value="1">Bratislava</option>
+                                <option value="20">Humenn&#233;</option>
+                                <option value="19">Kom&#225;rno</option>
+                                <option value="2">Košice</option>
+                                <option value="23">Levice</option>
+                                <option value="21">Martin</option>
+                                <option value="11">Martin</option>
+                                <option value="16">Michalovce</option>
+                                <option value="7">Nitra</option>
+                                <option value="17">Nov&#233; Z&#225;mky</option>
+                                <option value="12">Poprad</option>
+                                <option value="15">Považsk&#225; Bystrica</option>
+                                <option value="3">Prešov</option>
+                                <option value="13">Prievidza</option>
+                                <option value="18">Spišsk&#225; Nov&#225; Ves</option>
+                                <option value="9">Trenč&#237;n</option>
+                                <option value="8">Trnava</option>
+                                <option value="10">Žilina</option>
+                                <option value="5">Žilina</option>
+                                <option value="14">Zvolen</option>
+                            </select>
+                        </div>
+                        <div id="divRegions" style="display: none;">
+                            <label for="salon__name">Район</label>
+                            <div class="input__wrap select">
+                                <select id="cityareas">
+                                </select>
+                            </div>
+                        </div>
+                        <div class="input__wrap">
+                            <label for="salon__adress">Адрес салона</label>
+                            <input id="salon__adress" type="text" pattern="^[А-Яа-яЁёA-Za-z0-9.\D,\s]{6,100}" ,
+                                name="Address" placeholder="Адрес салона" required
+                                oninvalid="this.setCustomValidity('Пожалуйста, заполните поле')"
+                                oninput="setCustomValidity('')">
+                        </div>
+                        <img />
+                        <div class="input__wrap">
+                            <input id="salon__photo" type="file" required
+                                oninvalid="this.setCustomValidity('Пожалуйста, заполните поле')"
+                                oninput="setCustomValidity('')" onchange="prepareAloneFile(this);" name="mnPhoto"
+                                accept="image/*" data-multiple-caption="{count} файл выбран">
+                            <label for="salon__photo"><span>Главное фото салона</span></label>
+                        </div>
+
+                        <div class="input__wrap">
+                            <label for="salon__description">Описание</label>
+                            <textarea cols="30" id="description" name="Description" placeholder="Описание" rows="10">
+</textarea>
+                        </div>
+                    </div>
+
+                    <div class="media__add">
+                        <div class="add__photo">
+                            <h2>Фото салона</h2>
+                            <ul class="gallery" id="photos">
+                                <li id='addButton'>
+                                    <label class="media__add-btn btn">
+                                        <input id="add__photo" onchange="prepareFileToUpload(this)" type="file"
+                                            accept="image/*" name="add__photo-btn">
+                                    </label>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="add__video">
+                            <div class="progress">
+                                <div id="progressBardiv" class="bar" role="progressbar" aria-valuemin="0"
+                                    aria-valuemax="100" style="">
+                                </div>
+                            </div>
+
+                            <h2>Видео о салоне</h2>
+
+                            <ul class="gallery" id="videos">
+
+                                <li id='addVideoBtn'>
+                                    <label class="media__add-btn btn">
+                                        <input id="add__video-btn" type="file" name="add__video-btn"
+                                            onchange="uploadVideo()">
+                                    </label>
+                                </li>
+                            </ul>
+
+
+                        </div>
+                    </div>
+
+                    <div class="working__add">
+                        <div class="working__day">
+                            <h2>Выберите рабочие дни</h2>
+                            <div class="wrap-inner">
+                                <div class="chbx">
+                                    <input id="Mo" data-day="1" type="checkbox">
+                                    <label for="Mo">ПН</label>
+                                </div>
+                                <div class="chbx">
+                                    <input id="Tu" data-day="2" type="checkbox">
+                                    <label for="Tu">ВТ</label>
+                                </div>
+                                <div class="chbx">
+                                    <input id="We" data-day="3" type="checkbox">
+                                    <label for="We">СР</label>
+                                </div>
+                                <div class="chbx">
+                                    <input id="Th" data-day="4" type="checkbox">
+                                    <label for="Th">ЧТ</label>
+                                </div>
+                                <div class="chbx">
+                                    <input id="Fr" data-day="5" type="checkbox">
+                                    <label for="Fr">ПТ</label>
+                                </div>
+                                <div class="chbx">
+                                    <input id="Sa" data-day="6" type="checkbox">
+                                    <label for="Sa">СБ</label>
+                                </div>
+                                <div class="chbx">
+                                    <input id="Su" data-day="7" type="checkbox">
+                                    <label for="Su">ВС</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="working__time">
+                            <div class="time">
+                                <h2>График в рабочие дни </h2>
+                                <div class="wrap-inner">
+                                    <div class="input__wrap">
+                                        <label for="">С</label>
+                                        <input type="time" step="1800" name="WorkingTimeFrom" id="WorkingTimeFrom"
+                                            required="" value=""
+                                            oninvalid="this.setCustomValidity('Пожалуйста, заполните поле')"
+                                            oninput="setCustomValidity('')">
+                                    </div>
+                                    <div class="input__wrap">
+                                        <label for="">До</label>
+                                        <input type="time" step="1800" name="WorkingTimeTo" id="WorkingTimeTo"
+                                            required="" value=""
+                                            oninvalid="this.setCustomValidity('Пожалуйста, заполните поле')"
+                                            oninput="setCustomValidity('')">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="break ">
+                                <h2>Перерыв</h2>
+                                <div class="chbx">
+                                    <input id="break-chbx-wrk" type="checkbox" checked>
+                                    <label for="break-chbx-wrk"></label>
+                                </div>
+                                <div class="wrap-inner">
+                                    <div class="input__wrap">
+                                        <label for="break__start">С</label>
+                                        <input id="break__start" name="WorkingBreakFrom" value="" type="time"
+                                            step="1800">
+                                    </div>
+                                    <div class="input__wrap">
+                                        <label for="break__end">До</label>
+                                        <input id="break__end" name="WorkingBreakTo" value="" type="time" step="1800" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="working__time">
+                            <div class="time">
+                                <h2>График в выходные дни</h2>
+                                <div class="wrap-inner">
+                                    <div class="input__wrap">
+                                        <label for="working__time-start">С</label>
+                                        <input id="working__time-start" name="HolidayTimeFrom" value="" type="time"
+                                            step="1800">
+                                    </div>
+                                    <div class="input__wrap">
+                                        <label for="working__time-end-1">До</label>
+                                        <input id="working__time-end-1" name="HolidayTimeTo" value="" type="time"
+                                            step="1800">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="break">
+                                <h2>Перерыв</h2>
+                                <div class="chbx">
+                                    <input id="break-chbx-hol" type="checkbox" checked>
+                                    <label for="break-chbx-hol"></label>
+                                </div>
+                                <div class="wrap-inner">
+                                    <div class="input__wrap">
+                                        <label for="hbreak__start">С</label>
+                                        <input id="hbreak__start" name="HolidayBreakFrom" value="" type="time"
+                                            step="1800">
+                                    </div>
+                                    <div class="input__wrap">
+                                        <label for="hbreak__end">До</label>
+                                        <input id="hbreak__end" name="HolidayBreakTo" value="" type="time" step="1800">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </form>
+                <button type="submit" form="form__registration-salon" class="submit-registration btn"
+                    id="btnAddSalon">Добавить</button>
+            </section>
+
+        </div>
+    </main>
+
+    ;
+
+    <div id="login__popup" class="popup hide">
+        <div class="overlay"></div>
+        <div class="enter__form">
+            <h2 class="top-title">Авторизация</h2>
+            <button class="close-btn loginclose-btn">
+                <span></span>
+            </button>
+            <form class="form__login" id="frmPopUpLogin" action="/Account/CustomerLogin" method="POST">
+
+                <input name="__RequestVerificationToken" type="hidden"
+                    value="9XS7nZnXM_H6Wb04LNLmZ5-vsAK-lhJE96bov6eYj6xOVuMxA_mlhW73vccRa9ulFcu6goF9Sxn3erJYwahMb63fG9-aigEJAI_p2JODju57YpKGK02ISUDLFZEecrDrcQE_p3KKoWXLCFL0dg8CVQ2" />
+                <div class="input__wrap">
+                    <div class="input-notification correctly">
+                        <label for="popup-login__phone">Номер телефона</label>
+                        <input id="popup-login__phone" type="tel" name="phone" minlength="17"
+                            placeholder="Номер телефона" required>
+                    </div>
+                </div>
+                <div class="input__wrap">
+                    <label for="popup-login__password">Пароль</label>
+                    <input id="popup-login__password" type="password" name="password" placeholder="Пароль" required>
+                    <span class="fa-eye field-icon toggle-password" toggle="#popup-login__password"></span>
+                </div>
+
+                <!--<a class="active" href="#">Забыли пароль?</a>--->
+
+                <button class="btn">Войти</button>
+            </form>
+
+            <span class="no-account">Нет аккаунта? <a class="active popupReg" href="#">Зарегистрироваться</a></span>
+        </div>
+    </div>
+
+
+
+    <div id="reg__popup" class="popup">
+        <div class="overlay"></div>
+        <div class="enter__form">
+            <h2 class="top-title">Регистрация</h2>
+            <button class="close-btn regclose-btn">
+                <span></span>
+            </button>
+            <form class="popup-form__reg" id="frmPopUpReg" action="/Account/Registration" method="POST">
+                <input name="__RequestVerificationToken" type="hidden"
+                    value="LtvZLTsbs7GFD7bSU7mMCV45DEVBN_VISmWIbzrEt1_grla9ZWc5ka-JkERR9gDbMz0WE2qlXZnGJS6oK95lN5b3NZWK1WINvYPxEuO8E87g6vkLGfwjiZeYxb3F_6TEWwTc1khR7zeuUJHn8GCgQg2" />
+                <div class="input__wrap">
+                    <label for="popup-reg__name">Имя и Фамилия</label>
+                    <input id="popup-reg__name" type="text" name="name" minlength="3" placeholder="Имя и Фамилия"
+                        required>
+                </div>
+                <div class="input__wrap">
+                    <label for="popup-reg__phone">Номер телефона</label>
+                    <input id="popup-reg__phone" type="tel" name="phone" minlength="17" placeholder="Номер телефона"
+                        required>
+                </div>
+
+                <div class="input__wrap">
+                    <label for="popup-reg__password">Пароль</label>
+                    <input id="popup-reg__password" type="password" name="password" placeholder="Пароль" required>
+                    <span class="fa-eye field-icon toggle-password" toggle="#popup-reg__password"></span>
+                </div>
+
+                <!--<a class="active" href="#">Забыли пароль?</a>--->
+
+                <button type="submit" class="btn">Регистрация</button>
+                <br />
+            </form>
+            <br />
+            <span class="no-account">Есть аккаунта? <a class="active popupLogin" href="#">Войти</a></span>
+        </div>
+    </div>
+    <div id="phConfirm__popup" class="popup">
+        <div class="overlay"></div>
+        <div class="enter__form">
+            <h2 class="top-title">Подтверждение номера</h2>
+            <!-- <button class="close-btn phConfirmClose-btn">
+            <span></span>
+        </button>-->
+            <form class="popup-form__login" id="frmConfirmPhone" action="/Account/PhoneConfirm" method="POST">
+                <div class="input__wrap">
+                    <label for="popup-phConfirm__code">Код подтверждения</label>
+                    <input id="popup-phConfirm__code" type="text" name="code" minlength="6" maxlength="6"
+                        placeholder="Код подтверждения" required>
+                </div>
+                <button class="btn" type="submit">Подтвердить</button>
+            </form>
+        </div>
+    </div>
+
+
+
+
+    <script src="/js/toastr.js"></script>
+    <script src="/js/custom.js"></script>
+    <script src="/js/image.js"></script>
+    <script src="/js/salon.js"></script>
+
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+            var c = '0';
+            console.log('js cityid:' + c);
+            if (c !== '0') {
+                loadCityAreas();
+
+            }
+        });
+
+        $('#city').change(function (e) {
+
+            e.preventDefault();
+            $("#CityName").val($(this).find("option:selected").text());
+
+            loadCityAreas();
+
+        });
+
+        function loadCityAreas() {
+            var city = $('#city').val();
+            var cityAreas = $("#cityareas");
+            cityAreas.empty();
+            $.getJSON('/SalonOwner/GetCityArea',
+                { cityId: city },
+                function (regions) {
+
+                    if (regions != null && !jQuery.isEmptyObject(regions)) {
+
+                        cityAreas.append($('<option/>',
+                            {
+                                value: null,
+                                text: ""
+                            }));
+                        $.each(regions,
+                            function (index, region) {
+                                cityAreas.append($('<option/>',
+                                    {
+                                        value: region.Id,
+                                        text: region.Name
+                                    }));
+                            });
+
+
+                        if (regions.length > 0) {
+                            $("#divRegions").css("display", "block");
+                            var a = '';
+                            console.log('aaa' + a);
+                            if (a !== '') {
+                                $("#cityareas").val(a);
+                            }
+
+                        } else {
+                            $("#divRegions").css("display", "none");
+                        }
+                    } else {
+                        $("#divRegions").css("display", "none");
+                    }
+                });
+        }
+    </script>
+
+
+    <script type="text/javascript">
+
+        $(document).click(function (e) {
+            if ($(e.target).is('.overlay')) {
+                $.each($('.popup'), function (key, value) {
+                    if ($(value).hasClass("show")) {
+                        $(value).toggleClass("show");
+                    }
+                });
+
+                //$('.popup').toggle();
+                $('.modalImg').fadeOut(500);
+            }
+        });
+
+
+        $(document).ready(function () {
+
+            $.ajaxSetup({
+                headers: { "CustomHeader": "myValue" }
+            });
+
+            var msg = '';
+            if (msg !== undefined && msg.length > 0) {
+                successMsg(msg);
+            }
+
+            var msgcenter = '';
+            if (msgcenter !== undefined && msgcenter.length > 0) {
+                successMsgC(msgcenter);
+            }
+            if ('True' === 'True' && '3' === '5' && 'False' === 'False') {
+                $("#phConfirm__popup").toggleClass("show");
+            }
+        });
+
+        $('#popup-login__phone').mask("+38(000)-000-0000", { placeholder: "+38(xxx)xxx-xxxx" });
+        $('#popup-reg__phone').mask("+38(000)-000-0000", { placeholder: "+38(xxx)xxx-xxxx" });
+
+
+        $(".loginnk").click(function (e) {
+            e.preventDefault();
+            if ('True' === 'True') {
+                return;
+            }
+            $("#login__popup").toggleClass("show");
+        });
+
+        $(".popupReg").click(function (e) {
+            e.preventDefault();
+            if ('True' === 'True') {
+                return;
+            }
+            $("#login__popup").toggleClass("show");
+            $("#reg__popup").toggleClass("show");
+        });
+
+        $(".popupLogin").click(function (e) {
+            e.preventDefault();
+            if ('True' === 'True') {
+                return;
+            }
+            $("#reg__popup").toggleClass("show");
+            $("#login__popup").toggleClass("show");
+        });
+
+
+
+
+        $(".loginclose-btn").click(function (e) {
+            $("#login__popup").toggleClass("show");
+        });
+        $(".regclose-btn").click(function (e) {
+            $("#reg__popup").toggleClass("show");
+
+        });
+
+        $(".phConfirmClose-btn").click(function (e) {
+            $("#phConfirm__popup").toggleClass("show");
+
+        });
+
+        $(document).ajaxStart(function () {
+            $("#overlay").show();
+        })
+            .ajaxStop(function () {
+                $("#overlay").hide();
+            });
+
+        $(document).ready(function (e) {
+
+            tz();
+        });
+
+        function tz() {
+            var c = getCookie('VseSaloniTZ');
+            if (c === undefined || c.length <= 0) {
+                setCookie('VseSaloniTZ', new Date().getTimezoneOffset() / 60, 365);
+            }
+        }
+
+        function setCookie(cname, cvalue, exdays) {
+            var d = new Date();
+            d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+            var expires = "expires=" + d.toUTCString();
+            document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+        }
+
+        function getCookie(cname) {
+            var name = cname + "=";
+            var decodedCookie = decodeURIComponent(document.cookie);
+            var ca = decodedCookie.split(';');
+            for (var i = 0; i < ca.length; i++) {
+                var c = ca[i];
+                while (c.charAt(0) === - ' ') {
+                    c = c.substring(1);
+                }
+                if (c.indexOf(name) === 0) {
+                    return c.substring(name.length, c.length);
+                }
+            }
+        }
+
+
+
+
+    </script>
+</body>
+
+</html>

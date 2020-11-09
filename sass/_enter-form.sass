@@ -1,0 +1,119 @@
+.enter__form
+  width: 100%
+  max-width: 454px
+  // max-width: 243px
+  padding: 28px 48px 38px
+  margin: 80px auto 0
+  display: flex
+  flex-flow: column
+  background: #FFFFFF
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.15)
+  border-radius: 10px
+  @media ( max-width: 425px )
+    padding: 28px 20px 38px
+  form,
+  .btn
+    max-width: 358px
+
+.form__login,
+.popup-form__login
+  button
+    margin: 20px 0
+
+.form__signup
+
+.no-account
+  text-align: center
+
+.switch
+  width: auto
+  position: relative
+  margin: 5px 0 15px
+  label
+    position: relative
+    display: inline-block !important
+    width: 34px
+    height: 17px
+    margin-left: 53px
+    margin-bottom: 0
+    background-color: #fff
+    border-radius: 17px
+    border: 1px solid #D0D0D0
+    transition: all 0.3s
+    cursor: pointer
+    &::after
+      content: ''
+      position: absolute
+      width: 13px !important
+      height: 13px !important
+      border-radius: 50%
+      background-color: $red
+      top: 1px !important
+      left: 1px !important
+      transition: all 0.3s
+      transform: none !important
+      
+    span
+      position: absolute
+      color: #888888
+      font-weight: 500
+      font-size: 14px
+
+    .switch-l-l
+      right: 44px
+      color: $red
+    .switch-l-r
+      left: 44px
+
+  input:checked + label::after
+    left: 17px !important
+  input:checked + label
+    background-color: #fff
+    
+  input
+    display : none
+
+  input:checked + label .switch-l-l
+    color: $grey
+  input:checked + label .switch-l-r
+    color: $red
+
+
+.radio--btn
+  margin: 5px 0
+  label
+    position: relative
+    display: inline-block !important
+    width: 17px
+    height: 17px
+    margin-bottom: 10px
+    background-color: #fff
+    border-radius: 50%
+    border: 1px solid #D0D0D0
+    transition: all 0.3s
+    cursor: pointer
+    &:before
+      content: ""
+      width: 13px !important
+      height: 13px !important
+      position: absolute
+      top: 1px
+      left: 1px
+      display: inline-block
+      border-radius: 50%
+      transition: all 0.3s
+    span
+      position: absolute
+      left: 25px
+      width: auto
+      white-space: nowrap
+      color: #888888
+      font-weight: 500
+      font-size: 14px
+
+
+  input[type=radio]
+    &:checked + label
+      color: $red
+    &:checked + label:before
+      background: $red

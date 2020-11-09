@@ -1,0 +1,364 @@
+.page__salon-info,
+.page__master-info
+  margin-top: 20px
+
+.salon-info,
+.master-info
+  width: 100%
+  height: auto
+  padding: 20px 15px
+  margin: 0 auto
+  display: flex
+  flex-flow: columns
+  justify-content: center
+  align-items: center
+  background: #FFFFFF
+  box-shadow: 0px 2px 25px rgba(0, 0, 0, 0.15)
+  border-radius: 10px
+  @media ( min-width: 580px )
+    flex-flow: row wrap
+    justify-content: space-between
+    align-items: flex-start
+  @media ( min-width: 1200px )
+    padding: 30px 50px
+
+  
+  .flex-column
+    width: 100%
+    justify-content: center
+    @media ( min-width: 768px )
+      flex-flow: row
+      justify-content: space-between
+
+  .filial__desc
+    width: 100%
+    margin-top: 20px
+    @media ( min-width: 768px )
+      width: 50%
+      margin-top: 0
+      padding-left: 20px
+    @media ( min-width: 1200px )
+      width: 100%
+      max-width: 570px
+  
+  .tabs__list
+    margin-bottom: 15px
+    a
+      font-size: 14px
+      img
+        border-radius: 50%
+        height: 71px
+        width: 51px
+        margin-right: 10px
+        margin-bottom: 0
+        object-fit: cover
+  .tabgroup
+    max-height: auto
+    padding-top: 10px
+    overflow: auto
+    @media ( min-width: 1200px )
+      max-height: 440px
+
+  .salon__about
+    p
+      font-weight: 500
+      font-size: 14px
+      line-height: 1.34
+      color: #888888
+
+  .rating__list
+    width: 100%
+    max-width: 500px
+    margin: 0 auto 10px
+    display: flex
+    flex-flow: column
+    align-items: center
+    @media ( min-width: 670px )
+      flex-flow: wrap
+    @media ( min-width: 768px )
+      flex-flow: column
+    @media ( min-width: 1200px )
+      flex-flow: wrap
+
+    .rating__item
+      width: auto
+      padding: 8px
+      margin: 0 5px 5px
+      display: flex
+      align-items: center
+      border: 1px solid transparent
+      cursor: pointer
+      &.active,
+      &:hover
+        border: 1px solid #E6E6E6
+        box-sizing: border-box
+        border-radius: 10px
+      .total
+        width: auto
+        min-width: 17px
+        margin-right: 8px
+        font-weight: 600
+        font-size: 14px
+        color: #888888
+        text-align: right
+
+  .reviews
+    padding: 10px
+    overflow: auto
+    @media ( min-width: 1200px )
+      max-height: 288px
+    article
+      margin-bottom: 0
+      &:not(:last-child)
+        margin-bottom: 10px
+      // .author
+      //   max-width: 100%
+      //   &__description
+      //     flex-flow: row wrap
+      p
+        margin-top: 10px
+        margin-left: 0
+        @media ( min-width: 1200px )
+          margin-top: 0
+          margin-left: 72px
+
+.salon__service-list
+  .salon__service
+    width: 100%
+    height: auto
+    padding: 5px 10px
+    border: 1px solid #E6E6E6
+    border-radius: 10px
+    margin-bottom: 0
+    flex-flow: row wrap
+    @media ( min-width: 375px )
+      padding: 5px 20px
+    &:not(:last-child)
+      margin-bottom: 10px
+  .table__service
+    width: auto
+    margin-top: 5px
+    margin-right: 15px
+    margin-bottom: 5px
+    th,
+    td
+      padding: 4px 0
+    th
+      padding-right: 20px
+      font-weight: 600
+      font-size: 14px
+      line-height: 17px
+      color: #888888
+    td
+      font-weight: 600
+      font-size: 14px
+      line-height: 17px
+      color: #4D4D4D
+
+  .btn
+    width: 100%
+    height: 32px
+    max-width: 170px
+    margin-top: 5px
+    margin-bottom: 5px
+    font-size: 14px
+
+
+.workers__list
+  li.worker__item
+    max-width: 100%
+    height: auto
+    padding: 10px 20px
+    background: #FFFFFF
+    border: 1px solid #E6E6E6
+    border-radius: 10px
+    font-size: 14px
+    flex-flow: wrap
+    // @media ( min-width: 670px )
+
+    &::after
+      display: none
+    &:not(:last-child)
+      margin-bottom: 10px
+      
+      
+    .worker__description
+      width: auto
+      height: 58px
+      justify-content: space-evenly
+      justify-self: flex-start
+      padding-right: 15px
+      @media ( min-width: 670px )
+        // width: 100%
+        justify-self: flex-end
+
+    .btn
+      max-width: 170px
+      margin: 0 auto
+      @media ( min-width: 670px )
+        margin: 0 0 0 auto
+      @media ( min-width: 768px )
+        margin: 0 auto
+      @media ( min-width: 1200px )
+        margin: 0 0 0 auto
+
+    img,
+    .worker__description,
+    .stars,
+    .btn
+      margin-top: 5px
+      margin-bottom: 5px
+
+.gallery__wrap
+  width: 100%
+  @media ( min-width: 768px )
+    width: 50%
+    max-width: 535px
+  @media ( min-width: 1200px )
+    width: 100%
+
+.gallery__header
+  width: 100%
+  margin-bottom: 20px
+  position: relative
+  display: flex
+  flex-flow: column
+  align-items: center
+  .inner
+    position: relative
+    display: flex
+    flex-flow: column
+    align-items: center
+  img
+    height: 108px
+    width: 108px
+    object-fit: contain
+    border-radius: 50%
+    margin-bottom: 20px
+  .adress
+    width: 100%
+    margin-top: 5px
+  @media ( min-width: 550px )
+    margin-bottom: 15px
+    flex-flow: row wrap
+    .inner
+      position: relative
+      display: flex
+      flex-flow: row wrap
+    img
+      height: 51px
+      width: 51px
+      margin-right: 20px
+      margin-bottom: 0
+    .adress
+      margin-top: 0
+  h3
+    margin: 0 10px 5px 0
+    font-weight: bold
+    font-size: 18px
+    line-height: 22px
+
+.salon_gallery
+  width: 100%
+  height: auto
+  max-height: 675px
+  @media ( min-width: 768px )
+    max-width: 535px
+
+  .swiper-container
+    width: 100%
+    height: auto
+    margin-left: auto
+    margin-right: auto
+    @media ( min-width: 768px )
+      height: 300px
+
+  .swiper-slide
+    background-size: cover
+    background-position: center
+
+  .gallery-top
+    // height: 80%
+    width: 100%
+    height: 188px
+    border-radius: 9px
+    @media ( min-width: 425px )
+      height: 288px
+
+  .gallery-thumbs
+    height: 101px
+    box-sizing: border-box
+    padding: 10px 0 0
+    display: none
+    @media ( min-width: 768px )
+      display: block
+
+  .gallery-thumbs .swiper-slide
+    width: 161px
+    height: 91px
+    border-radius: 9px
+    opacity: 0.4
+
+  .gallery-thumbs .swiper-slide-thumb-active
+    opacity: 1
+
+  .swiper-button-white::after
+    transform: scale(.7)
+    @media ( min-width: 425px )
+      transform: none
+
+
+.master-info
+  .gallery__header
+    img
+      border-radius: 50%
+    h3
+      margin: 5px 10px 5px 0
+    .stars
+      align-items: center
+
+  .booking
+    .salon__service
+      padding: 30px 25px
+      flex-flow: column
+      align-items: center
+      justify-content: center
+    .table__service
+      width: auto
+      margin-bottom: 30px
+      th
+        padding-right: 50px
+
+  .disabled
+    color: #D0D0D0
+    cursor: not-allowed
+    &.active
+      color: red
+      cursor: pointer
+
+
+.booking .salon__service
+    padding: 30px 25px
+    flex-flow: column
+    align-items: center
+    justify-content: center
+
+.video-wrap
+  width: 100%
+  object-fit: cover
+  position: relative
+  display: block
+video
+  // width: 100%
+  height: 100%
+  object-fit: cover
+.play
+  position: absolute
+  top: 50%
+  left: 50%
+  -webkit-transform: translate(-50%, -50%)
+  transform: translate(-50%, -50%)
+  width: 100%
+  height: 100%
+  background: url(../images/src/btn-play.svg) no-repeat center/ 72px, rgba(0, 0, 0, 0.5)
+  z-index: 1

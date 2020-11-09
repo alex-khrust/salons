@@ -1,0 +1,58 @@
+.page__services-list
+  margin-top: 20px
+
+.services-list
+  width: 100%
+  height: auto
+  max-width: 770px
+  padding: 20px 15px
+  margin: 0 auto
+  background: #FFFFFF
+  box-shadow: 0px 2px 25px rgba(0, 0, 0, 0.15)
+  border-radius: 10px
+  @media (min-width: 768px)
+    padding: 30px 50px
+
+  table
+    width: 100%
+    height: auto
+    thead
+      th
+        padding: 0 12px 10px
+        font-weight: bold
+        font-size: 16px
+        color: #4D4D4D
+    tbody
+      tr
+        &:nth-child(odd)
+          background: #F5F5F5
+      td
+        padding: 4px 12px
+        font-weight: 600
+        font-size: 12px
+        line-height: 15px
+        color: #4C4C4C
+        &:first-child
+          border-radius: 5px 0 0 5px
+        &:last-child
+          border-radius: 0 5px 5px 0
+
+    .service-cost
+      @media (min-width: 768px)
+        width: 170px
+      .inner
+        width: 100%
+        display: flex
+        align-items: center
+        justify-content: space-between
+      p
+        margin-bottom: 0
+    .btn-urn
+      width: 14px
+      height: 18px
+      padding: 0 10px
+      background: url('../images/src/urn.svg') no-repeat center
+
+  .btn
+    height: 44px
+    margin: 30px auto 0

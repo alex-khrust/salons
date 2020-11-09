@@ -1,0 +1,153 @@
+.page__registration-salon
+  margin-top: 20px
+  // margin-top: 30px
+  // @media ( min-width: 1200px )
+  //   margin-top: 80px
+
+
+.registration-salon
+  padding: 30px 15px
+  background: #ffffff
+  box-shadow: 0px 2px 25px rgba(0, 0, 0, 0.15)
+  border-radius: 10px
+  @media ( min-width: 660px )
+    padding: 30px
+  h1,h2,h3,h4
+    font-size: 12px !important
+
+  form
+    width: 100%
+    height: auto
+    max-width: 100%
+    margin: 0 auto
+    display: flex
+    flex-flow: column
+    justify-content: center
+    align-items: center
+    @media ( min-width: 630px )
+      max-width: 560px
+      flex-flow: row wrap
+      align-items: flex-start
+      justify-content: space-between
+    @media ( min-width: 1200px )
+      // max-width: 1134px
+      max-width: 100%
+
+  .media__add
+    width: auto
+    max-width: 243px
+    .gallery
+      width: 243px
+      max-height: 169px
+      grid-auto-flow: row
+      overflow: auto
+  .working__add
+    align-items: center
+    @media (min-width: 630px)
+      align-items: unset
+      margin-top: 0
+    .working__time .wrap-inner
+      box-shadow: none
+      @media (min-width: 630px)
+        box-shadow: 0px 2px 5px 2px rgba(0, 0, 0, 0.1)
+  .working__add .working__time
+    flex-flow: column
+    justify-content: center
+    @media (min-width: 630px)
+      flex-flow: wrap
+      justify-content: space-between
+      
+      
+
+.submit-registration
+  height: 44px
+  margin: 0 auto
+  @media ( min-width: 660px )
+    margin: 50px auto
+  @media ( min-width: 1180px )
+    margin: 50px 0 0 auto
+
+.salon-desс__add
+  width: 100%
+  max-width: 243px
+
+.media__add
+  width: 100%
+  // max-width: 243px
+  max-width: 346px
+  margin-top: 20px
+  @media ( min-width: 600px )
+    margin-top: 0
+  .gallery
+    width: 100%
+    height: auto
+    padding-bottom: 10px
+    display: grid
+    grid-template-columns: repeat(auto-fit, minmax(auto, 75px))
+    grid-auto-rows: 75px
+    grid-auto-flow: column
+    grid-gap: 9px
+    overflow-x: auto
+    li
+      width: 75px
+      height: 75px
+      position: relative
+      border-radius: 10px
+      &:not(:last-child)
+        overflow: hidden
+      img
+        width: 100%
+        height: 100%
+        object-fit: cover
+
+
+.add__photo
+
+.add__video
+  margin-top: 30px
+  .gallery
+    li
+      &:not(:last-child)
+        &::before
+          content: ''
+          position: absolute
+          top: 50%
+          left: 50%
+          transform: translate(-50%, -50%)
+          width: 100%
+          height: 100%
+          background: url("../images/src/btn-play.svg") no-repeat center, rgba(0, 0, 0, 0.5)
+          z-index: 1
+
+.media__add-btn
+  width: 75px
+  height: 75px
+  background: url("../images/src/btn-add.svg") no-repeat center, $red
+  border-radius: 10px
+  display: flex
+  align-items: center
+  justify-content: center
+  box-shadow: none
+  cursor: pointer
+  &:hover
+    box-shadow: none
+  // &::after
+  //   content: url("../images/src/btn-add.svg")
+  input
+    display: none
+
+
+.add-worker__input-list
+  .chbx
+    label
+      padding-left: 25px
+      margin-bottom: 10px
+      &:before
+        top: 50%
+        left: 0
+        transform: translate(0 , -50%)
+
+    input[type=checkbox]:checked + label:after
+      top: -1px
+      left: 5px
+      transform: rotate(45deg)

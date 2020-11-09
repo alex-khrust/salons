@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+
+	<meta charset="utf-8">
+	<title>ВсеСалоны</title>
+	<meta name="description" content="ВсеСалоны">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+	<link rel="icon" href="images/favicon.png">
+	<meta property="og:image" content="images/dest/preview.jpg">
+	<meta property="og:type" content="website">
+  <meta property="og:url" content="">
+  <meta property="og:site_name" content="">
+  <meta property="og:title" content="">
+	<link rel="stylesheet" href="css/app.min.css">
+
+</head>
+
+<body>
+
+	<header class="header">
+		<div class="container">
+			<a href="#" class="logo">
+				<img src="images/src/logo.svg" alt="логотип">
+				<span>ВсеСалоны</span>
+      </a>
+      
+      <button class="place">Киев</button>
+
+			<nav class="header__nav">
+				<div class="nav__header">
+					<a href="#" class="logo">
+						<img src="images/src/logo.svg" alt="логотип">
+						<span>ВсеСалоны</span>
+					</a>
+					<button class="navBurger" role="navigation" id="navToggle">
+						<span class="navBurger-line active"></span>
+					</button>
+				</div>
+				
+				<ul class="menu">
+					<li class="menu__item menu__item--salons">
+						<a href="#">Салоны</a>
+					</li>
+					<li class="menu__item menu__item--articles">
+						<a href="#">Статьи</a>
+					</li>
+					<li class="menu__item menu__item--reviews">
+						<a href="#">Отзывы</a>
+					</li>
+					<li class="menu__item menu__item--questions">
+						<a href="#">Вопросы</a>
+					</li>
+				</ul>
+			</nav>
+      
+      <div class="languages">
+        <a class="active" href="#">RU</a>
+        <a href="#">UA</a>
+      </div>
+
+			<div class="enter">
+				<a class="login" href="login.html">Войти</a>
+				<a class="signup active" href="signup.html">Регистрация</a>
+      </div>
+      
+			<div class="header-btns">
+				<button class="enter-btn"></button>
+				<button class="navBurger" role="navigation" id="navToggle">
+					<span class="navBurger-line"></span>
+				</button>
+			</div>
+
+			<div class="overlay"></div>
+		</div>
+	</header>
+
+	<main class="page__home">
+		<div class="container">
+
+      <section class="hero">
+        <div class="hero__chapter">
+          <h1>Найдите специалиста в области красоты и здоровья в Украине</h1>
+          <form class="form__hero" action="" method="post">
+            <div class="input__wrap search">
+              <label for="worker__tel">Поиск</label>
+              <input id="worker__tel" type="search" name="search" placeholder="Поиск" required="">
+            </div>
+            <div class="input__wrap select">
+              <select name="city" id="city">
+                <option value="" disabled="" selected="">Город</option>
+                <option value="">Киев</option>
+                <option value="">Харьков</option>
+                <option value="">Днепр</option>
+                <option value="">Полтава</option>
+                <option value="">Львов</option>
+              </select>
+            </div>
+            <button class="btn" type="submit">Найти</button>
+          </form>
+          <ul class="link__list">
+            <li><a class="barbershop" href="#">Парикмахерская</a></li>
+            <li><a class="manicure" href="#">Маникюр</a></li>
+            <li><a class="eyelashes" href="#">Ресницы</a></li>
+            <li><a class="eyebrow" href="#">Брови</a></li>
+            <li><a class="spa" href="#">Спа</a></li>
+            <li><a class="see-all" href="#">Смотреть всё</a></li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="salons">
+        <div class="recommended">
+          <div class="top">
+            <h2>Рекомендуемые</h2>
+            <a href="articles-new.html"> Смотреть все</a>
+          </div>
+          <ul class="salons__list">
+            <li>
+              <div class="filial__photo">
+                <img src="images/src/demo/filial.jpg" alt="">
+                <ul class="stars">
+                  <li class="gold"></li>
+                  <li class="gold"></li>
+                  <li class="gold"></li>
+                  <li class="gold"></li>
+                  <li></li>
+                </ul>
+              </div>
+              <div class="filial__desc">
+                <div class="inner">
+                  <h3>Givera Kiev</h3>
+                  <div class="adress">13222 Boyette Rd, Riverview, 33569</div>
+                  <label class="heart">
+                  <input type="checkbox" name="favorites" value="1" aria-label="Избранное">
+                </label>
+                </div>
+                <ul class="salon__service-list">
+                  <li class="salon__service">
+                    <div class="service__inner">
+                      <span class="service-name">Женская стрижка</span>
+                      <span class="service-cost">300</span>
+                    </div>
+                    <a href="#" class="btn">Резервировать</a>
+                  </li>
+                  <li class="salon__service">
+                    <div class="service__inner">
+                      <span class="service-name">Женская стрижка</span>
+                      <span class="service-cost">300</span>
+                    </div>
+                    <a href="#" class="btn">Резервировать</a>
+                  </li>
+                  <li class="salon__service">
+                    <div class="service__inner">
+                      <span class="service-name">Женская стрижка</span>
+                      <span class="service-cost">300</span>
+                    </div>
+                    <a href="#" class="btn">Резервировать</a>
+                  </li>
+                </ul>
+                <a class="btn" href="#">Детали салона</a>
+              </div>
+            </li>
+            <li>
+              <div class="filial__photo">
+                <img src="images/src/demo/filial.jpg" alt="">
+                <ul class="stars">
+                  <li class="gold"></li>
+                  <li class="gold"></li>
+                  <li class="gold"></li>
+                  <li class="gold"></li>
+                  <li></li>
+                </ul>
+              </div>
+              <div class="filial__desc">
+                <div class="inner">
+                  <h3>Givera Kiev</h3>
+                  <div class="adress">13222 Boyette Rd, Riverview, 33569</div>
+                  <label class="heart">
+                  <input type="checkbox" name="favorites" value="1" aria-label="Избранное">
+                </label>
+                </div>
+                <ul class="salon__service-list">
+                  <li class="salon__service">
+                    <div class="service__inner">
+                      <span class="service-name">Женская стрижка</span>
+                      <span class="service-cost">300</span>
+                    </div>
+                    <a href="#" class="btn">Резервировать</a>
+                  </li>
+                  <li class="salon__service">
+                    <div class="service__inner">
+                      <span class="service-name">Женская стрижка</span>
+                      <span class="service-cost">300</span>
+                    </div>
+                    <a href="#" class="btn">Резервировать</a>
+                  </li>
+                  <li class="salon__service">
+                    <div class="service__inner">
+                      <span class="service-name">Женская стрижка</span>
+                      <span class="service-cost">300</span>
+                    </div>
+                    <a href="#" class="btn">Резервировать</a>
+                  </li>
+                </ul>
+                <a class="btn" href="#">Детали салона</a>
+              </div>
+            </li>
+            <li>
+              <div class="filial__photo">
+                <img src="images/src/demo/filial.jpg" alt="">
+                <ul class="stars">
+                  <li class="gold"></li>
+                  <li class="gold"></li>
+                  <li class="gold"></li>
+                  <li class="gold"></li>
+                  <li></li>
+                </ul>
+              </div>
+              <div class="filial__desc">
+                <div class="inner">
+                  <h3>Givera Kiev</h3>
+                  <div class="adress">13222 Boyette Rd, Riverview, 33569</div>
+                  <label class="heart">
+                  <input type="checkbox" name="favorites" value="1" aria-label="Избранное">
+                </label>
+                </div>
+                <ul class="salon__service-list">
+                  <li class="salon__service">
+                    <div class="service__inner">
+                      <span class="service-name">Женская стрижка</span>
+                      <span class="service-cost">300</span>
+                    </div>
+                    <a href="#" class="btn">Резервировать</a>
+                  </li>
+                  <li class="salon__service">
+                    <div class="service__inner">
+                      <span class="service-name">Женская стрижка</span>
+                      <span class="service-cost">300</span>
+                    </div>
+                    <a href="#" class="btn">Резервировать</a>
+                  </li>
+                  <li class="salon__service">
+                    <div class="service__inner">
+                      <span class="service-name">Женская стрижка</span>
+                      <span class="service-cost">300</span>
+                    </div>
+                    <a href="#" class="btn">Резервировать</a>
+                  </li>
+                </ul>
+                <a class="btn" href="#">Детали салона</a>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div class="salons__sity">
+          <div class="top">
+            <h2>Салоны Киева</h2>
+            <span>230</span>
+            <a href="articles-new.html"> Смотреть все</a>
+          </div>
+          <ul class="salons__list">
+            <li>
+              <div class="filial__photo">
+                <img src="images/src/demo/filial.jpg" alt="">
+                <ul class="stars">
+                  <li class="gold"></li>
+                  <li class="gold"></li>
+                  <li class="gold"></li>
+                  <li class="gold"></li>
+                  <li></li>
+                </ul>
+              </div>
+              <div class="filial__desc">
+                <div class="inner">
+                  <h3>Givera Kiev</h3>
+                  <div class="adress">13222 Boyette Rd, Riverview, 33569</div>
+                  <label class="heart">
+                  <input type="checkbox" name="favorites" value="1" aria-label="Избранное">
+                </label>
+                </div>
+                <ul class="salon__service-list">
+                  <li class="salon__service">
+                    <div class="service__inner">
+                      <span class="service-name">Женская стрижка</span>
+                      <span class="service-cost">300</span>
+                    </div>
+                    <a href="#" class="btn">Резервировать</a>
+                  </li>
+                  <li class="salon__service">
+                    <div class="service__inner">
+                      <span class="service-name">Женская стрижка</span>
+                      <span class="service-cost">300</span>
+                    </div>
+                    <a href="#" class="btn">Резервировать</a>
+                  </li>
+                  <li class="salon__service">
+                    <div class="service__inner">
+                      <span class="service-name">Женская стрижка</span>
+                      <span class="service-cost">300</span>
+                    </div>
+                    <a href="#" class="btn">Резервировать</a>
+                  </li>
+                </ul>
+                <a class="btn" href="#">Детали салона</a>
+              </div>
+            </li>
+            <li>
+              <div class="filial__photo">
+                <img src="images/src/demo/filial.jpg" alt="">
+                <ul class="stars">
+                  <li class="gold"></li>
+                  <li class="gold"></li>
+                  <li class="gold"></li>
+                  <li class="gold"></li>
+                  <li></li>
+                </ul>
+              </div>
+              <div class="filial__desc">
+                <div class="inner">
+                  <h3>Givera Kiev</h3>
+                  <div class="adress">13222 Boyette Rd, Riverview, 33569</div>
+                  <label class="heart">
+                  <input type="checkbox" name="favorites" value="1" aria-label="Избранное">
+                </label>
+                </div>
+                <ul class="salon__service-list">
+                  <li class="salon__service">
+                    <div class="service__inner">
+                      <span class="service-name">Женская стрижка</span>
+                      <span class="service-cost">300</span>
+                    </div>
+                    <a href="#" class="btn">Резервировать</a>
+                  </li>
+                  <li class="salon__service">
+                    <div class="service__inner">
+                      <span class="service-name">Женская стрижка</span>
+                      <span class="service-cost">300</span>
+                    </div>
+                    <a href="#" class="btn">Резервировать</a>
+                  </li>
+                  <li class="salon__service">
+                    <div class="service__inner">
+                      <span class="service-name">Женская стрижка</span>
+                      <span class="service-cost">300</span>
+                    </div>
+                    <a href="#" class="btn">Резервировать</a>
+                  </li>
+                </ul>
+                <a class="btn" href="#">Детали салона</a>
+              </div>
+            </li>
+            <li>
+              <div class="filial__photo">
+                <img src="images/src/demo/filial.jpg" alt="">
+                <ul class="stars">
+                  <li class="gold"></li>
+                  <li class="gold"></li>
+                  <li class="gold"></li>
+                  <li class="gold"></li>
+                  <li></li>
+                </ul>
+              </div>
+              <div class="filial__desc">
+                <div class="inner">
+                  <h3>Givera Kiev</h3>
+                  <div class="adress">13222 Boyette Rd, Riverview, 33569</div>
+                  <label class="heart">
+                  <input type="checkbox" name="favorites" value="1" aria-label="Избранное">
+                </label>
+                </div>
+                <ul class="salon__service-list">
+                  <li class="salon__service">
+                    <div class="service__inner">
+                      <span class="service-name">Женская стрижка</span>
+                      <span class="service-cost">300</span>
+                    </div>
+                    <a href="#" class="btn">Резервировать</a>
+                  </li>
+                  <li class="salon__service">
+                    <div class="service__inner">
+                      <span class="service-name">Женская стрижка</span>
+                      <span class="service-cost">300</span>
+                    </div>
+                    <a href="#" class="btn">Резервировать</a>
+                  </li>
+                  <li class="salon__service">
+                    <div class="service__inner">
+                      <span class="service-name">Женская стрижка</span>
+                      <span class="service-cost">300</span>
+                    </div>
+                    <a href="#" class="btn">Резервировать</a>
+                  </li>
+                </ul>
+                <a class="btn" href="#">Детали салона</a>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div class="salons__top">
+          <div class="top">
+            <h2>Горячие предложения</h2>
+            <a href="articles-new.html"> Смотреть все</a>
+          </div>
+          <ul class="salons__list">
+            <li>
+              <div class="filial__photo">
+                <img src="images/src/demo/filial.jpg" alt="">
+                <ul class="stars">
+                  <li class="gold"></li>
+                  <li class="gold"></li>
+                  <li class="gold"></li>
+                  <li class="gold"></li>
+                  <li></li>
+                </ul>
+              </div>
+              <div class="filial__desc">
+                <div class="inner">
+                  <h3>Givera Kiev</h3>
+                  <div class="adress">13222 Boyette Rd, Riverview, 33569</div>
+                  <label class="heart">
+                  <input type="checkbox" name="favorites" value="1" aria-label="Избранное">
+                </label>
+                </div>
+                <ul class="salon__service-list">
+                  <li class="salon__service">
+                    <div class="service__inner">
+                      <span class="service-name">Женская стрижка</span>
+                      <span class="service-cost">300</span>
+                    </div>
+                    <a href="#" class="btn">Резервировать</a>
+                  </li>
+                  <li class="salon__service">
+                    <div class="service__inner">
+                      <span class="service-name">Женская стрижка</span>
+                      <span class="service-cost">300</span>
+                    </div>
+                    <a href="#" class="btn">Резервировать</a>
+                  </li>
+                  <li class="salon__service">
+                    <div class="service__inner">
+                      <span class="service-name">Женская стрижка</span>
+                      <span class="service-cost">300</span>
+                    </div>
+                    <a href="#" class="btn">Резервировать</a>
+                  </li>
+                </ul>
+                <a class="btn" href="#">Детали салона</a>
+              </div>
+            </li>
+            <li>
+              <div class="filial__photo">
+                <img src="images/src/demo/filial.jpg" alt="">
+                <ul class="stars">
+                  <li class="gold"></li>
+                  <li class="gold"></li>
+                  <li class="gold"></li>
+                  <li class="gold"></li>
+                  <li></li>
+                </ul>
+              </div>
+              <div class="filial__desc">
+                <div class="inner">
+                  <h3>Givera Kiev</h3>
+                  <div class="adress">13222 Boyette Rd, Riverview, 33569</div>
+                  <label class="heart">
+                  <input type="checkbox" name="favorites" value="1" aria-label="Избранное">
+                </label>
+                </div>
+                <ul class="salon__service-list">
+                  <li class="salon__service">
+                    <div class="service__inner">
+                      <span class="service-name">Женская стрижка</span>
+                      <span class="service-cost">300</span>
+                    </div>
+                    <a href="#" class="btn">Резервировать</a>
+                  </li>
+                  <li class="salon__service">
+                    <div class="service__inner">
+                      <span class="service-name">Женская стрижка</span>
+                      <span class="service-cost">300</span>
+                    </div>
+                    <a href="#" class="btn">Резервировать</a>
+                  </li>
+                  <li class="salon__service">
+                    <div class="service__inner">
+                      <span class="service-name">Женская стрижка</span>
+                      <span class="service-cost">300</span>
+                    </div>
+                    <a href="#" class="btn">Резервировать</a>
+                  </li>
+                </ul>
+                <a class="btn" href="#">Детали салона</a>
+              </div>
+            </li>
+            <li>
+              <div class="filial__photo">
+                <img src="images/src/demo/filial.jpg" alt="">
+                <ul class="stars">
+                  <li class="gold"></li>
+                  <li class="gold"></li>
+                  <li class="gold"></li>
+                  <li class="gold"></li>
+                  <li></li>
+                </ul>
+              </div>
+              <div class="filial__desc">
+                <div class="inner">
+                  <h3>Givera Kiev</h3>
+                  <div class="adress">13222 Boyette Rd, Riverview, 33569</div>
+                  <label class="heart">
+                  <input type="checkbox" name="favorites" value="1" aria-label="Избранное">
+                </label>
+                </div>
+                <ul class="salon__service-list">
+                  <li class="salon__service">
+                    <div class="service__inner">
+                      <span class="service-name">Женская стрижка</span>
+                      <span class="service-cost">300</span>
+                    </div>
+                    <a href="#" class="btn">Резервировать</a>
+                  </li>
+                  <li class="salon__service">
+                    <div class="service__inner">
+                      <span class="service-name">Женская стрижка</span>
+                      <span class="service-cost">300</span>
+                    </div>
+                    <a href="#" class="btn">Резервировать</a>
+                  </li>
+                  <li class="salon__service">
+                    <div class="service__inner">
+                      <span class="service-name">Женская стрижка</span>
+                      <span class="service-cost">300</span>
+                    </div>
+                    <a href="#" class="btn">Резервировать</a>
+                  </li>
+                </ul>
+                <a class="btn" href="#">Детали салона</a>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="description">
+        <div class="top">
+          <h2>Всё о салоне</h2>
+        </div>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab quia reprehenderit quas dolores asperiores nihil dolor consectetur quasi debitis impedit temporibus, eligendi veritatis aspernatur adipisci molestiae distinctio, ducimus, amet nemo illo fuga qui accusantium officia. Molestiae culpa voluptatem repellendus quia error reiciendis ullam delectus quis, adipisci placeat maiores atque velit praesentium quae magni, tempore illo provident perferendis minima ipsam a. Animi numquam minima magnam velit nisi, nesciunt quas unde dolorem est quo delectus eum fugiat perspiciatis repellat fugit necessitatibus quod vitae suscipit! Veniam atque placeat provident quis expedita minus ducimus, accusantium quod aperiam. Placeat ex sequi alias neque veritatis sint unde asperiores reprehenderit fugit maxime sunt nulla explicabo non, deleniti vitae dolorem saepe consequatur, libero dolore fuga mollitia iure. Quas quis placeat rem labore ullam praesentium voluptates et atque quasi quod, error fugiat accusantium iste repellendus cum explicabo illum omnis distinctio id esse quia hic reiciendis, repudiandae similique! Delectus, quidem?</p>
+      </section>
+
+      <section class="articles articles--wide">
+        <div class="top">
+          <h2>Полезные статьи</h2>
+          <a href="articles-new.html"> Смотреть все</a>
+        </div>
+
+        <ul class="articles__list">
+          <li>
+            <a class="articles__link" href="#">
+              <div class="articles__media">
+                <img src="images/src/demo/article.jpg" alt="">
+              </div>
+              <div class="articles__showing">
+                <span class="data">23 Июня 2020</span>
+                <span class="views">12</span>
+              </div>
+              <div class="articles__desc">
+                <h3>Vivamus porta venenatis quam sit amet efficitur.</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum est lacus, porttitor vitae condimentum eu, auctor in libero. Pellentesque placerat nibh eget urna fermentum, eu ornare est iaculis. Ut magna purus, lacinia in ipsum id, dignissim sagittis nisl. Cras vel placerat risus. Morbi quis felis malesuada, viverra ex quis, pulvinar lectus. Curabitur non tempus dui. Aliquam erat volutpat. Suspendisse porttitor tortor in condimentum consequat.</p>
+              </div>
+            </a>
+          </li>
+          <li>
+            <a class="articles__link" href="#">
+              <div class="articles__media">
+                <img src="images/src/demo/article.jpg" alt="">
+              </div>
+              <div class="articles__showing">
+                <span class="data">23 Июня 2020</span>
+                <span class="views">12</span>
+              </div>
+              <div class="articles__desc">
+                <h3>Vivamus porta venenatis quam sit amet efficitur.</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum est lacus, porttitor vitae condimentum eu, auctor in libero. Pellentesque placerat nibh eget urna fermentum, eu ornare est iaculis. Ut magna purus, lacinia in ipsum id, dignissim sagittis nisl. Cras vel placerat risus. Morbi quis felis malesuada, viverra ex quis, pulvinar lectus. Curabitur non tempus dui. Aliquam erat volutpat. Suspendisse porttitor tortor in condimentum consequat.</p>
+              </div>
+            </a>
+          </li>
+          <li>
+            <a class="articles__link" href="#">
+              <div class="articles__media">
+                <img src="images/src/demo/article.jpg" alt="">
+              </div>
+              <div class="articles__showing">
+                <span class="data">23 Июня 2020</span>
+                <span class="views">12</span>
+              </div>
+              <div class="articles__desc">
+                <h3>Vivamus porta venenatis quam sit amet efficitur.</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum est lacus, porttitor vitae condimentum eu, auctor in libero. Pellentesque placerat nibh eget urna fermentum, eu ornare est iaculis. Ut magna purus, lacinia in ipsum id, dignissim sagittis nisl. Cras vel placerat risus. Morbi quis felis malesuada, viverra ex quis, pulvinar lectus. Curabitur non tempus dui. Aliquam erat volutpat. Suspendisse porttitor tortor in condimentum consequat.</p>
+              </div>
+            </a>
+          </li>
+        </ul>
+
+      </section>
+
+      <section class="important">
+        <div class="top">
+          <h2>Важная информация</h2>
+          <a href="articles-new.html">Смотреть все</a>
+        </div>
+        <ul class="important__list">
+          <li><a href="#">Важная информация</a></li>
+          <li><a href="#">Lorem ipsum</a></li>
+          <li><a href="#">Важная информация</a></li>
+          <li><a href="#">Lorem ipsum</a></li>
+          <li><a href="#">Важная информация</a></li>
+          <li><a href="#">Lorem ipsum</a></li>
+          <li><a href="#">Lorem ipsum</a></li>
+          <li><a href="#">Важная информация</a></li>
+          <li><a href="#">Lorem ipsum</a></li>
+          <li><a href="#">Важная информация</a></li>
+          <li><a href="#">Lorem ipsum</a></li>
+          <li><a href="#">Важная информация</a></li>
+        </ul>
+      </section>
+
+		</div>
+  </main>
+
+  <section class="foo-registration">
+    <h3>Создайте аккаунт и получайте лучшие услуги 24/7</h3>
+    <form action="" method="POST">
+      <div class="input__wrap">
+        <label for="foo-login__phone">Ваш телефон</label>
+        <input id="foo-login__phone" type="tel" name="phone" placeholder="Ваш телефон" required>
+      </div>
+      <button class="btn" type="submit">Зарегистрироваться</button>
+    </form>
+  </section>
+  
+  <footer class="footer">
+		<div class="container">
+			<a href="#" class="logo">
+				<img src="images/src/logo-white.svg" alt="логотип">
+				<span>ВсеСалоны</span>
+      </a>
+
+			<nav class="footer__nav">
+				<ul class="menu">
+					<li class="menu__item menu__item--salons">
+						<a href="#">Салоны</a>
+					</li>
+					<li class="menu__item menu__item--articles">
+						<a href="#">Статьи</a>
+					</li>
+					<li class="menu__item menu__item--reviews">
+						<a href="#">Отзывы</a>
+					</li>
+					<li class="menu__item menu__item--questions">
+						<a href="#">Вопросы</a>
+					</li>
+				</ul>
+      </nav>
+      
+      <ul class="social__list">
+        <li class="insta">
+          <a href="#"></a>
+        </li>
+        <li class="fb">
+          <a href="#"></a>
+        </li>
+      </ul>
+      
+    </div>
+    
+	</footer>
+
+	<div id="login__popup" class="popup">
+		<div class="overlay"></div>
+		<div class="enter__form">
+			<h2 class="top-title">Авторизация</h2>
+			<button class="close-btn">
+				<span></span>
+			</button>
+			<form class="popup-form__login" action="" method="POST">
+
+				<div class="input__wrap">
+					<label for="popup-login__phone">Номер телефона</label>
+					<input id="popup-login__phone" type="tel" name="phone" placeholder="Номер телефона" required>
+				</div>
+
+				<div class="input__wrap">
+					<label for="popup-login__password">Пароль</label>
+					<input id="popup-login__password" type="password" name="password" placeholder="Пароль" required>
+					<span class="fa-eye field-icon toggle-password"></span>
+				</div>
+
+				<a class="active" href="#">Забыли пароль?</a>
+
+				<button class="btn">Войти</button>
+			</form>
+
+			<span class="no-account">Нет аккаунта? <a class="active" href="#">Зарегистрироваться</a></span>
+		</div>
+  </div>
+  
+
+	<script src="js/libs.min.js"></script>
+  <script src="js/app.js"></script>
+  
+</body>
+</html>

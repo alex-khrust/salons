@@ -1,0 +1,256 @@
+.page__home
+  margin-bottom: 20px
+  
+  section
+    width: 100%
+    max-width: 1170px
+    margin: 20px auto
+
+  .hero
+    width: 100%
+    height: 100%
+    min-height: 600px
+    padding: 50px 0 70px
+    margin: -20px auto 0
+    display: flex
+    align-items: center
+    justify-content: center
+    position: relative
+    &::before
+      content: ''
+      position: absolute
+      width: 100vw
+      height: inherit
+      top: 0
+      z-index: -1
+      background: url(../images/src/home-hero-bg.jpg) no-repeat center / cover, 100vw
+    .hero__chapter
+      width: 100%
+      max-width: 710px
+      display: flex
+      align-items: center
+      justify-content: center
+      flex-flow: column
+    h1
+      width: 100%
+      max-width: 600px
+      font-weight: bold
+      font-size: 25px
+      line-height: 134.3%
+      text-align: center
+      color: #FFFFFF
+      margin-bottom: 40px
+
+    form
+      width: 100%
+      max-width: 100%
+      display: flex
+      align-items: center
+      justify-content: center
+      .search
+        max-width: 334px
+      .input__wrap,
+      .btn
+        max-width: 334px
+      @media ( min-width: 768px )
+        flex-flow: row
+        align-items: center
+        // justify-content: center
+        .input__wrap
+          margin-right: 30px
+        input, 
+        select
+          margin-bottom: 0
+        .select
+          max-width: 150px !important
+        .btn
+          max-width: 170px !important
+
+    .link__list
+      width: 100%
+      max-width: 350px
+      display: flex
+      flex-flow: wrap
+      align-items: center
+      justify-content: center
+      margin-top: 20px
+      @media ( min-width: 768px )
+        max-width: 100%
+        justify-content: space-evenly
+        
+      li
+        width: 131px
+        height: 80px
+        margin: 5px 4px
+        display: flex
+        align-items: flex-end
+        justify-content: center
+        @media ( min-width: 350px )
+          margin: 5px 10px
+        @media ( min-width: 768px )
+          width: auto
+      a
+        width: auto
+        padding: 10px
+        position: relative
+        font-weight: normal
+        font-size: 14px
+        line-height: 17px
+        color: #FFFFFF
+        &::before
+          content: ''
+          position: absolute
+          bottom: 35px
+          left: 50%
+          transform: translateX(-50%)
+          background: #fff
+          transition: .3s
+        &:hover
+          color: $red
+          &::before
+            background: $red
+
+      .barbershop
+        &::before
+          width: 35px
+          height: 35px
+          mask: url(../images/src/barbershop.svg)
+      .manicure
+        &::before
+          width: 34px
+          height: 39px
+          mask: url(../images/src/manicure.svg)
+      .eyelashes
+        &::before
+          width: 28px
+          height: 34px
+          mask: url(../images/src/eyelashes.svg)
+      .eyebrow
+        &::before
+          width: 34px
+          height: 32px
+          mask: url(../images/src/eyebrow.svg)
+      .spa
+        &::before
+          width: 28px
+          height: 35px
+          mask: url(../images/src/spa.svg)
+      .see-all
+        &::before
+          width: 30px
+          height: 30px
+          mask: url(../images/src/see-all.svg)
+
+  .salons
+    width: 100%
+    &__list
+      margin: 0
+      @media ( min-width: 750px )
+        grid-template-columns: repeat(auto-fill, minmax(auto, 340px))
+      @media ( min-width: 1210px )
+        grid-template-columns: repeat(auto-fill, minmax(auto, 370px))
+    &>div
+      width: 100%
+      margin: 20px 0
+
+  .top
+    width: 100%
+    max-width: 1170px
+    display: flex
+    align-items: baseline
+    justify-content: flex-start
+    flex-flow: wrap
+    margin-bottom: 10px
+    // @media ( min-width: 1119px )
+      // justify-content: flex-start
+    h2
+      font-size: 24px
+      color: #595959
+      margin-right: 10px
+      margin-bottom: 10px
+    span
+      margin-right: 10px
+      position: relative
+      font-weight: bold
+      font-size: 24px
+      color: #595959
+      &::before
+        content: '('
+      &::after
+        content: ')'
+    a
+      font-weight: bold
+      font-size: 18px
+      color: $red
+      margin-bottom: 10px
+
+  .important
+    max-width: 1240px !important
+
+.recommended,
+.salons__top
+  .salons__list>li
+    position: relative
+    &:nth-child(n)
+      &::before
+        content: 'Топ'
+        width: 93px
+        height: 33px
+        position: absolute
+        left: 0
+        top: 0
+        display: flex
+        align-items: center
+        justify-content: center
+        font-weight: bold
+        font-size: 16px
+        line-height: 20px
+        color: #FFF
+        background: $red
+        border-radius: 10px 0
+        z-index: 1
+
+.recommended
+  .salons__list>li
+    &:first-child
+      &::before
+        content: 'Новый'
+        background: #40ECAE
+    &:last-child
+      &::before
+        content: 'Для вас'
+        background: #FDBC43
+
+
+.salons__list>li
+  position: relative
+  &::before
+    width: 93px
+    height: 33px
+    position: absolute
+    left: 0
+    top: 0
+    display: flex
+    align-items: center
+    justify-content: center
+    font-weight: bold
+    font-size: 16px
+    line-height: 20px
+    color: #FFF
+    border-radius: 10px 0
+    z-index: 1
+
+.salon-new
+  &::before
+    content: 'Новый' !important
+    background: #40ECAE !important
+
+.salon-top
+  &::before
+    content: 'Топ' !important
+    background: $red !important
+
+.salon-foryou
+  &::before
+    content: 'Для вас' !important
+    background: #FDBC43 !important

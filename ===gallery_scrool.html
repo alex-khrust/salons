@@ -1,0 +1,541 @@
+
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>BeautyClick.sk</title>
+    <meta name="description" content="ВсеСалоны">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+    <link rel="icon" href="images/favicon.png">
+    <meta property="og:image" content="images/dest/preview.jpg">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="">
+    <meta property="og:site_name" content="">
+    <meta property="og:title" content="">
+    <link href="/css/custom.css" rel="stylesheet"/>
+<link href="/css/app.min.css" rel="stylesheet"/>
+<link href="/css/toastr.min.css" rel="stylesheet"/>
+<link href="/css/sweetalert2.min.css" rel="stylesheet"/>
+
+    
+    <link ref="icon" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" type="text/css"/>
+</head>
+<body>
+    <div id="overlay" style="display:none;">
+        <div class="spinner"></div>
+    </div>
+
+    <header class="header authorized">
+        <div class="container">
+            <a href="/" class="logo">
+                <img src="/images/src/logo.svg" alt="beautyclick.sk">
+                <span>BeautyClick.sk</span>
+            </a>
+
+            
+
+            <nav class="header__nav">
+                <div class="nav__header">
+                    <a href="#" class="logo">
+                    </a>
+                    <button class="close-btn" role="close menu">
+                        <span></span>
+                    </button>
+                </div>
+
+                <ul class="menu">
+
+    <li class="menu__item menu__item--salons">
+        <a href="/SalonOwner/Index/">Мой салон</a>
+    </li>
+    <li class="menu__item">
+        <a href="/Video/">Видео</a>
+    </li>
+    <li class="menu__item">
+        <a href="/Article/">Статьи</a>
+    </li>
+    <li class="menu__item">
+        <a href="https://www.facebook.com/groups/354459475870678" target="_blank">Группа</a>
+    </li>
+
+
+
+
+
+                </ul>
+            </nav>
+
+           <!-- <div class="languages">
+                <a class="active" href="#">RU</a>
+                <a href="#">UA</a>
+            </div>
+               -->
+
+        <div class="user__nav">
+
+            <a href="javascript:document.getElementById('logoutForm').submit()" class="exit tooltip">
+
+                <span class="tooltiptext">Выход</span>
+            </a>
+          
+           
+            <a href="#" class="favorites tooltip">
+                <span class="tooltiptext">Избранные</span>
+            </a>
+            <a href="/Account/UpdateProfile" class="user">
+                <img src="http://sk.tomylo.it/masterimg/dlf2ri44.jpg" alt="">
+                <span class="name">asdasd</span>
+                
+            </a>
+        </div>
+            <div class="user__nav--mobile">
+            <button class="close-btn" role="close menu">
+                <span class=""></span>
+            </button>
+
+            <a href="javascript:document.getElementById('logoutForm').submit()" class="exit">
+                <span class="text">Выход</span>
+            </a>
+           <!-- <a href="#" class="message">
+                <span class="text">Сообщения</span>
+            </a>
+            <a href="#" class="notification">
+                <span class="text">Уведомления</span>
+                <span class="notification-sum">3</span>
+            </a>-->
+         
+           <a href="#" class="favorites">
+                <span class="text">Избранное</span>
+            </a>
+            <a href="#" class="user">
+                <img src="images/src/demo/Konstantin-Konstantinov.jpg" alt="">
+                <span class="name">Константин Константинович</span>
+                <span class="notification-sum">3</span>
+            </a>
+        </div>
+            <div class="header-btns">
+                <button class="navBurger" role="navigation" id="navToggle">
+                    <span class="navBurger-line"></span>
+                </button>
+            </div>
+
+            <div class="overlay"></div>
+        </div>
+    </header>
+
+
+<form action="/Account/LogOff" class="navbar-right" id="logoutForm" method="post"><input name="__RequestVerificationToken" type="hidden" value="fwezVdW6SuTEBs2duzv_dYWAhjVr953OItIR5mzIFpZYTWhTKt4c_cw7VRoiebJxLdcetCyLo5YA835y4mWaASjhY51yjDWKeeyk6FndI5s63c2WmfjNp6es9zYGdDIPVKFTDNk7zz9hl6yKfhYHqA2" /></form>    <script src="/js/libs.min.js"></script>
+
+    <script src="/js/toastr.js"></script>
+
+    <script src="/js/jquery-ui.min.js"></script>
+<script src="/js/app.js"></script>
+<script src="/js/custom.js"></script>
+<script src="/js/home.js"></script>
+<script src="/js/jquery.mask.min.js"></script>
+<script src="/js/sweetalert.js"></script>
+
+
+
+    
+
+
+<div class="breadcrumbs">
+    <ul class="breadcrumbs__list">
+        <li><a href="/">Главная</a></li>
+        <li><a href="#">Обновление  мастера</a></li>
+    </ul>
+</div>
+
+<main class="page__add-worker">
+    <div class="container">
+
+        <section class="add-worker">
+            <form id="form__add-worker" action="/SalonOwner/UpdateMaster" method="POST">
+                <input data-val="true" data-val-number="The field SpecialityId must be a number." data-val-required="The SpecialityId field is required." id="SpecialityId" name="SpecialityId" type="hidden" value="1" />
+                <input data-val="true" data-val-number="The field MasterId must be a number." data-val-required="The MasterId field is required." id="MasterId" name="MasterId" type="hidden" value="223" />
+                <input data-val="true" data-val-number="The field SalonId must be a number." data-val-required="The SalonId field is required." id="SalonId" name="SalonId" type="hidden" value="112" />
+                <input data-val="true" data-val-number="The field OwnerId must be a number." data-val-required="The OwnerId field is required." id="OwnerId" name="OwnerId" type="hidden" value="222" />
+                <input id="CurrentName" name="CurrentName" type="hidden" value="asdasd" />
+                <input id="CurrentPhone" name="CurrentPhone" type="hidden" value="" />
+                <input data-val="true" data-val-number="The field ServiceCategoryId must be a number." data-val-required="The ServiceCategoryId field is required." id="ServiceCategoryId" name="ServiceCategoryId" type="hidden" value="0" />
+                <input id="MainPhotoFile" name="MainPhotoFile" type="hidden" value="" />
+                <input data-val="true" data-val-required="The IsSoloMaster field is required." id="hdSoloMaster" name="IsSoloMaster" type="hidden" value="True" />
+                <input data-val="true" data-val-number="The field PrevSpecialityId must be a number." data-val-required="The PrevSpecialityId field is required." id="PrevSpecialityId" name="PrevSpecialityId" type="hidden" value="1" />
+
+
+                <input id="CurrentMainPhoto" name="CurrentMainPhoto" type="hidden" value="http://sk.tomylo.it/masterimg/dlf2ri44.jpg" />
+
+                <div class="flex-column">
+                    <div class="add-worker__input-list">
+                        <h1>Изменения сотрудника</h1>
+
+                            <div class="input__wrap">
+                                <label for="worker__name">meno priezvisko</label>
+                                <input id="worker__name" type="text" pattern="^[А-Яа-яЁёA-Za-z0-9.\s]{3,100}" oninvalid="this.setCustomValidity('Пожалуйста, заполните поле')" oninput="setCustomValidity('')" value="asdasd" name="Name" placeholder="meno priezvisko" required>
+                            </div>
+                                                    <img src='http://sk.tomylo.it/masterimg/dlf2ri44.jpg' />
+                            <div class="input__wrap">
+                                <input id="master_photo" type="file" onchange="prepareAloneFile(this);" name="mnPhoto" accept="image/*" data-multiple-caption="{count} súbor je vybraný">
+                                <label for="master_photo"><span>foto odborníka krásy</span></label>
+                            </div>
+                        <div class="input__wrap select">
+                            <select id="masterSpeciality" name="SpecialityId" oninput="setCustomValidity(&#39;&#39;)" oninvalid="this.setCustomValidity(&#39;Пожалуйста, заполните поле&#39;)" required=""><option disabled="disabled" value="0">špecializ&#225;cia</option>
+<option selected="selected" value="1">Парикмахер</option>
+<option value="2">Мастер маникюра</option>
+<option value="3">Мастер педикюра</option>
+<option value="4">Мастер маникюра и педикюра</option>
+<option value="5">Визажист</option>
+<option value="6">Бровист</option>
+</select>
+                        </div>
+                    </div>
+
+                    <div class="media__add">
+                        <div class="add__photo">
+                            <h2>foto vaších prác</h2>
+                            <ul class="gallery" id="photos">
+                            <li class='del' data-type='img' data-id='99'><img src="https://beautyclick.sk/masterimg/sw1bmlpc_th.jpg" alt=""></li><li class='del' data-type='img' data-id='100'><img src="https://beautyclick.sk/masterimg/rui2h2t1_th.jpg" alt=""></li><li class='del' data-type='img' data-id='101'><img src="https://beautyclick.sk/masterimg/sw1bmlpc_th.jpg" alt=""></li><li class='del' data-type='img' data-id='102'><img src="https://beautyclick.sk/masterimg/rui2h2t1_th.jpg" alt=""></li>
+                                <li id='addButton'>
+                                    <label class="media__add-btn btn">
+                                        <input id="add__photo-btn" type="file" name="add__photo-btn" onchange="prepareFileToUpload(this)" accept="image/*">
+                                    </label>
+                                </li>
+
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="add-worker__services">
+                    <h1>služby</h1>
+
+
+                <p class="subtitle" id="beforeSpec" style="display: none">špecializácia vášho pracovníka!</p>
+                <p class="subtitle" id="afterSpec" style="display: "> vyberte šlužby, čas a cenu služieb, započítajte aj čas na upratanie po návšteve klienta</p>
+
+                    <!--    <div class="search__services" style="display: none;">
+            <input type="search" name="search-services" id="" placeholder="Добавить услугу">
+            <button class="btn">Найти</button>
+        </div>
+        -->
+
+                    <div class="input-notification block" id="serviceError" style="display: none;">
+                        <div class="error">
+                            <span class="block">vyberte aspoň jednu službu</span>
+                        </div>
+                    </div>
+                    <button type="button" class="service-add btn" style="display: none;"></button>
+                    <div class="input-notification block" id="serviceValidate" style="display: none;">
+                        <div class="error">
+                            <span class="block"></span>
+                        </div>
+                    </div>
+                    <ul class="add-worker__services-list" id="serviceList" style="display: ;">
+                        <li class="services-list__item"><div class="services__header"><div class="chbx"><input id="break-chbx-1" class="ckb" data-id="1" type="checkbox"checked ><label for="break-chbx-1">Strihanie pre pánov</label></div></div><div class="services__min"><span>Время</span><div class="input__wrap"><input id="services__min-1" type="number" name="min" value="60" maxlength="2"><label for="services__min-1"> мин</label>    </div></div><div class="services__cost"><span>Цена</span><div class="input__wrap "><input id="services__cost-1" type="number" value="300" name="cost" maxlength="5"><label for="services__cost-1"> грн</label></div></div></li><li class="services-list__item"><div class="services__header"><div class="chbx"><input id="break-chbx-2" class="ckb" data-id="2" type="checkbox" ><label for="break-chbx-2">Strihanie pre dámy</label></div></div><div class="services__min"><span>Время</span><div class="input__wrap"><input id="services__min-2" type="number" name="min" value="60" maxlength="2"><label for="services__min-2"> мин</label>    </div></div><div class="services__cost"><span>Цена</span><div class="input__wrap "><input id="services__cost-2" type="number" value="400" name="cost" maxlength="5"><label for="services__cost-2"> грн</label></div></div></li><li class="services-list__item"><div class="services__header"><div class="chbx"><input id="break-chbx-3" class="ckb" data-id="3" type="checkbox" ><label for="break-chbx-3">Стрижка детская</label></div></div><div class="services__min"><span>Время</span><div class="input__wrap"><input id="services__min-3" type="number" name="min" value="60" maxlength="2"><label for="services__min-3"> мин</label>    </div></div><div class="services__cost"><span>Цена</span><div class="input__wrap "><input id="services__cost-3" type="number" value="300" name="cost" maxlength="5"><label for="services__cost-3"> грн</label></div></div></li>
+                    </ul>
+
+                </div>
+
+            </form>
+            <button type="submit" id="btnAddWorker" form="form__add-worker" class="submit-registration btn">Сохранить</button>
+        </section>
+
+    </div>
+</main>
+
+
+<div id="service__popup" class="popup">
+    <div class="overlay"></div>
+    <div class="popup__form">
+        <div class="title-wpap">
+            <h2 class="top-title">pridanie novej služby</h2>
+            <div class="booked__time">
+            </div>
+        </div>
+
+        <button class="close-btn addserviceClosebtn"><span></span></button>
+        <form class="popup-form__booked" id="frmCreateService"  method="POST">
+            <input id="hdSalonId" name="SalonId" type="hidden" value="112" />
+            <div class="input__wrap">
+                <input id="service__name" type="text" name="Name"  pattern="^[А-Яа-яЁёA-Za-z0-9\s]{3,100}" oninvalid="this.setCustomValidity('Пожалуйста, заполните поле')" oninput="setCustomValidity('')" placeholder="Название услуги" required>
+            </div>
+
+            <div class="input__wrap">
+                <input id="newservice_cost" type="number" name="Price" placeholder="cena služby" required>
+            </div>
+            <div class="input__wrap select">
+             
+                <select name="Duration" id="service__duration">
+                    <option value="" disabled="" selected="">trvanie služby</option>
+                    <option value="30">30 minút</option>
+                    <option value="60">1 hodina </option>
+                    <option value="90">1,5 hodiny</option>
+                    <option value="120">2 hodiny</option>
+                    <option value="150">2,5 hodiny</option>
+                    <option value="180">3 hodiny </option>
+                    <option value="210">3,5 hodiny</option>
+                    <option value="240">4 hodiny</option>
+                </select>
+            </div>
+
+            <button class="btn" type="submit">pridať</button>
+        </form>
+    </div>
+</div>
+
+;
+
+
+    <style>
+    .active:hover {
+        font-weight: bolder !important;
+    }
+</style>
+<div id="login__popup" class="popup">
+    <div class="overlay"></div>
+    <div class="enter__form">
+        <h2 class="top-title">Autorizácia</h2>
+        <button class="close-btn loginclose-btn">
+            <span></span>
+        </button>
+        <form class="form__login" id="frmPopUpLogin" action="/Account/CustomerLogin" method="POST">
+
+            <input name="__RequestVerificationToken" type="hidden" value="0AwIfu7ZBywV-tp2RH6p_vsCuJl6s-J8CQbnYM31TcUU0PskuSWNf8zSDaJA47t5FK_CCCAJprHlwJBr8wCKQhiLkcUY7DUKPi5XYJz8W26q7mLIHoMoKaOusDEVG5ccR-hVAJncwjksvGQrpa3udg2" />
+            <div class="input__wrap">
+                <div class="input-notification correctly">
+                    <label for="popup-login__phone">Telefónne číslo</label>
+                    <input id="popup-login__phone" type="tel" name="phone" minlength="17" placeholder="Telefónne číslo" required>
+                </div>
+            </div>
+            <div class="input__wrap">
+                <label for="popup-login__password">Heslo</label>
+                <input id="popup-login__password" type="password" name="password" placeholder="" required>
+                <span class="fa-eye field-icon toggle-password" toggle="#popup-login__password"></span>
+            </div>
+            <span class="no-account"><a class="active" href="/account/forgotpassword/">Забыли пароль?</a></span>
+            <br/>
+
+            <button class="btn">Vstúpiť</button>
+        </form>
+
+        <span class="no-account">Ešte nemáte účet?  <a class="active popupRegPopUp" href="#">Zaregistrovať sa</a></span>
+    </div>
+</div>
+
+
+
+    <div id="reg__popup" class="popup">
+    <div class="overlay"></div>
+    <div class="enter__form">
+        <h2 class="top-title">Registrácia</h2>
+        <button class="close-btn regclose-btn">
+            <span></span>
+        </button>
+        <form class="popup-form__reg" id="frmPopUpReg" action="/Account/Registration" method="POST">
+            <input name="__RequestVerificationToken" type="hidden" value="7SY0t_M8fDFxf7uv-zwr3PbNxDVo03JqNcF12n0X3iDdb89G-VaFaco_MbMjoaZzm2aWi0nTYsE--XjKghJ98G5ktpl8s_3Ka8XKwREExUmyipi5nYpnhrWEOxDfzticjZaapLLwo7kx-zbs6uOGEA2" />
+            <div class="input__wrap">
+                <label for="popup-reg__name">Meno a priezvisko</label>
+                <input id="popup-reg__name" type="text" name="name" minlength="3" placeholder="Meno a priezvisko" required>
+            </div>
+            <div class="input__wrap">
+                <label for="popup-reg__phone">Telefónne číslo</label>
+                <input id="popup-reg__phone" type="tel" name="phone" minlength="17" placeholder="Telefónne číslo" required>
+            </div>
+
+            <div class="input__wrap">
+                <label for="popup-reg__password">Heslo</label>
+                <input id="popup-reg__password" type="password" name="password" placeholder="Heslo" required>
+                <span class="fa-eye field-icon toggle-password" toggle="#popup-reg__password"></span>
+            </div>
+
+            <!--<a class="active" href="#">Забыли пароль?</a>--->
+
+            <button type="submit" class="btn">Registrácia</button>
+            <br />
+        </form>
+        <br />
+        <span class="no-account">Máte účet? Vstúpiť <a class="active popupLoginModal" href="#">Vstúpiť</a></span>
+    </div>
+</div>
+    <div id="phConfirm__popup" class="popup">
+    <div class="overlay"></div>
+    <div class="enter__form">
+        <h2 class="top-title">Potvrdenie tel. čísla</h2>
+       <!-- <button class="close-btn phConfirmClose-btn">
+            <span></span>
+        </button>-->
+        <form class="popup-form__login" id="frmConfirmPhone" action="/Account/PhoneConfirm" method="POST">
+            <div class="input__wrap">
+                <label for="popup-phConfirm__code">Potvrdzovací kód</label>
+                <input id="popup-phConfirm__code" type="text" name="code" minlength="6" maxlength="6" placeholder="Potvrdzovací kód" required>
+            </div>
+            <button class="btn" type="submit">Potvrdiť</button>
+        </form>
+    </div>
+</div>
+    <footer class="footer">
+    <div class="container">
+
+        <nav class="footer__nav">
+            <ul class="menu">
+                <li class="menu__item">
+                    <a href="/static/Obchodne_podmienky.html" target="_blank">Obchodné podmienky</a>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- <ul class="social__list">
+            <li class="insta">
+                <a href="#"></a>
+            </li>
+            <li class="fb">
+                <a href="#"></a>
+            </li>
+        </ul>
+        -->
+    </div>
+
+</footer>
+
+
+    
+
+    <script src="/js/custom.js"></script>
+    <script src="/js/image.js"></script>
+    <script src="/js/master.js"></script>
+    
+    <script type="text/javascript">
+
+        $(document).ready(function() {
+        
+            
+        });
+    </script>
+
+    <script type="text/javascript">
+
+        $(document).click(function(e) {
+            if ($(e.target).is('.overlay')) {
+                $.each( $('.popup'), function( key, value ) {
+                    if ($(value).hasClass("show")) {
+                        $(value).toggleClass("show");
+                    }
+                });
+                
+                //$('.popup').toggle();
+                $('.modalImg').fadeOut(500);
+            }
+        });
+
+
+        $(document).ready(function() {
+
+            $.ajaxSetup({
+                headers: { "CustomHeader": "myValue" }
+            });
+
+            var msg = '';
+            if (msg !== undefined && msg.length > 0) {
+                successMsg(msg);
+            }
+
+            var msgcenter = '';
+            if (msgcenter!==undefined&& msgcenter.length>0) {
+                successMsgC(msgcenter);
+        }
+        if ('True' === 'True' && '4'==='5' && 'False'==='False')
+        {
+            $("#phConfirm__popup").toggleClass("show");
+        }
+    });
+
+        $('#popup-login__phone').mask("+38(000)-000-0000", { placeholder: "+38(xxx)xxx-xxxx" });
+        $('#popup-reg__phone').mask("+38(000)-000-0000", { placeholder: "+38(xxx)xxx-xxxx" });
+
+
+
+        $(document).ready(function(e) {
+
+
+            var isM = 'True';
+            var isS = 'True';
+            if (isM === 'True' || isS==='True') {
+                var isViberActivated = 'False';
+                if (isViberActivated === 'False') {
+
+                    Swal.fire({
+                        title: '',
+                        html: 'Вы не активировали Viber уведомления. Вы хотите получать уведомления о новых записях?',
+                        text: "",
+                        icon: 'question',
+                        showCancelButton: true,
+                        confirmButtonColor: '#3085d6',
+                        cancelButtonColor: '#d33',
+                        confirmButtonText: 'Хочу!',
+                        cancelButtonText: 'Нет.'
+                    }).then((result) => {
+
+                        if (result.isConfirmed) {
+                            location.href = 'viber://pa?chatURI=beautyclickvrbot&context=master_RuKaA7QUFR';
+                            //console.log('viber://pa?chatURI=beautyclickvrbot&context=master_RuKaA7QUFR');
+                        }
+                    if (!result.isConfirmed) {
+
+                    }
+                });
+                }
+            }
+        });
+
+
+        $(document).on('click', '.loginclose-btn', function(e) {
+            $("#login__popup").toggleClass("show");
+        });
+
+
+        $(document).on('click', '.regclose-btn', function(e) {
+            $("#reg__popup").toggleClass("show");
+        });
+
+        $(".loginnk").click(function(e) {
+            e.preventDefault();
+            if ('True' === 'True') {
+                return;
+            }
+            $("#login__popup").toggleClass("show");
+        });
+
+        $(".popupReg").click(function(e) {
+            e.preventDefault();
+            if ('True' === 'True') {
+                return;
+            }
+            $("#reg__popup").toggleClass("show");
+        });
+
+        $(document).on('click', '.popupRegPopUp', function(e) {
+            $("#reg__popup").toggleClass("show");
+            $("#login__popup").toggleClass("show");
+        });
+
+        $(document).on('click', '.popupLoginModal', function(e) {
+            $("#reg__popup").toggleClass("show");
+            $("#login__popup").toggleClass("show");
+        });
+          
+        $(document).ajaxStart(function () {
+            $("#overlay").show();
+        })
+        .ajaxStop(function () {
+            $("#overlay").hide();
+        });
+
+
+     
+    </script>
+</body>
+</html>

@@ -1,0 +1,296 @@
+form
+  width: 100%
+  // max-width: 243px
+  max-width: 346px
+  display: flex
+  flex-flow: column
+
+input, 
+select
+  width: 100%
+  height: 32px
+  padding: 0 14px
+  background: #FFFFFF
+  border: 1px solid #D0D0D0
+  border-color: #D0D0D0
+  border-radius: 22px
+
+input
+  border-color: #D0D0D0
+
+.input__wrap
+  width: 100%
+  position: relative
+  display: flex
+  flex-flow: column
+
+label
+  display: none
+
+input, 
+textarea,
+select
+  margin-bottom: 10px
+  transition: border-color .25s ease, box-shadow .25s ease
+  &:focus 
+    outline: 0
+    border-color: #888
+
+input, textarea
+	outline: none
+	// &:focus:required:invalid
+	// 	border-color: $red
+  // &:invalid:not(:focus):not(:placeholder-shown)
+  //   border-color: $red
+  //   background: pink !important
+  //   & + label
+  //     color: red
+  //     & + .error 
+  //       // display: block
+  //       max-height: 100px
+  //       padding: 9px
+  //       border: 1px solid red
+    
+  &:hover
+    box-shadow: 0 1px 3px rgba(#c5c5c5, 40%) inset
+
+  
+// select
+//   &:required:valid
+//     border-color: #2CD172
+        
+  
+
+input[type="text"],
+input[type="tel"],
+input[type="email"],
+input[type="password"]
+  padding-right: 40px
+  &:disabled
+    color: #EAEAEA !important
+    border-color: #EAEAEA !important
+    & + label
+      color: #EAEAEA
+
+  &:valid
+    background: #fff url("data:image/svg+xml,%3Csvg width='15' height='12' viewBox='0 0 15 12' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M4.76691 9.02723L1.21092 5.60665L0 6.76325L4.76691 11.3486L15 1.50523L13.7976 0.348633L4.76691 9.02723Z' fill='%232CD172'/%3E%3C/svg%3E%0A") no-repeat
+    background-size: 15px 12px
+    background-repeat: no-repeat
+    background-position: right 15px top 9px
+    border-color: #2CD172
+    // & + label 
+    //   opacity: 0
+  
+  &:invalid:not(:focus):not(:placeholder-shown)
+    background: #fff url("data:image/svg+xml,%3Csvg width='10' height='11' viewBox='0 0 10 11' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M10 1.45246L8.99286 0.445312L5 4.43817L1.00714 0.445312L0 1.45246L3.99286 5.44531L0 9.43817L1.00714 10.4453L5 6.45246L8.99286 10.4453L10 9.43817L6.00714 5.44531L10 1.45246Z' fill='%23EC405D'/%3E%3C/svg%3E%0A") no-repeat
+    background-size: 15px 12px
+    background-repeat: no-repeat
+    background-position: right 15px top 9px
+    border-color: $red
+    // & + label
+    //   opacity: 0
+
+
+input[type="password"],
+input[name="password"]
+  &:valid,
+  &:invalid:not(:focus):not(:placeholder-shown)
+    background-position: right 50px top 9px
+    padding-right: 80px
+
+
+textarea
+  width: 100%
+  height: 107px
+  padding: 10px 14px
+  background: #FFFFFF
+  border: 1px solid #D0D0D0
+  border-radius: 10px
+
+
+#login-password,
+#signup-password
+  padding-right: 35px
+
+
+span.field-icon 
+  width: 17px
+  height: 12px
+  position: absolute
+  display: inline-block
+  cursor: pointer
+  right: 14px
+  bottom: 20px
+  // background: #D0D0D0
+  background: $textcolor
+  z-index: 2
+
+.fa-eye
+  mask: url(../images/src/eye-solid.svg) no-repeat
+  
+.fa-eye-slash
+  mask: url(../images/src/eye-slash-solid.svg) no-repeat
+
+
+
+
+
+
+.chbx
+  width: auto
+  height: auto
+  display: inline-flex
+  align-items: center
+  position: relative
+  label
+    width: auto
+    height: auto
+    display: inline-flex
+    position: relative
+    cursor: pointer
+    margin-bottom: 0
+  label:after
+    transition: .3s
+  label:before
+    content: ''
+    // width: 10px
+    // height: 10px
+    width: 15px
+    height: 15px
+    border: 1px solid #B2B2B2
+    border-radius: 2px
+    position: absolute
+    left: 50%
+    top: 0
+    transform: translateX(-50%)
+    display: flex
+    align-items: center
+    transition: .3s
+
+input[type=radio]
+  display: none
+
+input[type=checkbox]
+  display: none
+  // transition: .3s ease
+  &:checked + label:before
+    border: 1px solid $red
+    background: $red
+  &:checked + label:after
+    content: ''
+    position: absolute
+    top: 1px
+    left: 50%
+    width: 6px
+    height: 10px
+    transform: translateX(-50%) rotate(45deg)
+    border-right: 2px solid #fff
+    border-bottom: 2px solid #fff
+
+select
+  appearance: none
+.select,
+.select--sort
+  position: relative
+  display: inline-block
+  &:after 
+    content: ""
+    position: absolute
+    top: 14px
+    right: 14px
+    width: 0
+    height: 0
+    border-style: solid
+    border-width: 7px 5px 0 5px
+    border-color: $lightgrey transparent transparent transparent
+    z-index: 1
+    text-align: center
+    pointer-events: none
+
+.select--sort
+  width: auto
+  padding: 0
+  margin: 10px auto 10px 0
+  &:after
+    top: 14px
+    right: -18px
+    border-color: $grey transparent transparent transparent
+  select
+    padding: 0
+    margin: 0
+    background: none
+    border: none
+    font-weight: 500
+    font-size: 14px
+    color: $red
+
+.input-notification
+  margin-bottom: 10px
+  order: -1
+  &.correctly .correctly
+    display: flex
+  &.block .block
+    display: flex
+  &.bad-error .bad-error
+    display: flex
+  &.bad-pswd .bad-pswd,
+  &.bad-pswd .bad-password
+    display: flex
+  .ok span
+    display: none
+    color: #2CD172
+    
+  .info span
+    color: #888888
+    font-style: italic
+    font-weight: 500
+  
+  .error span
+    position: relative
+    display: none
+    padding-left: 22px
+    color: $red
+    &::before
+      content: ''
+      width: 15px
+      height: 16px
+      position: absolute
+      left: 0
+      top: -2px
+      background: url("data:image/svg+xml,%3Csvg width='15' height='16' viewBox='0 0 15 16' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M10.6083 0.348633H4.39167L0 4.7403V10.957L4.39167 15.3486H10.6083L15 10.957V4.7403L10.6083 0.348633ZM7.5 12.2653C6.9 12.2653 6.41667 11.782 6.41667 11.182C6.41667 10.582 6.9 10.0986 7.5 10.0986C8.1 10.0986 8.58333 10.582 8.58333 11.182C8.58333 11.782 8.1 12.2653 7.5 12.2653ZM8.33333 8.68197H6.66667V3.68197H8.33333V8.68197Z' fill='%23EC405D'/%3E%3C/svg%3E%0A")
+
+
+
+
+
+input[type="file"]
+  width: 0.1px
+  height: 0.1px
+  opacity: 0
+  overflow: hidden
+  position: absolute
+  z-index: -1
+
+input[type="file"] + label
+  width: 100%
+  height: 32px
+  padding: 0 14px
+  text-overflow: ellipsis
+  white-space: nowrap
+  cursor: pointer
+  display: flex
+  align-items: center
+  overflow: hidden
+  color: #4D4D4D
+  background: #FFFFFF
+  border: 1px solid #D0D0D0
+  border-radius: 22px
+  transition: .3s
+
+.no-js input[type="file"] + label
+  display: none
+
+input[type="file"]:focus + label,
+input[type="file"].has-focus + label
+  border-color: #888
+  outline: none

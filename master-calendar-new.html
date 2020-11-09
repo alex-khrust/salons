@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+
+	<meta charset="utf-8">
+	<title>ВсеСалоны</title>
+	<meta name="description" content="ВсеСалоны">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+	<link rel="icon" href="images/favicon.png">
+	<meta property="og:image" content="images/dest/preview.jpg">
+	<meta property="og:type" content="website">
+  <meta property="og:url" content="">
+  <meta property="og:site_name" content="">
+  <meta property="og:title" content="">
+	<link rel="stylesheet" href="css/app.min.css">
+
+</head>
+
+<body>
+
+	<header class="header">
+		<div class="container">
+			<a href="#" class="logo">
+				<img src="images/src/logo.svg" alt="логотип">
+				<span>ВсеСалоны</span>
+      </a>
+      
+      <button class="place">Киев</button>
+
+			<nav class="header__nav">
+				<div class="nav__header">
+					<a href="#" class="logo">
+						<img src="images/src/logo.svg" alt="логотип">
+						<span>ВсеСалоны</span>
+					</a>
+					<button class="navBurger" role="navigation" id="navToggle">
+						<span class="navBurger-line active"></span>
+					</button>
+				</div>
+				
+				<ul class="menu">
+					<li class="menu__item menu__item--salons">
+						<a href="#">Салоны</a>
+					</li>
+					<li class="menu__item menu__item--articles">
+						<a href="#">Статьи</a>
+					</li>
+					<li class="menu__item menu__item--reviews">
+						<a href="#">Отзывы</a>
+					</li>
+					<li class="menu__item menu__item--questions">
+						<a href="#">Вопросы</a>
+					</li>
+				</ul>
+			</nav>
+      
+      <div class="languages">
+        <a class="active" href="#">RU</a>
+        <a href="#">UA</a>
+      </div>
+
+			<div class="enter">
+				<a class="login" href="login.html">Войти</a>
+				<a class="signup active" href="signup.html">Регистрация</a>
+      </div>
+      
+			<div class="header-btns">
+				<button class="enter-btn"></button>
+				<button class="navBurger" role="navigation" id="navToggle">
+					<span class="navBurger-line"></span>
+				</button>
+			</div>
+
+			<div class="overlay"></div>
+		</div>
+	</header>
+
+  <div class="breadcrumbs">
+    <ul class="breadcrumbs__list">
+      <li><a href="#">Главная</a></li>
+      <li><a href="master-calendar-new.html">Календарь мастера</a></li>
+    </ul>
+  </div>
+
+	<main class="page__master-calendar--new">
+		<div class="container">
+
+			<section class="master-calendar">
+        <div class="title">
+          <h1>Календарь мастера</h1>
+          <span>8 Июля, Среда</span>
+        </div>
+
+        <div class="flex-row">
+          <div class="date">
+            <ul class="date__list">
+              <li class="weekend">
+                <span>5</span>
+                <span>ВС</span>
+                <span class="notice">0</span>
+              </li>
+              <li>
+                <span>6</span>
+                <span>ПН</span>
+                <span class="notice red">2</span>
+              </li>
+              <li>
+                <span>7</span>
+                <span>ВТ</span>
+                <span class="notice red">6</span>
+              </li>
+              <li class="active">
+                <span>8</span>
+                <span>СР</span>
+                <span class="notice red">5</span>
+              </li>
+              <li>
+                <span>9</span>
+                <span>ЧТ</span>
+                <span class="notice red">2</span>
+              </li>
+              <li>
+                <span>10</span>
+                <span>ПТ</span>
+                <span class="notice red">6</span>
+              </li>
+              <li class="weekend">
+                <span>11</span>
+                <span>СБ</span>
+                <span class="notice">0</span>
+              </li>
+            </ul>
+          </div>
+  
+          <div class="wrap-timetable">
+            <ul class="free-time__list">
+              <li>
+                <button>
+                  <span class="start">10:00</span>
+                   - 
+                  <span class="end">12:00</span>
+                </button>
+              </li>
+              <li>
+                <button>
+                  <span class="start">10:00</span>
+                   - 
+                  <span class="end">12:00</span>
+                </button>
+              </li>
+            </ul>
+            <ul class="timetable">
+              <li>
+                <div class="booked-time">
+                  <span>7:00</span>
+                   - 
+                  <span>8:00</span>
+                </div>
+                <div class="booked">
+                  <div class="flex-column">
+                    <span class="service">Женская стрижка</span>
+                    <span class="client">Светлана Светлановна</span>
+                  </div>
+                  <button class="delete"></button>
+                </div>
+                <div class="booked">
+                  <div class="flex-column">
+                    <span class="service">Мужская стрижка</span>
+                    <span class="client">Константин Константинович</span>
+                  </div>
+                  <button class="delete"></button>
+                </div>
+                <div class="booked">
+                  <div class="flex-column">
+                    <span class="service">Женская стрижка</span>
+                    <span class="client">Светлана Светлановна</span>
+                  </div>
+                  <button class="delete"></button>
+                </div>
+                <div class="booked">
+                  <div class="flex-column">
+                    <span class="service">Женская стрижка</span>
+                    <span class="client">Светлана Светлановна</span>
+                  </div>
+                  <button class="delete"></button>
+                </div>
+                <div class="booked">
+                  <div class="flex-column">
+                    <span class="service">Мужская стрижка</span>
+                    <span class="client">Константин Константинович</span>
+                  </div>
+                  <button class="delete"></button>
+                </div>
+                <div class="booked">
+                  <div class="flex-column">
+                    <span class="service">Женская стрижка</span>
+                    <span class="client">Светлана Светлановна</span>
+                  </div>
+                  <button class="delete"></button>
+                </div>
+              </li>
+              <li>
+                <div class="booked-time">
+                  <span>8:00</span>
+                   - 
+                  <span>10:00</span>
+                </div>
+                <div class="booked">
+                  <div class="flex-column">
+                    <span class="service">Женская стрижка</span>
+                    <span class="client">Светлана Светлановна</span>
+                  </div>
+                  <button class="delete"></button>
+                </div>
+                <div class="booked">
+                  <div class="flex-column">
+                    <span class="service">Мужская стрижка</span>
+                    <span class="client">Константин Константинович</span>
+                  </div>
+                  <button class="delete"></button>
+                </div>
+                <div class="booked">
+                  <div class="flex-column">
+                    <span class="service">Женская стрижка</span>
+                    <span class="client">Светлана Светлановна</span>
+                  </div>
+                  <button class="delete"></button>
+                </div>
+              </li>
+              <li>
+                <div class="booked-time">
+                  <span>12:00</span>
+                   - 
+                  <span>15:00</span>
+                </div>
+                <div class="booked">
+                  <div class="flex-column">
+                    <span class="service">Женская стрижка</span>
+                    <span class="client">Светлана Светлановна</span>
+                  </div>
+                  <button class="delete"></button>
+                </div>
+                <div class="booked">
+                  <div class="flex-column">
+                    <span class="service">Мужская стрижка</span>
+                    <span class="client">Константин Константинович</span>
+                  </div>
+                  <button class="delete"></button>
+                </div>
+                <div class="booked">
+                  <div class="flex-column">
+                    <span class="service">Женская стрижка</span>
+                    <span class="client">Светлана Светлановна</span>
+                  </div>
+                  <button class="delete"></button>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+        
+      </section>
+
+		</div>
+	</main>
+
+	<div id="login__popup" class="popup">
+		<div class="overlay"></div>
+		<div class="enter__form">
+			<h2 class="top-title">Авторизация</h2>
+			<button class="close-btn">
+				<span></span>
+			</button>
+			<form class="popup-form__login" action="" method="POST">
+
+				<div class="input__wrap">
+					<label for="popup-login__phone">Номер телефона</label>
+					<input id="popup-login__phone" type="tel" name="phone" placeholder="Номер телефона" required>
+				</div>
+
+				<div class="input__wrap">
+					<label for="popup-login__password">Пароль</label>
+					<input id="popup-login__password" type="password" name="password" placeholder="Пароль" required>
+					<span class="fa-eye field-icon toggle-password"></span>
+				</div>
+
+				<a class="active" href="#">Забыли пароль?</a>
+
+				<button class="btn">Войти</button>
+			</form>
+
+			<span class="no-account">Нет аккаунта? <a class="active" href="#">Зарегистрироваться</a></span>
+		</div>
+  </div>
+  
+
+	<script src="js/libs.min.js"></script>
+  <script src="js/app.js"></script>
+  
+  <script>
+    // Добавление нумерации для чекбокосов ============================
+    $('body').each(function() {
+        $('.chbx', this).each(function(i) {
+            $(this).find('input').attr('id', 'chbx--' + (i + 1));
+            $(this).find('label').attr('for', 'chbx--' + (i + 1));
+        })
+    });
+  </script>
+
+</body>
+</html>

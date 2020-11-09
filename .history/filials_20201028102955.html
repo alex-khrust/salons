@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+
+	<meta charset="utf-8">
+	<title>ВсеСалоны</title>
+	<meta name="description" content="ВсеСалоны">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+	<link rel="icon" href="images/favicon.png">
+	<meta property="og:image" content="images/dest/preview.jpg">
+	<meta property="og:type" content="website">
+  <meta property="og:url" content="">
+  <meta property="og:site_name" content="">
+  <meta property="og:title" content="">
+	<link rel="stylesheet" href="css/app.min.css">
+
+</head>
+
+<body>
+
+	<header class="header authorized">
+		<div class="container">
+			<a href="#" class="logo">
+				<img src="images/src/logo.svg" alt="логотип">
+				<span>ВсеСалоны</span>
+      </a>
+      
+      <button class="place">Киев</button>
+
+			<nav class="header__nav">
+				<div class="nav__header">
+					<a href="#" class="logo">
+						<img src="images/src/logo.svg" alt="логотип">
+						<span>ВсеСалоны</span>
+					</a>
+					<button class="close-btn" role="close menu">
+						<span></span>
+					</button>
+				</div>
+				
+				<ul class="menu">
+					<li class="menu__item menu__item--salons">
+						<a href="#">Салоны</a>
+					</li>
+					<li class="menu__item menu__item--articles">
+						<a href="#">Статьи</a>
+					</li>
+					<li class="menu__item menu__item--reviews">
+						<a href="#">Отзывы</a>
+					</li>
+					<li class="menu__item menu__item--questions">
+						<a href="#">Вопросы</a>
+					</li>
+				</ul>
+			</nav>
+      
+      <div class="languages">
+        <a class="active" href="#">RU</a>
+        <a href="#">UA</a>
+      </div>
+
+			<div class="enter">
+				<a class="login" href="login.html">Войти</a>
+				<a class="signup active" href="signup.html">Регистрация</a>
+      </div>
+      
+      <div class="user__nav">
+
+        <a href="#" class="exit">
+          <span class="text">Выход</span>
+        </a>
+        <a href="#" class="message">
+          <span class="text">Сообщения</span>
+        </a>
+        <a href="#" class="notification">
+          <span class="text">Умведомления</span>
+          <span class="notification-sum">3</span>
+        </a>
+        <a href="#" class="favorites">
+          <span class="text">Избранное</span>
+        </a>
+        <a href="#" class="user">
+          <img src="images/src/demo/Konstantin-Konstantinov.jpg" alt="">
+          <span class="name">Константин Константинович</span>
+          <span class="notification-sum">3</span>
+        </a>
+      </div>
+
+      <div class="user__nav--mobile">
+        <button class="close-btn" role="close menu">
+          <span class=""></span>
+        </button>
+
+        <a href="#" class="exit">
+          <span class="text">Выход</span>
+        </a>
+        <a href="#" class="message">
+          <span class="text">Сообщения</span>
+        </a>
+        <a href="#" class="notification">
+          <span class="text">Умведомления</span>
+          <span class="notification-sum">3</span>
+        </a>
+        <a href="#" class="favorites">
+          <span class="text">Избранное</span>
+        </a>
+        <a href="#" class="user">
+          <img src="images/src/demo/Konstantin-Konstantinov.jpg" alt="">
+          <span class="name">Константин Константинович</span>
+          <span class="notification-sum">3</span>
+        </a>
+      </div>
+
+			<div class="header-btns">
+				<button class="navBurger" role="navigation" id="navToggle">
+					<span class="navBurger-line"></span>
+				</button>
+      </div>
+
+			<div class="overlay"></div>
+		</div>
+	</header>
+
+  <div class="breadcrumbs">
+    <ul class="breadcrumbs__list">
+      <li><a href="#">Главная</a></li>
+      <li><a href="filials.html">Филиалы</a></li>
+    </ul>
+  </div>
+
+	<main class="page__filials">
+		<div class="container">
+
+			<section class="filials">
+
+        <h1>Филиалы</h1>
+        <a href="" class="btn">Добавить</a>
+
+        <ul class="filials__list">
+          <li>
+            <div class="filial-slider swiper-container">
+              <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                  <img src="images/src/demo/filial.jpg" alt="">
+                </div>
+                <div class="swiper-slide">
+                  <img src="images/src/demo/filial.jpg" alt="">
+                </div>
+                <div class="swiper-slide">
+                  <img src="images/src/demo/filial.jpg" alt="">
+                </div>
+              </div>
+              <!-- Add Pagination -->
+             <div class="swiper-pagination"></div>
+            </div>
+            <div class="filial__desc">
+              <div class="inner">
+                <h3>Givera</h3>
+                <ul class="location">
+                  <li>Киев</li>
+                  <li>Львов</li>
+                </ul>
+                <div class="amount"><span class="number">3</span>филиала</div>
+                <ul class="stars">
+                  <li class="gold"></li>
+                  <li class="gold"></li>
+                  <li class="gold"></li>
+                  <li class="gold"></li>
+                  <li></li>
+                </ul>
+                <!-- <label class="heart">
+                  <input type="checkbox" name="favorites" value="1" aria-label="Избранное">
+                </label> -->
+
+                <l class="heart">
+                  <input class="rating__star" type="checkbox" name="heart" value="1" aria-label="Избранное">
+                </l>
+
+              </div>
+              <div class="filial__btns">
+                <button class="btn invers">Редактировать</button>
+                <button class="btn">Удалить</button>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="filial-slider swiper-container">
+              <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                  <img src="images/src/demo/filial.jpg" alt="">
+                </div>
+                <div class="swiper-slide">
+                  <img src="images/src/demo/filial.jpg" alt="">
+                </div>
+                <div class="swiper-slide">
+                  <img src="images/src/demo/filial.jpg" alt="">
+                </div>
+              </div>
+              <!-- Add Pagination -->
+             <div class="swiper-pagination"></div>
+            </div>
+            <div class="filial__desc">
+              <div class="inner">
+                <h3>Givera</h3>
+                <ul class="location">
+                  <li>Киев</li>
+                  <li>Львов</li>
+                </ul>
+                <div class="amount"><span class="number">3</span>филиала</div>
+                <ul class="stars">
+                  <li class="gold"></li>
+                  <li class="gold"></li>
+                  <li class="gold"></li>
+                  <li class="gold"></li>
+                  <li></li>
+                </ul>
+                <label class="heart">
+                  <input type="checkbox" name="favorites" value="1" aria-label="Избранное">
+                </label>
+              </div>
+              <div class="filial__btns">
+                <button class="btn invers">Редактировать</button>
+                <button class="btn">Удалить</button>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="filial-slider swiper-container">
+              <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                  <img src="images/src/demo/filial.jpg" alt="">
+                </div>
+                <div class="swiper-slide">
+                  <img src="images/src/demo/filial.jpg" alt="">
+                </div>
+                <div class="swiper-slide">
+                  <img src="images/src/demo/filial.jpg" alt="">
+                </div>
+              </div>
+              <!-- Add Pagination -->
+             <div class="swiper-pagination"></div>
+            </div>
+            <div class="filial__desc">
+              <div class="inner">
+                <h3>Givera</h3>
+                <ul class="location">
+                  <li>Киев</li>
+                  <li>Львов</li>
+                </ul>
+                <div class="amount"><span class="number">3</span>филиала</div>
+                <ul class="stars">
+                  <li class="gold"></li>
+                  <li class="gold"></li>
+                  <li class="gold"></li>
+                  <li class="gold"></li>
+                  <li></li>
+                </ul>
+                <label class="heart">
+                  <input type="checkbox" name="favorites" value="1" aria-label="Избранное">
+                </label>
+              </div>
+              <div class="filial__btns">
+                <button class="btn invers">Редактировать</button>
+                <button class="btn">Удалить</button>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="filial-slider swiper-container">
+              <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                  <img src="images/src/demo/filial.jpg" alt="">
+                </div>
+                <div class="swiper-slide">
+                  <img src="images/src/demo/filial.jpg" alt="">
+                </div>
+                <div class="swiper-slide">
+                  <img src="images/src/demo/filial.jpg" alt="">
+                </div>
+              </div>
+              <!-- Add Pagination -->
+             <div class="swiper-pagination"></div>
+            </div>
+            <div class="filial__desc">
+              <div class="inner">
+                <h3>Givera</h3>
+                <ul class="location">
+                  <li>Киев</li>
+                  <li>Львов</li>
+                </ul>
+                <div class="amount"><span class="number">3</span>филиала</div>
+                <ul class="stars">
+                  <li class="gold"></li>
+                  <li class="gold"></li>
+                  <li class="gold"></li>
+                  <li class="gold"></li>
+                  <li></li>
+                </ul>
+                <label class="heart">
+                  <input type="checkbox" name="favorites" value="1" aria-label="Избранное">
+                </label>
+              </div>
+              <div class="filial__btns">
+                <button class="btn invers">Редактировать</button>
+                <button class="btn">Удалить</button>
+              </div>
+            </div>
+          </li>
+        </ul>
+
+      </section>
+
+		</div>
+	</main>
+
+	<div id="login__popup" class="popup">
+		<div class="overlay"></div>
+		<div class="enter__form">
+			<h2 class="top-title">Авторизация</h2>
+			<button class="close-btn">
+				<span></span>
+			</button>
+			<form class="popup-form__login" action="" method="POST">
+
+				<div class="input__wrap">
+					<label for="popup-login__phone">Номер телефона</label>
+					<input id="popup-login__phone" type="tel" name="phone" placeholder="Номер телефона" required>
+				</div>
+
+				<div class="input__wrap">
+					<label for="popup-login__password">Пароль</label>
+					<input id="popup-login__password" type="password" name="password" placeholder="Пароль" required>
+					<span class="fa-eye field-icon toggle-password"></span>
+				</div>
+
+				<a class="active" href="#">Забыли пароль?</a>
+
+				<button class="btn">Войти</button>
+			</form>
+
+			<span class="no-account">Нет аккаунта? <a class="active" href="#">Зарегистрироваться</a></span>
+		</div>
+  </div>
+  
+
+	<script src="js/libs.min.js"></script>
+  <script src="js/app.js"></script>
+  
+  <script>
+    // Добавление нумерации для чекбокосов ============================
+    $('body').each(function() {
+        $('.chbx', this).each(function(i) {
+            $(this).find('input').attr('id', 'chbx--' + (i + 1));
+            $(this).find('label').attr('for', 'chbx--' + (i + 1));
+        })
+    });
+  </script>
+  <script>
+    $('.languages a').confirm({
+      title: '',
+      content: "Хотите сменить язык?",
+      buttons: {
+          Да: function(){
+          },
+          Нет: function(){
+          },
+      },
+      somethingElse: {
+          text: 'Something else',
+          btnClass: 'btn',
+          keys: ['Да', 'Нет'],
+          action: function(){
+              $.alert('Something else?');
+          }
+      },
+    });
+
+    $('.filials>.btn').confirm({
+      title: '',
+      content: "Хотите добавить филиал?",
+      buttons: {
+          Да: function(){
+          },
+          Нет: function(){
+          },
+      },
+      somethingElse: {
+          text: 'Something else',
+          btnClass: 'btn',
+          keys: ['Да', 'Нет'],
+          action: function(){
+              $.alert('Something else?');
+          }
+      },
+    });
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,513 @@
+.page__articles,
+.page__articles--new,
+.page__video
+  margin-top: 20px
+
+.articles,
+.video__section
+  width: 100%
+  display: flex
+  flex-flow: column
+  align-items: center
+
+  &>h1
+    font-size: 20px
+    line-height: 1.35
+    margin-bottom: 40px
+
+  &__list
+    width: 100%
+    max-width: 100%
+    height: auto
+    display: grid
+    grid-template-columns: repeat(auto-fill, minmax(auto, 270px))
+    grid-auto-rows: minmax(332px, auto)
+    grid-auto-flow: row
+    grid-gap: 30px
+    align-items: start
+    justify-content: center
+    &>li
+      width: 270px
+      height: auto
+      min-height: 332px
+      display: flex
+      flex-flow: column
+      background: #FFFFFF
+      box-shadow: 0px 4px 22px rgba(0, 0, 0, 0.07)
+      border-radius: 10px
+  &__link
+    width: 100%
+    height: 100%
+    display: inline-block
+    &:hover
+      color: inherit
+      h3
+        color: $red
+  &__showing
+    width: 100%
+    height: auto
+    padding: 15px
+    display: flex
+    align-items: center
+    font-weight: 550
+    .data, 
+    .views
+      width: auto
+      height: 100%
+      margin-right: 20px
+      display: inline-flex
+      align-items: center
+      &::before
+        margin-right: 5px
+    .data
+      &::before
+        content: url("data:image/svg+xml,%3Csvg width='17' height='17' viewBox='0 0 17 17' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M8.4915 0C3.7995 0 0 3.808 0 8.5C0 13.192 3.7995 17 8.4915 17C13.192 17 17 13.192 17 8.5C17 3.808 13.192 0 8.4915 0ZM8.5 15.3C4.743 15.3 1.7 12.257 1.7 8.5C1.7 4.743 4.743 1.7 8.5 1.7C12.257 1.7 15.3 4.743 15.3 8.5C15.3 12.257 12.257 15.3 8.5 15.3Z' fill='%23888888'/%3E%3Cpath d='M8.92502 4.25H7.65002V9.35L12.1125 12.0275L12.75 10.982L8.92502 8.7125V4.25Z' fill='%23888888'/%3E%3C/svg%3E%0A")
+    .views
+      &::before
+        content: url("data:image/svg+xml,%3Csvg width='18' height='12' viewBox='0 0 18 12' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M9 0C4.90909 0 1.41545 2.488 0 6C1.41545 9.512 4.90909 12 9 12C13.0909 12 16.5845 9.512 18 6C16.5845 2.488 13.0909 0 9 0ZM9 10C6.74182 10 4.90909 8.208 4.90909 6C4.90909 3.792 6.74182 2 9 2C11.2582 2 13.0909 3.792 13.0909 6C13.0909 8.208 11.2582 10 9 10ZM9 3.6C7.64182 3.6 6.54545 4.672 6.54545 6C6.54545 7.328 7.64182 8.4 9 8.4C10.3582 8.4 11.4545 7.328 11.4545 6C11.4545 4.672 10.3582 3.6 9 3.6Z' fill='%23888888'/%3E%3C/svg%3E%0A")
+  &__media
+    width: 100%
+    height: 100%
+    max-height: 187px
+    position: relative
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.08))
+    img
+      width: 100%
+      height: 100%
+      object-fit: cover
+      border-radius: 10px
+    &.video
+      &::after
+        width: 52px
+        height: 52px
+  &__desc
+    width: 100%
+    height: 100%
+    max-height: 170px
+    padding: 0 15px 20px
+    display: flex
+    flex-flow: column
+    overflow: hidden
+    h3
+      font-size: 14px
+      color: #888
+      margin-bottom: 10px
+      transition: .3s
+    p
+      margin: 0
+      line-height: 1.34
+      overflow: hidden
+
+
+.page__articles--new
+  margin-bottom: 10px
+  .articles
+    width: 100%
+    max-width: 1170px
+    margin: 0 auto
+    display: flex
+    flex-flow: column
+    align-items: center
+
+    &>h1
+      font-size: 20px
+      line-height: 1.35
+      margin-bottom: 40px
+
+    &__list
+      width: 100%
+      max-width: 100%
+      height: auto
+      position: relative
+      // display: grid
+      // grid-template-columns: repeat(auto-fill, minmax(auto, 270px))
+      // grid-auto-rows: minmax(332px, auto)
+      // grid-auto-flow: row
+      grid-gap: 0 30px
+      display: flex
+      flex-flow: row wrap
+      align-items: flex-start
+      justify-content: center
+      // @media ( max-width: 992px )
+      //   flex-flow: column
+      &>li
+        width: 270px
+        height: auto
+        min-height: 320px
+        position: relative
+        display: flex
+        flex-flow: column
+        background: #FFFFFF
+        box-shadow: 0px 4px 22px rgba(0, 0, 0, 0.07)
+        border-radius: 10px
+        margin-bottom: 20px
+        @media ( min-width: 768px )
+          &:first-child
+            width: 100%
+            height: 100%
+            width: 869px
+            height: 460px
+            margin-right: 0
+            background: none
+            @media ( min-width: 992px )
+              height: 660px
+              margin-right: 300px
+            .articles__link
+              position: relative
+              display: flex
+              flex-flow: column
+              align-items: flex-end
+              justify-content: flex-end
+            .articles__media,
+            .articles__media img
+              width: 100%
+              height: 100%
+              max-height: 100%
+              position: absolute
+              z-index: -1
+            .articles__showing
+              width: 100%
+              height: auto
+              padding: 20px 40px 0
+              position: relative
+              display: flex
+              align-items: center
+              justify-content: flex-start
+              font-weight: 550
+            .articles__desc
+              width: 100%
+              height: auto
+              max-height: none
+              padding: 20px 40px 60px
+              display: flex
+              flex-flow: column
+              h3
+                margin-bottom: 10px
+                font-size: 28px
+                font-weight: bold
+                line-height: 1.34
+                color: #fff
+                transition: .3s
+              p
+                margin: 0
+                font-size: 16px
+                font-weight: 500
+                line-height: 1.34
+                color: #fff
+        @media ( min-width: 992px )
+          &:nth-child(2)
+            position: absolute
+            top: 0
+            right: 0
+            // @media ( min-width: 1300px )
+              // right: 45px
+          &:nth-child(3)
+            position: absolute
+            top: 340px
+            right: 0
+            // @media ( min-width: 1300px )
+              // right: 45px
+        @media ( min-width: 992px )
+          &:nth-child(n +4)
+            width: 100%
+            max-width: 1170px
+            height: 100%
+            min-height: 174px
+            .articles__link
+              display: flex
+            .articles__media,
+            .articles__media img
+              width: 100%
+              max-width: 250px
+              height: 174px
+              max-height: 100%
+              filter: none
+            .articles__showing
+              width: auto
+              height: auto
+              padding: 15px
+              position: absolute
+              display: flex
+              align-items: center
+              font-weight: 550
+              .data
+                margin-right: 20px
+              .data, 
+              .views
+                width: auto
+                height: 100%
+                display: inline-flex
+                align-items: center
+                color: #B8B8B8
+                &::before
+                  background: #B8B8B8
+            .articles__desc
+              width: 100%
+              max-width: 970px
+              height: auto
+              padding: 30px
+              display: flex
+              flex-flow: column
+              h3
+                margin-bottom: 10px
+              p
+                font-size: 14px
+                font-weight: 500
+                margin: 0
+          
+    &__link
+      width: 100%
+      height: 100%
+      display: inline-block
+      &:hover
+        color: inherit
+        h3
+          color: $red
+    &__showing
+      width: 100%
+      height: auto
+      padding: 15px
+      position: absolute
+      top: 0
+      right: 0
+      display: flex
+      align-items: center
+      justify-content: flex-end
+      font-weight: 550
+      color: #fff
+      .data, 
+      .views
+        width: auto
+        height: 100%
+        display: inline-flex
+        align-items: center
+        &::before
+          margin-right: 5px
+      .data
+        margin-right: 20px
+        &::before
+          content: ''
+          width: 17px
+          height: 17px
+          display: inline-block
+          background: #fff
+          mask: url("data:image/svg+xml,%3Csvg width='17' height='17' viewBox='0 0 17 17' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M8.4915 0C3.7995 0 0 3.808 0 8.5C0 13.192 3.7995 17 8.4915 17C13.192 17 17 13.192 17 8.5C17 3.808 13.192 0 8.4915 0ZM8.5 15.3C4.743 15.3 1.7 12.257 1.7 8.5C1.7 4.743 4.743 1.7 8.5 1.7C12.257 1.7 15.3 4.743 15.3 8.5C15.3 12.257 12.257 15.3 8.5 15.3Z' fill='%23888888'/%3E%3Cpath d='M8.92502 4.25H7.65002V9.35L12.1125 12.0275L12.75 10.982L8.92502 8.7125V4.25Z' fill='%23888888'/%3E%3C/svg%3E%0A")
+      .views
+        margin-right: 0
+        &::before
+          content: ''
+          width: 18px
+          height: 12px
+          display: inline-block
+          background: #fff
+          mask: url("data:image/svg+xml,%3Csvg width='18' height='12' viewBox='0 0 18 12' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M9 0C4.90909 0 1.41545 2.488 0 6C1.41545 9.512 4.90909 12 9 12C13.0909 12 16.5845 9.512 18 6C16.5845 2.488 13.0909 0 9 0ZM9 10C6.74182 10 4.90909 8.208 4.90909 6C4.90909 3.792 6.74182 2 9 2C11.2582 2 13.0909 3.792 13.0909 6C13.0909 8.208 11.2582 10 9 10ZM9 3.6C7.64182 3.6 6.54545 4.672 6.54545 6C6.54545 7.328 7.64182 8.4 9 8.4C10.3582 8.4 11.4545 7.328 11.4545 6C11.4545 4.672 10.3582 3.6 9 3.6Z' fill='%23888888'/%3E%3C/svg%3E%0A")
+    &__media
+      width: 100%
+      height: 100%
+      max-height: 148px
+      // position: relative
+      display: inline-flex
+      filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.08))
+      img
+        width: 100%
+        height: 100%
+        max-height: 148px
+        object-fit: cover
+        border-radius: 10px
+        filter: brightness(.5)
+      &.video
+        &::after
+          width: 52px
+          height: 52px
+    &__desc
+      width: 100%
+      height: 100%
+      padding: 20px 15px 25px
+      display: flex
+      flex-flow: column
+      h3
+        margin-bottom: 10px
+        font-size: 18px
+        font-weight: bold
+        line-height: 1.34
+        color: #888
+        transition: .3s
+      p
+        margin: 0
+        line-height: 1.34
+
+.foo-registration
+  width: 100%
+  height: auto
+  padding: 30px 15px
+  display: flex
+  flex-flow: column
+  align-items: center
+  background: url(../images/src/foo-registr.jpg) no-repeat center 100% / cover
+  @media ( min-width: 768px )
+    padding: 45px 15px
+    flex-flow: row
+    justify-content: center
+    
+  h3
+    width: 100%
+    max-width: 236px
+    font-weight: bold
+    font-size: 24px
+    line-height: 1.34
+    color: #FFFFFF
+    margin-bottom: 20px
+    @media ( min-width: 768px )
+      max-width: 330px
+      font-size: 28px
+      margin-bottom: 0
+  form
+    max-width: 243px
+
+
+
+.articles--wide
+  .articles
+    &__list
+      width: 100%
+      max-width: 100%
+      height: auto
+      position: relative
+      grid-gap: 0 30px
+      display: flex
+      flex-flow: row wrap
+      align-items: flex-start
+      justify-content: center
+      li
+        &:not(:last-child)
+          margin-bottom: 10px
+        @media ( min-width: 992px )
+          width: 100%
+          max-width: 1170px
+          height: 100%
+          min-height: 174px
+          &:not(:first-child)
+            margin-top: 20px
+          .articles__link
+            display: flex
+          .articles__media,
+          .articles__media img
+            width: 100%
+            max-width: 250px
+            height: 174px
+            max-height: 100%
+            filter: none
+          .articles__showing
+            width: auto
+            height: auto
+            padding: 15px
+            position: absolute
+            display: flex
+            align-items: center
+            font-weight: 550
+            .data
+              margin-right: 20px
+            .data, 
+            .views
+              width: auto
+              height: 100%
+              display: inline-flex
+              align-items: center
+              color: #B8B8B8
+              &::before
+                background: #B8B8B8
+          .articles__desc
+            width: 100%
+            max-width: 970px
+            height: auto
+            padding: 30px
+            display: flex
+            flex-flow: column
+            h3
+              margin-bottom: 10px
+            p
+              font-size: 14px
+              font-weight: 500
+              margin: 0
+
+    &__link
+      width: 100%
+      height: 100%
+      display: inline-block
+      position: relative
+      &:hover
+        color: inherit
+        h3
+          color: $red
+    &__showing
+      width: 100%
+      height: auto
+      padding: 15px
+      position: absolute
+      top: 0
+      right: 0
+      display: flex
+      align-items: center
+      justify-content: flex-end
+      font-weight: 550
+      color: #fff
+      .data, 
+      .views
+        width: auto
+        height: 100%
+        display: inline-flex
+        align-items: center
+        &::before
+          margin-right: 5px
+      .data
+        margin-right: 20px
+        &::before
+          content: ''
+          width: 17px
+          height: 17px
+          display: inline-block
+          background: #fff
+          mask: url("data:image/svg+xml,%3Csvg width='17' height='17' viewBox='0 0 17 17' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M8.4915 0C3.7995 0 0 3.808 0 8.5C0 13.192 3.7995 17 8.4915 17C13.192 17 17 13.192 17 8.5C17 3.808 13.192 0 8.4915 0ZM8.5 15.3C4.743 15.3 1.7 12.257 1.7 8.5C1.7 4.743 4.743 1.7 8.5 1.7C12.257 1.7 15.3 4.743 15.3 8.5C15.3 12.257 12.257 15.3 8.5 15.3Z' fill='%23888888'/%3E%3Cpath d='M8.92502 4.25H7.65002V9.35L12.1125 12.0275L12.75 10.982L8.92502 8.7125V4.25Z' fill='%23888888'/%3E%3C/svg%3E%0A")
+      .views
+        margin-right: 0
+        &::before
+          content: ''
+          width: 18px
+          height: 12px
+          display: inline-block
+          background: #fff
+          mask: url("data:image/svg+xml,%3Csvg width='18' height='12' viewBox='0 0 18 12' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M9 0C4.90909 0 1.41545 2.488 0 6C1.41545 9.512 4.90909 12 9 12C13.0909 12 16.5845 9.512 18 6C16.5845 2.488 13.0909 0 9 0ZM9 10C6.74182 10 4.90909 8.208 4.90909 6C4.90909 3.792 6.74182 2 9 2C11.2582 2 13.0909 3.792 13.0909 6C13.0909 8.208 11.2582 10 9 10ZM9 3.6C7.64182 3.6 6.54545 4.672 6.54545 6C6.54545 7.328 7.64182 8.4 9 8.4C10.3582 8.4 11.4545 7.328 11.4545 6C11.4545 4.672 10.3582 3.6 9 3.6Z' fill='%23888888'/%3E%3C/svg%3E%0A")
+    &__media
+      width: 100%
+      height: 100%
+      max-height: 148px
+      // position: relative
+      display: inline-flex
+      filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.08))
+      img
+        width: 100%
+        height: 100%
+        max-height: 148px
+        object-fit: cover
+        border-radius: 10px
+        filter: brightness(.5)
+      &.video
+        &::after
+          width: 52px
+          height: 52px
+    &__desc
+      width: 100%
+      height: 100%
+      padding: 20px 15px 25px
+      display: flex
+      flex-flow: column
+      h3
+        margin-bottom: 10px
+        font-size: 18px
+        font-weight: bold
+        line-height: 1.34
+        color: #888
+        transition: .3s
+      p
+        margin: 0
+        line-height: 1.34

@@ -1,0 +1,242 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    
+</head>
+<body>
+
+    <!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>ВсеСалоны</title>
+    <meta name="description" content="ВсеСалоны">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+    <link rel="icon" href="images/favicon.png">
+    <meta property="og:image" content="images/dest/preview.jpg">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="">
+    <meta property="og:site_name" content="">
+    <meta property="og:title" content="">
+    <link href="/css/custom.css" rel="stylesheet"/>
+<link href="/css/app.min.css" rel="stylesheet"/>
+<link href="/css/toastr.min.css" rel="stylesheet"/>
+
+    
+    <link ref="icon" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" type="text/css"/>
+</head>
+<body>
+<div id="overlay" style="display:none;">
+    <div class="spinner"></div>
+</div>
+    <header class="header">
+        <div class="container">
+            <a href="#" class="logo">
+                <img src="/images/src/logo.svg" alt="логотип">
+                <span>ВсеСалоны</span>
+            </a>
+
+            <button class="place">Киев</button>
+
+            <nav class="header__nav">
+                <div class="nav__header">
+                    <a href="#" class="logo">
+                        <img src="images/src/logo.svg" alt="логотип">
+                        <span>ВсеСалоны</span>
+                    </a>
+                    <button class="navBurger" role="navigation" id="navToggle">
+                        <span class="navBurger-line active"></span>
+                    </button>
+                </div>
+
+                <ul class="menu">
+                    <li class="menu__item">
+                        <a href="/Home/Salons">Салоны</a>
+                    </li>
+                        <li class="menu__item">
+                            <a class="video" href="/Video/">Видео</a>
+                        </li>
+                        <li class="menu__item">
+                            <a class="articles" href="/Article/">Статьи</a>
+                        </li>
+                         <li class="menu__item">
+                            <a href=""></a>
+                        </li>
+
+                </ul>
+            </nav>
+
+            <div class="languages">
+                <a class="active" href="#">RU</a>
+                <a href="#">UA</a>
+            </div>
+
+
+
+<form action="/Account/LogOff" class="navbar-right" id="logoutForm" method="post"><input name="__RequestVerificationToken" type="hidden" value="FdRI5HffnQ_qUrT8UnDb0XAkk4qwfAHXPVLijPZHENEiyOccjCFuiJicVpH9mweoa_0tzi2m6C9p3BAdAWnx3DCmuA7Jiv9Exw6WW8A2b9cU3YJ3kUe1D375Z_0OnHXUvAZmh4xrcYdFG3IxzOjaQg2" />                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="javascript:document.getElementById('logoutForm').submit()">Выйти</a></li>
+                    </ul>
+</form>
+            <div class="header-btns">
+                <button class="enter-btn"></button>
+                <button class="navBurger" role="navigation" id="navToggle">
+                    <span class="navBurger-line"></span>
+                </button>
+            </div>
+
+            <div class="overlay"></div>
+        </div>
+    </header>
+    <script src="/js/libs.min.js"></script>
+
+    <script src="/js/toastr.js"></script>
+
+
+    <script src="/js/app.js"></script>
+<script src="/js/custom.js"></script>
+<script src="/js/jquery.mask.min.js"></script>
+
+
+    
+
+
+<div class="breadcrumbs">
+    <ul class="breadcrumbs__list">
+        <li><a href="/">Главная</a></li>
+        <li><a href="#">Регистрация</a></li>
+    </ul>
+</div>
+
+
+
+
+
+<main class="page__signup">
+    <div class="container">
+        <section class="enter__form">
+            <h1 class="top-title">Регистрация</h1>
+            <form class="form__signup" id="frmRegistration" action="/Salon/Registration" method="POST">
+                <div class="input__wrap">
+                    <label for="signup__name">Имя</label>
+                    <input id="signup__name" type="text" pattern="^[А-Яа-яЁёA-Za-z0-9\s]{5,100}" name="Name" placeholder="Имя" required oninvalid="this.setCustomValidity('Пожалуйста, заполните поле')" oninput="setCustomValidity('')">
+                </div>
+
+                <div class="input__wrap">
+                    <label for="signup__email">E-mail</label>
+                    <input id="signup__email" type="email" name="Email" placeholder="E-mail" required oninvalid="this.setCustomValidity('Пожалуйста, заполните поле')" oninput="setCustomValidity('')">
+                </div>
+
+                <div class="input__wrap">
+                    <label for="signup__phone">Номер телефона</label>
+                    <input id="signup__phone" class="nocopy" type="tel" name="Phone" placeholder="Номер телефона" minlength="17" required oninvalid="this.setCustomValidity('Пожалуйста, заполните поле')" oninput="setCustomValidity('')">
+
+                </div>
+
+                <div class="input__wrap">
+                    <label for="signup__phonecopy">Повтор номера телефона</label>
+                    <input id="signup__phonecopy" class="nocopy" type="tel" name="RePhone" placeholder="Номер телефона" minlength="17" required oninvalid="this.setCustomValidity('Пожалуйста, заполните поле')" oninput="setCustomValidity('')">
+                </div>
+
+                <div class="input__wrap">
+                    <label for="signup__password">Пароль</label>
+                    <input id="signup__password" type="password" name="Password" placeholder="Пароль" required oninvalid="this.setCustomValidity('Пожалуйста, заполните поле')" oninput="setCustomValidity('')">
+                    <span toggle="#signup__password" class="fa-eye field-icon toggle-password"></span>
+                </div>
+                <!-- <input id="Business" type="radio" >
+                <label for="Business">
+                    <span class="switch-l-l">Салон</span>
+                    <span class="switch-l-r">Бизнес</span>
+                </label>
+                -->
+
+
+
+                <div class="input__wrap radio--btn">
+                    <input type="radio" id="rdSalon" name="acctype" value="False"
+                           checked>
+                    <label for="rdSalon"><span>Салон</span></label>
+
+                    <input type="radio" id="rbBusines" name="acctype" value="True" >
+                    <label for="rbBusines"><span>Бизнес (дистрибьютор, организатор)</span></label>
+                </div>
+                <button class="btn">Регистрация</button>
+            </form>
+
+        </section>
+
+    </div>
+</main>;
+
+
+
+
+
+
+    
+    <script src="/js/toastr.js"></script>
+    <script src="/js/custom.js"></script>
+    <script type="text/javascript">
+
+        $('#signup__phone').mask("+38(000)-000-0000", { placeholder: "+38(xxx)xxx-xxxx" });
+        $('#signup__phonecopy').mask("+38(000)-000-0000", { placeholder: "+38(xxx)xxx-xxxx" });
+        jQuery('form#frmRegistration').submit(function (e) {
+            e.preventDefault();
+
+            if ($("#signup__phone").val() != $("#signup__phonecopy").val()) {
+
+                alert('Номера телефонов не совпадают!');
+                return;
+            }
+         
+
+            //var checked = $("#Option1").is(':checked'); 
+            var frm = $(this).serialize() + '&Business=' + $("input[name='acctype']:radio:checked").val(); 
+            console.log(frm);
+            var url = $("form#frmRegistration").attr('action');
+            $.post(url, frm)
+                .done(function (obj) {
+                    if (obj.IsSuccess === true) {
+                        location.href = obj.Url;
+                    } else {
+                        $("#msgError").html(obj.Message);
+                    }
+                })
+                .fail(function (xhr, status, error) {
+                    // location.reload();
+                });
+        });
+    </script>
+
+    <script type="text/javascript">
+
+    $(document).ready(function () {
+        $.ajaxSetup({
+            headers: { "CustomHeader": "myValue" }
+        });
+
+        var msg='';
+        if (msg!==undefined&& msg.length>0) {
+            successMsg(msg);
+        }
+
+    });
+
+        $(document)
+        .ajaxStart(function () {
+            $("#overlay").show();
+        })
+        .ajaxStop(function () {
+            $("#overlay").hide();
+        });
+
+    </script>
+</body>
+</html>
+
+    </body>
+
+
+</html>

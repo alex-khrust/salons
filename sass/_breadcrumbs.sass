@@ -1,0 +1,25 @@
+.breadcrumbs
+  width: 100%
+  height: auto
+  max-width: 1300px
+  display: flex
+  padding: 0 20px
+  margin: 0 auto
+  &__list
+    display: flex
+    align-content: center
+    flex-flow: wrap
+    line-height: 15px
+    font-weight: 600
+    li
+      &:nth-of-type(n +2)
+        &::before
+          content: '/'
+          margin: 0 3px
+      &:last-child
+        a
+          color: $red
+    a
+  &--white
+    li, a
+      color: #fff

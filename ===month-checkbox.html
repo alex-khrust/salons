@@ -1,0 +1,1323 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>ВсеСалоны</title>
+    <meta name="description" content="ВсеСалоны">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+    <link rel="icon" href="images/favicon.png">
+    <meta property="og:image" content="images/dest/preview.jpg">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="">
+    <meta property="og:site_name" content="">
+    <meta property="og:title" content="">
+    <link href="/css/custom.css" rel="stylesheet" />
+    <link href="/css/app.min.css" rel="stylesheet" />
+    <link href="/css/toastr.min.css" rel="stylesheet" />
+    <link href="/css/sweetalert2.min.css" rel="stylesheet" />
+
+
+    <link ref="icon" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css"
+        type="text/css" />
+</head>
+
+<body>
+    <div id="overlay" style="display:none;">
+        <div class="spinner"></div>
+    </div>
+
+    <header class="header authorized">
+        <div class="container">
+            <a href="/" class="logo">
+                <img src="/images/src/logo.svg" alt="логотип">
+                <span>ВсеСалоны</span>
+            </a>
+
+
+
+            <nav class="header__nav">
+                <div class="nav__header">
+                    <a href="#" class="logo">
+                    </a>
+                    <button class="close-btn" role="close menu">
+                        <span></span>
+                    </button>
+                </div>
+
+                <ul class="menu">
+
+                    <li class="menu__item menu__item--salons">
+                        <a href="/SalonOwner/Index/">Мои салоны</a>
+                    </li>
+                    <li class="menu__item menu__item--video">
+                        <a href="/Video/">Видео</a>
+                    </li>
+                    <li class="menu__item menu__item--articles">
+                        <a href="/Article/">Статьи</a>
+                    </li>
+                    <li class="menu__item menu__item--group">
+                        <a href="https://www.facebook.com/groups/354459475870678" target="_blank">Группа</a>
+                    </li>
+
+
+
+
+
+
+                </ul>
+            </nav>
+
+            <!-- <div class="languages">
+                <a class="active" href="#">RU</a>
+                <a href="#">UA</a>
+            </div>
+               -->
+            <div class="enter">
+                <a class="login" href="login.html">Войти</a>
+                <a class="signup active" href="signup.html">Регистрация</a>
+            </div>
+
+            <div class="user__nav">
+
+                <a href="javascript:document.getElementById('logoutForm').submit()" class="exit tooltip">
+
+                    <span class="tooltiptext">Выход</span>
+                </a>
+
+
+                <a href="#" class="favorites tooltip">
+                    <span class="tooltiptext">Избранные</span>
+                </a>
+                <a href="#" class="user">
+                    <img src="/images/src/demo/Konstantin-Konstantinov.jpg" alt="">
+                    <span class="name"></span>
+
+                </a>
+            </div>
+            <div class="user__nav--mobile">
+                <button class="close-btn" role="close menu">
+                    <span class=""></span>
+                </button>
+
+                <a href="javascript:document.getElementById('logoutForm').submit()" class="exit">
+                    <span class="text">Выход</span>
+                </a>
+                <!-- <a href="#" class="message">
+                <span class="text">Сообщения</span>
+            </a>
+            <a href="#" class="notification">
+                <span class="text">Уведомления</span>
+                <span class="notification-sum">3</span>
+            </a>-->
+
+                <a href="#" class="favorites">
+                    <span class="text">Избранное</span>
+                </a>
+                <a href="#" class="user">
+                    <img src="images/src/demo/Konstantin-Konstantinov.jpg" alt="">
+                    <span class="name">Константин Константинович</span>
+                    <span class="notification-sum">3</span>
+                </a>
+            </div>
+            <div class="header-btns">
+                <button class="enter-btn"></button>
+                <button class="navBurger" role="navigation" id="navToggle">
+                    <span class="navBurger-line"></span>
+                </button>
+            </div>
+
+            <div class="overlay"></div>
+        </div>
+    </header>
+
+
+    <form action="/Account/LogOff" class="navbar-right" id="logoutForm" method="post"><input
+            name="__RequestVerificationToken" type="hidden"
+            value="OnEPrJ0TZBgZNwvTkFfccFuRcNUnxldMyQfZUqGKwTn1iDvLvt2CAOY5SqPnhpsEhxqCBlfc_Pe7agweBFjLMvYNi0S8_nYoT0Bq-eHb34_-cv_ob8aLe-ZQQNDqXPeYAr99dwe3nOfp4x7NPF5i8Q2" />
+    </form>
+    <script src="/js/libs.min.js"></script>
+
+    <script src="/js/toastr.js"></script>
+
+    <script src="/js/jquery-ui.min.js"></script>
+    <script src="/js/app.js"></script>
+    <script src="/js/custom.js"></script>
+    <script src="/js/home.js"></script>
+    <script src="/js/jquery.mask.min.js"></script>
+    <script src="/js/sweetalert.js"></script>
+
+
+
+
+
+    <div class="breadcrumbs">
+        <ul class="breadcrumbs__list">
+            <li><a href="/SalonOwner/Index">Главная</a></li>
+            <li><a href="#">График работы мастера</a></li>
+        </ul>
+    </div>
+
+
+    <main class="page__master-calendar__list">
+        <div class="container">
+
+            <section class="master-calendar">
+                <form id="form__master-calendar" action="/SalonOwner/MasterSchedule" method="POST">
+
+                    <input data-val="true" data-val-number="The field MasterId must be a number."
+                        data-val-required="The MasterId field is required." id="MasterId" name="MasterId" type="hidden"
+                        value="259" />
+
+                    <input data-val="true" data-val-number="The field SalonId must be a number."
+                        data-val-required="The SalonId field is required." id="SalonId" name="SalonId" type="hidden"
+                        value="122" />
+
+
+                    <div class="form__head">
+                        <h1>График работы мастера</h1>
+                        <div class="master">
+                            <span>Календарь:</span>
+                            <span class="master__name">abasb</span>
+                        </div>
+                    </div>
+                    <div class="working__add">
+                        <div class="working__time">
+                            <div class="time">
+                                <h2>Рабочие часы </h2>
+                                <div class="wrap-inner">
+                                    <div class="input__wrap">
+                                        <label for="">С</label>
+                                        <input type="time" name="WorkingTimeFrom" value="08:00" step="1800"
+                                            id="workingTimeFrom">
+                                    </div>
+                                    <div class="input__wrap">
+                                        <label for="">До</label>
+                                        <input type="time" name="WorkingTimeTo" value="20:00" step="1800"
+                                            id="workingTimeTo">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="break ">
+                                <h2>Перерыв </h2>
+                                <div class="wrap-inner">
+                                    <div class="input__wrap">
+                                        <label for="break__start">С</label>
+                                        <input name="WorkingBreakFrom" value="" id="workingBreakFrom" type="time">
+                                    </div>
+                                    <div class="input__wrap">
+                                        <label for="break__end">До</label>
+                                        <input name="WorkingBreakTo" value="" id="workingBreakTo" type="time">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="calendar__wrap">
+                        <h2 class="title">Исключите не рабочие дни</h2>
+                        <div class="calendar__list">
+                            <div class="calendar">
+                                <div class="calendar__header">
+                                    <h6>Октябрь </h6>
+
+                                    <div class="chbx"><input id="chbx--m-2" data-day=1 data-month=10 data-year=2020
+                                            type="checkbox"><label for="chbx--m-2"></label></div>
+                                </div>
+                                <table class="calendar__table master" id="dayCalendar10">
+                                    <thead>
+                                        <tr>
+                                            <th>ПН</th>
+                                            <th>ВТ</th>
+                                            <th>СР</th>
+                                            <th>ЧТ</th>
+                                            <th>ПТ</th>
+                                            <th>СБ</th>
+                                            <th>ВС</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td>
+                                                <div class="chbx"><input id="chbx--" data-day=1 data-month=10
+                                                        data-year=2020 type="checkbox" disabled><label class="disabled"
+                                                        for="chbx--">1</label></div>
+                                            </td>
+                                            <td>
+                                                <div class="chbx" id=2-10><input id="chbx--2-10" data-day=2
+                                                        data-month=10 data-year=2020 type="checkbox" disabled><label
+                                                        class="disabled" for="chbx--2-10">2</label></div>
+                                            </td>
+                                            <td>
+                                                <div class="chbx" id=3-10><input id="chbx--3-10" data-day=3
+                                                        data-month=10 data-year=2020 type="checkbox" disabled><label
+                                                        class="disabled" for="chbx--3-10">3</label></div>
+                                            </td>
+                                            <td>
+                                                <div class="chbx" id=4-10><input id="chbx--4-10" data-day=4
+                                                        data-month=10 data-year=2020 type="checkbox" disabled><label
+                                                        class="disabled" for="chbx--4-10">4</label></div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div class="chbx" id=5-10><input id="chbx--5-10" data-day=5
+                                                        data-month=10 data-year=2020 type="checkbox" disabled><label
+                                                        class="disabled" for="chbx--5-10">5</label></div>
+                                            </td>
+                                            <td>
+                                                <div class="chbx" id=6-10><input id="chbx--6-10" data-day=6
+                                                        data-month=10 data-year=2020 type="checkbox" disabled><label
+                                                        class="disabled" for="chbx--6-10">6</label></div>
+                                            </td>
+                                            <td>
+                                                <div class="chbx" id=7-10><input id="chbx--7-10" data-day=7
+                                                        data-month=10 data-year=2020 type="checkbox" disabled><label
+                                                        class="disabled" for="chbx--7-10">7</label></div>
+                                            </td>
+                                            <td>
+                                                <div class="chbx" id=8-10><input id="chbx--8-10" data-day=8
+                                                        data-month=10 data-year=2020 type="checkbox" disabled><label
+                                                        class="disabled" for="chbx--8-10">8</label></div>
+                                            </td>
+                                            <td>
+                                                <div class="chbx" id=9-10><input id="chbx--9-10" data-day=9
+                                                        data-month=10 data-year=2020 type="checkbox" disabled><label
+                                                        class="disabled" for="chbx--9-10">9</label></div>
+                                            </td>
+                                            <td>
+                                                <div class="chbx" id=10-10><input id="chbx--10-10" data-day=10
+                                                        data-month=10 data-year=2020 type="checkbox" disabled><label
+                                                        class="disabled" for="chbx--10-10">10</label></div>
+                                            </td>
+                                            <td>
+                                                <div class="chbx" id=11-10><input id="chbx--11-10" data-day=11
+                                                        data-month=10 data-year=2020 type="checkbox" disabled><label
+                                                        class="disabled" for="chbx--11-10">11</label></div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div class="chbx" id=12-10><input id="chbx--12-10" data-day=12
+                                                        data-month=10 data-year=2020 type="checkbox" disabled><label
+                                                        class="disabled" for="chbx--12-10">12</label></div>
+                                            </td>
+                                            <td>
+                                                <div class="chbx" id=13-10><input id="chbx--13-10" data-day=13
+                                                        data-month=10 data-year=2020 type="checkbox" disabled><label
+                                                        class="disabled" for="chbx--13-10">13</label></div>
+                                            </td>
+                                            <td>
+                                                <div class="chbx" id=14-10><input id="chbx--14-10" data-day=14
+                                                        data-month=10 data-year=2020 type="checkbox" disabled><label
+                                                        class="disabled" for="chbx--14-10">14</label></div>
+                                            </td>
+                                            <td>
+                                                <div class="chbx" id=15-10><input id="chbx--15-10" data-day=15
+                                                        data-month=10 data-year=2020 type="checkbox" checked><label
+                                                        class="" for="chbx--15-10">15</label></div>
+                                            </td>
+                                            <td>
+                                                <div class="chbx" id=16-10><input id="chbx--16-10" data-day=16
+                                                        data-month=10 data-year=2020 type="checkbox" checked><label
+                                                        class="" for="chbx--16-10">16</label></div>
+                                            </td>
+                                            <td>
+                                                <div class="chbx" id=17-10><input id="chbx--17-10" data-day=17
+                                                        data-month=10 data-year=2020 type="checkbox" checked><label
+                                                        class="" for="chbx--17-10">17</label></div>
+                                            </td>
+                                            <td>
+                                                <div class="chbx" id=18-10><input id="chbx--18-10" data-day=18
+                                                        data-month=10 data-year=2020 type="checkbox" checked><label
+                                                        class="" for="chbx--18-10">18</label></div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div class="chbx" id=19-10><input id="chbx--19-10" data-day=19
+                                                        data-month=10 data-year=2020 type="checkbox" checked><label
+                                                        class="" for="chbx--19-10">19</label></div>
+                                            </td>
+                                            <td>
+                                                <div class="chbx" id=20-10><input id="chbx--20-10" data-day=20
+                                                        data-month=10 data-year=2020 type="checkbox" checked><label
+                                                        class="" for="chbx--20-10">20</label></div>
+                                            </td>
+                                            <td>
+                                                <div class="chbx" id=21-10><input id="chbx--21-10" data-day=21
+                                                        data-month=10 data-year=2020 type="checkbox" checked><label
+                                                        class="" for="chbx--21-10">21</label></div>
+                                            </td>
+                                            <td>
+                                                <div class="chbx" id=22-10><input id="chbx--22-10" data-day=22
+                                                        data-month=10 data-year=2020 type="checkbox" checked><label
+                                                        class="" for="chbx--22-10">22</label></div>
+                                            </td>
+                                            <td>
+                                                <div class="chbx" id=23-10><input id="chbx--23-10" data-day=23
+                                                        data-month=10 data-year=2020 type="checkbox" checked><label
+                                                        class="" for="chbx--23-10">23</label></div>
+                                            </td>
+                                            <td>
+                                                <div class="chbx" id=24-10><input id="chbx--24-10" data-day=24
+                                                        data-month=10 data-year=2020 type="checkbox" checked><label
+                                                        class="" for="chbx--24-10">24</label></div>
+                                            </td>
+                                            <td>
+                                                <div class="chbx" id=25-10><input id="chbx--25-10" data-day=25
+                                                        data-month=10 data-year=2020 type="checkbox" checked><label
+                                                        class="" for="chbx--25-10">25</label></div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div class="chbx" id=26-10><input id="chbx--26-10" data-day=26
+                                                        data-month=10 data-year=2020 type="checkbox" checked><label
+                                                        class="" for="chbx--26-10">26</label></div>
+                                            </td>
+                                            <td>
+                                                <div class="chbx" id=27-10><input id="chbx--27-10" data-day=27
+                                                        data-month=10 data-year=2020 type="checkbox" checked><label
+                                                        class="" for="chbx--27-10">27</label></div>
+                                            </td>
+                                            <td>
+                                                <div class="chbx" id=28-10><input id="chbx--28-10" data-day=28
+                                                        data-month=10 data-year=2020 type="checkbox" checked><label
+                                                        class="" for="chbx--28-10">28</label></div>
+                                            </td>
+                                            <td>
+                                                <div class="chbx" id=29-10><input id="chbx--29-10" data-day=29
+                                                        data-month=10 data-year=2020 type="checkbox" checked><label
+                                                        class="" for="chbx--29-10">29</label></div>
+                                            </td>
+                                            <td>
+                                                <div class="chbx" id=30-10><input id="chbx--30-10" data-day=30
+                                                        data-month=10 data-year=2020 type="checkbox" checked><label
+                                                        class="" for="chbx--30-10">30</label></div>
+                                            </td>
+                                            <td>
+                                                <div class="chbx" id=31-10><input id="chbx--31-10" data-day=31
+                                                        data-month=10 data-year=2020 type="checkbox" checked><label
+                                                        class="" for="chbx--31-10">31</label></div>
+                                            </td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="calendar">
+                                <div class="calendar__header">
+                                    <h6>Ноябрь </h6>
+
+                                    <div class="chbx"><input id="chbx--m-3" data-day=1 data-month=10 data-year=2020
+                                            type="checkbox"><label for="chbx--m-3"></label></div>
+                                </div>
+                                <table class="calendar__table master" id="dayCalendar11">
+                                    <thead>
+                                        <tr>
+                                            <th>ПН</th>
+                                            <th>ВТ</th>
+                                            <th>СР</th>
+                                            <th>ЧТ</th>
+                                            <th>ПТ</th>
+                                            <th>СБ</th>
+                                            <th>ВС</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td>
+                                                <div class="chbx" id=1-11><input id="chbx--1-11" data-day=1
+                                                        data-month=11 data-year=2020 type="checkbox" checked><label
+                                                        class="" for="chbx--1-11">1</label></div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div class="chbx" id=2-11><input id="chbx--2-11" data-day=2
+                                                        data-month=11 data-year=2020 type="checkbox" checked><label
+                                                        class="" for="chbx--2-11">2</label></div>
+                                            </td>
+                                            <td>
+                                                <div class="chbx" id=3-11><input id="chbx--3-11" data-day=3
+                                                        data-month=11 data-year=2020 type="checkbox" checked><label
+                                                        class="" for="chbx--3-11">3</label></div>
+                                            </td>
+                                            <td>
+                                                <div class="chbx" id=4-11><input id="chbx--4-11" data-day=4
+                                                        data-month=11 data-year=2020 type="checkbox" checked><label
+                                                        class="" for="chbx--4-11">4</label></div>
+                                            </td>
+                                            <td>
+                                                <div class="chbx" id=5-11><input id="chbx--5-11" data-day=5
+                                                        data-month=11 data-year=2020 type="checkbox" checked><label
+                                                        class="" for="chbx--5-11">5</label></div>
+                                            </td>
+                                            <td>
+                                                <div class="chbx" id=6-11><input id="chbx--6-11" data-day=6
+                                                        data-month=11 data-year=2020 type="checkbox" checked><label
+                                                        class="" for="chbx--6-11">6</label></div>
+                                            </td>
+                                            <td>
+                                                <div class="chbx" id=7-11><input id="chbx--7-11" data-day=7
+                                                        data-month=11 data-year=2020 type="checkbox" checked><label
+                                                        class="" for="chbx--7-11">7</label></div>
+                                            </td>
+                                            <td>
+                                                <div class="chbx" id=8-11><input id="chbx--8-11" data-day=8
+                                                        data-month=11 data-year=2020 type="checkbox" checked><label
+                                                        class="" for="chbx--8-11">8</label></div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div class="chbx" id=9-11><input id="chbx--9-11" data-day=9
+                                                        data-month=11 data-year=2020 type="checkbox" checked><label
+                                                        class="" for="chbx--9-11">9</label></div>
+                                            </td>
+                                            <td>
+                                                <div class="chbx" id=10-11><input id="chbx--10-11" data-day=10
+                                                        data-month=11 data-year=2020 type="checkbox" checked><label
+                                                        class="" for="chbx--10-11">10</label></div>
+                                            </td>
+                                            <td>
+                                                <div class="chbx" id=11-11><input id="chbx--11-11" data-day=11
+                                                        data-month=11 data-year=2020 type="checkbox" checked><label
+                                                        class="" for="chbx--11-11">11</label></div>
+                                            </td>
+                                            <td>
+                                                <div class="chbx" id=12-11><input id="chbx--12-11" data-day=12
+                                                        data-month=11 data-year=2020 type="checkbox" checked><label
+                                                        class="" for="chbx--12-11">12</label></div>
+                                            </td>
+                                            <td>
+                                                <div class="chbx" id=13-11><input id="chbx--13-11" data-day=13
+                                                        data-month=11 data-year=2020 type="checkbox" checked><label
+                                                        class="" for="chbx--13-11">13</label></div>
+                                            </td>
+                                            <td>
+                                                <div class="chbx" id=14-11><input id="chbx--14-11" data-day=14
+                                                        data-month=11 data-year=2020 type="checkbox" checked><label
+                                                        class="" for="chbx--14-11">14</label></div>
+                                            </td>
+                                            <td>
+                                                <div class="chbx" id=15-11><input id="chbx--15-11" data-day=15
+                                                        data-month=11 data-year=2020 type="checkbox" checked><label
+                                                        class="" for="chbx--15-11">15</label></div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div class="chbx" id=16-11><input id="chbx--16-11" data-day=16
+                                                        data-month=11 data-year=2020 type="checkbox" checked><label
+                                                        class="" for="chbx--16-11">16</label></div>
+                                            </td>
+                                            <td>
+                                                <div class="chbx" id=17-11><input id="chbx--17-11" data-day=17
+                                                        data-month=11 data-year=2020 type="checkbox" checked><label
+                                                        class="" for="chbx--17-11">17</label></div>
+                                            </td>
+                                            <td>
+                                                <div class="chbx" id=18-11><input id="chbx--18-11" data-day=18
+                                                        data-month=11 data-year=2020 type="checkbox" checked><label
+                                                        class="" for="chbx--18-11">18</label></div>
+                                            </td>
+                                            <td>
+                                                <div class="chbx" id=19-11><input id="chbx--19-11" data-day=19
+                                                        data-month=11 data-year=2020 type="checkbox" checked><label
+                                                        class="" for="chbx--19-11">19</label></div>
+                                            </td>
+                                            <td>
+                                                <div class="chbx" id=20-11><input id="chbx--20-11" data-day=20
+                                                        data-month=11 data-year=2020 type="checkbox" checked><label
+                                                        class="" for="chbx--20-11">20</label></div>
+                                            </td>
+                                            <td>
+                                                <div class="chbx" id=21-11><input id="chbx--21-11" data-day=21
+                                                        data-month=11 data-year=2020 type="checkbox" checked><label
+                                                        class="" for="chbx--21-11">21</label></div>
+                                            </td>
+                                            <td>
+                                                <div class="chbx" id=22-11><input id="chbx--22-11" data-day=22
+                                                        data-month=11 data-year=2020 type="checkbox" checked><label
+                                                        class="" for="chbx--22-11">22</label></div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div class="chbx" id=23-11><input id="chbx--23-11" data-day=23
+                                                        data-month=11 data-year=2020 type="checkbox" checked><label
+                                                        class="" for="chbx--23-11">23</label></div>
+                                            </td>
+                                            <td>
+                                                <div class="chbx" id=24-11><input id="chbx--24-11" data-day=24
+                                                        data-month=11 data-year=2020 type="checkbox" checked><label
+                                                        class="" for="chbx--24-11">24</label></div>
+                                            </td>
+                                            <td>
+                                                <div class="chbx" id=25-11><input id="chbx--25-11" data-day=25
+                                                        data-month=11 data-year=2020 type="checkbox" checked><label
+                                                        class="" for="chbx--25-11">25</label></div>
+                                            </td>
+                                            <td>
+                                                <div class="chbx" id=26-11><input id="chbx--26-11" data-day=26
+                                                        data-month=11 data-year=2020 type="checkbox" checked><label
+                                                        class="" for="chbx--26-11">26</label></div>
+                                            </td>
+                                            <td>
+                                                <div class="chbx" id=27-11><input id="chbx--27-11" data-day=27
+                                                        data-month=11 data-year=2020 type="checkbox" checked><label
+                                                        class="" for="chbx--27-11">27</label></div>
+                                            </td>
+                                            <td>
+                                                <div class="chbx" id=28-11><input id="chbx--28-11" data-day=28
+                                                        data-month=11 data-year=2020 type="checkbox" checked><label
+                                                        class="" for="chbx--28-11">28</label></div>
+                                            </td>
+                                            <td>
+                                                <div class="chbx" id=29-11><input id="chbx--29-11" data-day=29
+                                                        data-month=11 data-year=2020 type="checkbox" checked><label
+                                                        class="" for="chbx--29-11">29</label></div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div class="chbx" id=30-11><input id="chbx--30-11" data-day=30
+                                                        data-month=11 data-year=2020 type="checkbox" checked><label
+                                                        class="" for="chbx--30-11">30</label></div>
+                                            </td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="calendar">
+                                <div class="calendar__header">
+                                    <h6>Декабрь </h6>
+
+                                    <div class="chbx"><input id="chbx--m-4" data-day=1 data-month=10 data-year=2020
+                                            type="checkbox"><label for="chbx--m-4"></label></div>
+                                </div>
+                                <table class="calendar__table master" id="dayCalendar12">
+                                    <thead>
+                                        <tr>
+                                            <th>ПН</th>
+                                            <th>ВТ</th>
+                                            <th>СР</th>
+                                            <th>ЧТ</th>
+                                            <th>ПТ</th>
+                                            <th>СБ</th>
+                                            <th>ВС</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td></td>
+                                            <td>
+                                                <div class="chbx" id=1-12><input id="chbx--1-12" data-day=1
+                                                        data-month=12 data-year=2020 type="checkbox" checked><label
+                                                        class="" for="chbx--1-12">1</label></div>
+                                            </td>
+                                            <td>
+                                                <div class="chbx" id=2-12><input id="chbx--2-12" data-day=2
+                                                        data-month=12 data-year=2020 type="checkbox" checked><label
+                                                        class="" for="chbx--2-12">2</label></div>
+                                            </td>
+                                            <td>
+                                                <div class="chbx" id=3-12><input id="chbx--3-12" data-day=3
+                                                        data-month=12 data-year=2020 type="checkbox" checked><label
+                                                        class="" for="chbx--3-12">3</label></div>
+                                            </td>
+                                            <td>
+                                                <div class="chbx" id=4-12><input id="chbx--4-12" data-day=4
+                                                        data-month=12 data-year=2020 type="checkbox" checked><label
+                                                        class="" for="chbx--4-12">4</label></div>
+                                            </td>
+                                            <td>
+                                                <div class="chbx" id=5-12><input id="chbx--5-12" data-day=5
+                                                        data-month=12 data-year=2020 type="checkbox" checked><label
+                                                        class="" for="chbx--5-12">5</label></div>
+                                            </td>
+                                            <td>
+                                                <div class="chbx" id=6-12><input id="chbx--6-12" data-day=6
+                                                        data-month=12 data-year=2020 type="checkbox" checked><label
+                                                        class="" for="chbx--6-12">6</label></div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div class="chbx" id=7-12><input id="chbx--7-12" data-day=7
+                                                        data-month=12 data-year=2020 type="checkbox" checked><label
+                                                        class="" for="chbx--7-12">7</label></div>
+                                            </td>
+                                            <td>
+                                                <div class="chbx" id=8-12><input id="chbx--8-12" data-day=8
+                                                        data-month=12 data-year=2020 type="checkbox" checked><label
+                                                        class="" for="chbx--8-12">8</label></div>
+                                            </td>
+                                            <td>
+                                                <div class="chbx" id=9-12><input id="chbx--9-12" data-day=9
+                                                        data-month=12 data-year=2020 type="checkbox" checked><label
+                                                        class="" for="chbx--9-12">9</label></div>
+                                            </td>
+                                            <td>
+                                                <div class="chbx" id=10-12><input id="chbx--10-12" data-day=10
+                                                        data-month=12 data-year=2020 type="checkbox" checked><label
+                                                        class="" for="chbx--10-12">10</label></div>
+                                            </td>
+                                            <td>
+                                                <div class="chbx" id=11-12><input id="chbx--11-12" data-day=11
+                                                        data-month=12 data-year=2020 type="checkbox" checked><label
+                                                        class="" for="chbx--11-12">11</label></div>
+                                            </td>
+                                            <td>
+                                                <div class="chbx" id=12-12><input id="chbx--12-12" data-day=12
+                                                        data-month=12 data-year=2020 type="checkbox" checked><label
+                                                        class="" for="chbx--12-12">12</label></div>
+                                            </td>
+                                            <td>
+                                                <div class="chbx" id=13-12><input id="chbx--13-12" data-day=13
+                                                        data-month=12 data-year=2020 type="checkbox" checked><label
+                                                        class="" for="chbx--13-12">13</label></div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div class="chbx" id=14-12><input id="chbx--14-12" data-day=14
+                                                        data-month=12 data-year=2020 type="checkbox" checked><label
+                                                        class="" for="chbx--14-12">14</label></div>
+                                            </td>
+                                            <td>
+                                                <div class="chbx" id=15-12><input id="chbx--15-12" data-day=15
+                                                        data-month=12 data-year=2020 type="checkbox" checked><label
+                                                        class="" for="chbx--15-12">15</label></div>
+                                            </td>
+                                            <td>
+                                                <div class="chbx" id=16-12><input id="chbx--16-12" data-day=16
+                                                        data-month=12 data-year=2020 type="checkbox" checked><label
+                                                        class="" for="chbx--16-12">16</label></div>
+                                            </td>
+                                            <td>
+                                                <div class="chbx" id=17-12><input id="chbx--17-12" data-day=17
+                                                        data-month=12 data-year=2020 type="checkbox" checked><label
+                                                        class="" for="chbx--17-12">17</label></div>
+                                            </td>
+                                            <td>
+                                                <div class="chbx" id=18-12><input id="chbx--18-12" data-day=18
+                                                        data-month=12 data-year=2020 type="checkbox" checked><label
+                                                        class="" for="chbx--18-12">18</label></div>
+                                            </td>
+                                            <td>
+                                                <div class="chbx" id=19-12><input id="chbx--19-12" data-day=19
+                                                        data-month=12 data-year=2020 type="checkbox" checked><label
+                                                        class="" for="chbx--19-12">19</label></div>
+                                            </td>
+                                            <td>
+                                                <div class="chbx" id=20-12><input id="chbx--20-12" data-day=20
+                                                        data-month=12 data-year=2020 type="checkbox" checked><label
+                                                        class="" for="chbx--20-12">20</label></div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div class="chbx" id=21-12><input id="chbx--21-12" data-day=21
+                                                        data-month=12 data-year=2020 type="checkbox" checked><label
+                                                        class="" for="chbx--21-12">21</label></div>
+                                            </td>
+                                            <td>
+                                                <div class="chbx" id=22-12><input id="chbx--22-12" data-day=22
+                                                        data-month=12 data-year=2020 type="checkbox" checked><label
+                                                        class="" for="chbx--22-12">22</label></div>
+                                            </td>
+                                            <td>
+                                                <div class="chbx" id=23-12><input id="chbx--23-12" data-day=23
+                                                        data-month=12 data-year=2020 type="checkbox" checked><label
+                                                        class="" for="chbx--23-12">23</label></div>
+                                            </td>
+                                            <td>
+                                                <div class="chbx" id=24-12><input id="chbx--24-12" data-day=24
+                                                        data-month=12 data-year=2020 type="checkbox" checked><label
+                                                        class="" for="chbx--24-12">24</label></div>
+                                            </td>
+                                            <td>
+                                                <div class="chbx" id=25-12><input id="chbx--25-12" data-day=25
+                                                        data-month=12 data-year=2020 type="checkbox" checked><label
+                                                        class="" for="chbx--25-12">25</label></div>
+                                            </td>
+                                            <td>
+                                                <div class="chbx" id=26-12><input id="chbx--26-12" data-day=26
+                                                        data-month=12 data-year=2020 type="checkbox" checked><label
+                                                        class="" for="chbx--26-12">26</label></div>
+                                            </td>
+                                            <td>
+                                                <div class="chbx" id=27-12><input id="chbx--27-12" data-day=27
+                                                        data-month=12 data-year=2020 type="checkbox" checked><label
+                                                        class="" for="chbx--27-12">27</label></div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div class="chbx" id=28-12><input id="chbx--28-12" data-day=28
+                                                        data-month=12 data-year=2020 type="checkbox" checked><label
+                                                        class="" for="chbx--28-12">28</label></div>
+                                            </td>
+                                            <td>
+                                                <div class="chbx" id=29-12><input id="chbx--29-12" data-day=29
+                                                        data-month=12 data-year=2020 type="checkbox" checked><label
+                                                        class="" for="chbx--29-12">29</label></div>
+                                            </td>
+                                            <td>
+                                                <div class="chbx" id=30-12><input id="chbx--30-12" data-day=30
+                                                        data-month=12 data-year=2020 type="checkbox" checked><label
+                                                        class="" for="chbx--30-12">30</label></div>
+                                            </td>
+                                            <td>
+                                                <div class="chbx" id=31-12><input id="chbx--31-12" data-day=31
+                                                        data-month=12 data-year=2020 type="checkbox" checked><label
+                                                        class="" for="chbx--31-12">31</label></div>
+                                            </td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="calendar">
+                                <div class="calendar__header">
+                                    <h6>Январь </h6>
+
+                                    <div class="chbx"><input id="chbx--m-1" data-day=1 data-month=10 data-year=2020
+                                            type="checkbox"><label for="chbx--m-1"></label></div>
+                                </div>
+                                <table class="calendar__table master" id="dayCalendar1">
+                                    <thead>
+                                        <tr>
+                                            <th>ПН</th>
+                                            <th>ВТ</th>
+                                            <th>СР</th>
+                                            <th>ЧТ</th>
+                                            <th>ПТ</th>
+                                            <th>СБ</th>
+                                            <th>ВС</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td>
+                                                <div class="chbx" id=1-1><input id="chbx--1-1" data-day=1 data-month=1
+                                                        data-year=2021 type="checkbox" checked><label class=""
+                                                        for="chbx--1-1">1</label></div>
+                                            </td>
+                                            <td>
+                                                <div class="chbx" id=2-1><input id="chbx--2-1" data-day=2 data-month=1
+                                                        data-year=2021 type="checkbox" checked><label class=""
+                                                        for="chbx--2-1">2</label></div>
+                                            </td>
+                                            <td>
+                                                <div class="chbx" id=3-1><input id="chbx--3-1" data-day=3 data-month=1
+                                                        data-year=2021 type="checkbox" checked><label class=""
+                                                        for="chbx--3-1">3</label></div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div class="chbx" id=4-1><input id="chbx--4-1" data-day=4 data-month=1
+                                                        data-year=2021 type="checkbox" checked><label class=""
+                                                        for="chbx--4-1">4</label></div>
+                                            </td>
+                                            <td>
+                                                <div class="chbx" id=5-1><input id="chbx--5-1" data-day=5 data-month=1
+                                                        data-year=2021 type="checkbox" checked><label class=""
+                                                        for="chbx--5-1">5</label></div>
+                                            </td>
+                                            <td>
+                                                <div class="chbx" id=6-1><input id="chbx--6-1" data-day=6 data-month=1
+                                                        data-year=2021 type="checkbox" checked><label class=""
+                                                        for="chbx--6-1">6</label></div>
+                                            </td>
+                                            <td>
+                                                <div class="chbx" id=7-1><input id="chbx--7-1" data-day=7 data-month=1
+                                                        data-year=2021 type="checkbox" checked><label class=""
+                                                        for="chbx--7-1">7</label></div>
+                                            </td>
+                                            <td>
+                                                <div class="chbx" id=8-1><input id="chbx--8-1" data-day=8 data-month=1
+                                                        data-year=2021 type="checkbox" checked><label class=""
+                                                        for="chbx--8-1">8</label></div>
+                                            </td>
+                                            <td>
+                                                <div class="chbx" id=9-1><input id="chbx--9-1" data-day=9 data-month=1
+                                                        data-year=2021 type="checkbox" checked><label class=""
+                                                        for="chbx--9-1">9</label></div>
+                                            </td>
+                                            <td>
+                                                <div class="chbx" id=10-1><input id="chbx--10-1" data-day=10
+                                                        data-month=1 data-year=2021 type="checkbox" checked><label
+                                                        class="" for="chbx--10-1">10</label></div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div class="chbx" id=11-1><input id="chbx--11-1" data-day=11
+                                                        data-month=1 data-year=2021 type="checkbox" checked><label
+                                                        class="" for="chbx--11-1">11</label></div>
+                                            </td>
+                                            <td>
+                                                <div class="chbx" id=12-1><input id="chbx--12-1" data-day=12
+                                                        data-month=1 data-year=2021 type="checkbox" checked><label
+                                                        class="" for="chbx--12-1">12</label></div>
+                                            </td>
+                                            <td>
+                                                <div class="chbx" id=13-1><input id="chbx--13-1" data-day=13
+                                                        data-month=1 data-year=2021 type="checkbox" checked><label
+                                                        class="" for="chbx--13-1">13</label></div>
+                                            </td>
+                                            <td>
+                                                <div class="chbx" id=14-1><input id="chbx--14-1" data-day=14
+                                                        data-month=1 data-year=2021 type="checkbox" checked><label
+                                                        class="" for="chbx--14-1">14</label></div>
+                                            </td>
+                                            <td>
+                                                <div class="chbx" id=15-1><input id="chbx--15-1" data-day=15
+                                                        data-month=1 data-year=2021 type="checkbox" checked><label
+                                                        class="" for="chbx--15-1">15</label></div>
+                                            </td>
+                                            <td>
+                                                <div class="chbx" id=16-1><input id="chbx--16-1" data-day=16
+                                                        data-month=1 data-year=2021 type="checkbox" checked><label
+                                                        class="" for="chbx--16-1">16</label></div>
+                                            </td>
+                                            <td>
+                                                <div class="chbx" id=17-1><input id="chbx--17-1" data-day=17
+                                                        data-month=1 data-year=2021 type="checkbox" checked><label
+                                                        class="" for="chbx--17-1">17</label></div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div class="chbx" id=18-1><input id="chbx--18-1" data-day=18
+                                                        data-month=1 data-year=2021 type="checkbox" checked><label
+                                                        class="" for="chbx--18-1">18</label></div>
+                                            </td>
+                                            <td>
+                                                <div class="chbx" id=19-1><input id="chbx--19-1" data-day=19
+                                                        data-month=1 data-year=2021 type="checkbox" checked><label
+                                                        class="" for="chbx--19-1">19</label></div>
+                                            </td>
+                                            <td>
+                                                <div class="chbx" id=20-1><input id="chbx--20-1" data-day=20
+                                                        data-month=1 data-year=2021 type="checkbox" checked><label
+                                                        class="" for="chbx--20-1">20</label></div>
+                                            </td>
+                                            <td>
+                                                <div class="chbx" id=21-1><input id="chbx--21-1" data-day=21
+                                                        data-month=1 data-year=2021 type="checkbox" checked><label
+                                                        class="" for="chbx--21-1">21</label></div>
+                                            </td>
+                                            <td>
+                                                <div class="chbx" id=22-1><input id="chbx--22-1" data-day=22
+                                                        data-month=1 data-year=2021 type="checkbox" checked><label
+                                                        class="" for="chbx--22-1">22</label></div>
+                                            </td>
+                                            <td>
+                                                <div class="chbx" id=23-1><input id="chbx--23-1" data-day=23
+                                                        data-month=1 data-year=2021 type="checkbox" checked><label
+                                                        class="" for="chbx--23-1">23</label></div>
+                                            </td>
+                                            <td>
+                                                <div class="chbx" id=24-1><input id="chbx--24-1" data-day=24
+                                                        data-month=1 data-year=2021 type="checkbox" checked><label
+                                                        class="" for="chbx--24-1">24</label></div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div class="chbx" id=25-1><input id="chbx--25-1" data-day=25
+                                                        data-month=1 data-year=2021 type="checkbox" checked><label
+                                                        class="" for="chbx--25-1">25</label></div>
+                                            </td>
+                                            <td>
+                                                <div class="chbx" id=26-1><input id="chbx--26-1" data-day=26
+                                                        data-month=1 data-year=2021 type="checkbox" checked><label
+                                                        class="" for="chbx--26-1">26</label></div>
+                                            </td>
+                                            <td>
+                                                <div class="chbx" id=27-1><input id="chbx--27-1" data-day=27
+                                                        data-month=1 data-year=2021 type="checkbox" checked><label
+                                                        class="" for="chbx--27-1">27</label></div>
+                                            </td>
+                                            <td>
+                                                <div class="chbx" id=28-1><input id="chbx--28-1" data-day=28
+                                                        data-month=1 data-year=2021 type="checkbox" checked><label
+                                                        class="" for="chbx--28-1">28</label></div>
+                                            </td>
+                                            <td>
+                                                <div class="chbx" id=29-1><input id="chbx--29-1" data-day=29
+                                                        data-month=1 data-year=2021 type="checkbox" checked><label
+                                                        class="" for="chbx--29-1">29</label></div>
+                                            </td>
+                                            <td>
+                                                <div class="chbx" id=30-1><input id="chbx--30-1" data-day=30
+                                                        data-month=1 data-year=2021 type="checkbox" checked><label
+                                                        class="" for="chbx--30-1">30</label></div>
+                                            </td>
+                                            <td>
+                                                <div class="chbx" id=31-1><input id="chbx--31-1" data-day=31
+                                                        data-month=1 data-year=2021 type="checkbox" checked><label
+                                                        class="" for="chbx--31-1">31</label></div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <button type="submit" form="form__master-calendar" id="bntMasterSchedSave"
+                            class="submit-registration btn">Сохранить</button>
+                    </div>
+                </form>
+
+            </section>
+
+        </div>
+    </main>
+
+    <div id="login__popup" class="popup hide">
+        <div class="overlay"></div>
+        <div class="enter__form">
+            <h2 class="top-title">Авторизация</h2>
+            <button class="close-btn loginclose-btn">
+                <span></span>
+            </button>
+            <form class="form__login" id="frmPopUpLogin" action="/Account/CustomerLogin" method="POST">
+
+                <input name="__RequestVerificationToken" type="hidden"
+                    value="4CjnB6r4gwZbFt4f3_hSpwR1vsaKcNp0kCrBglMy1R8699MVWExqTNrwq4RvllAsD05ZWtfCFNQApRj1yh4a3R3hhAxoc3UOitVf0i950i4lUqZglvaX8hzCVeBU2MqnUrhmwcJamfxrDjUwrpYGYA2" />
+                <div class="input__wrap">
+                    <div class="input-notification correctly">
+                        <label for="popup-login__phone">Номер телефона</label>
+                        <input id="popup-login__phone" type="tel" name="phone" minlength="17"
+                            placeholder="Номер телефона" required>
+                    </div>
+                </div>
+                <div class="input__wrap">
+                    <label for="popup-login__password">Пароль</label>
+                    <input id="popup-login__password" type="password" name="password" placeholder="Пароль" required>
+                    <span class="fa-eye field-icon toggle-password" toggle="#popup-login__password"></span>
+                </div>
+
+                <!--<a class="active" href="#">Забыли пароль?</a>--->
+
+                <button class="btn">Войти</button>
+            </form>
+
+            <span class="no-account">Нет аккаунта? <a class="active popupReg" href="#">Зарегистрироваться</a></span>
+        </div>
+    </div>
+
+
+
+    <div id="reg__popup" class="popup">
+        <div class="overlay"></div>
+        <div class="enter__form">
+            <h2 class="top-title">Регистрация</h2>
+            <button class="close-btn regclose-btn">
+                <span></span>
+            </button>
+            <form class="popup-form__reg" id="frmPopUpReg" action="/Account/Registration" method="POST">
+                <input name="__RequestVerificationToken" type="hidden"
+                    value="oFZ2jpmD3WqenPz6kO39FE4M64gYwAr6NhXJevHGSi9yGrW6nVxyYv3xgibcKAQv20a6YHv5dgKtsTPo-xklAkvPn6CuRfNMQYEScKKK85vPa14ohxS8tp8t_-vVMcfAmKt1XNEHV19bs7fbUJVyJA2" />
+                <div class="input__wrap">
+                    <label for="popup-reg__name">Имя и Фамилия</label>
+                    <input id="popup-reg__name" type="text" name="name" minlength="3" placeholder="Имя и Фамилия"
+                        required>
+                </div>
+                <div class="input__wrap">
+                    <label for="popup-reg__phone">Номер телефона</label>
+                    <input id="popup-reg__phone" type="tel" name="phone" minlength="17" placeholder="Номер телефона"
+                        required>
+                </div>
+
+                <div class="input__wrap">
+                    <label for="popup-reg__password">Пароль</label>
+                    <input id="popup-reg__password" type="password" name="password" placeholder="Пароль" required>
+                    <span class="fa-eye field-icon toggle-password" toggle="#popup-reg__password"></span>
+                </div>
+
+                <!--<a class="active" href="#">Забыли пароль?</a>--->
+
+                <button type="submit" class="btn">Регистрация</button>
+                <br />
+            </form>
+            <br />
+            <span class="no-account">Есть аккаунта? <a class="active popupLogin" href="#">Войти</a></span>
+        </div>
+    </div>
+    <div id="phConfirm__popup" class="popup">
+        <div class="overlay"></div>
+        <div class="enter__form">
+            <h2 class="top-title">Подтверждение номера</h2>
+            <!-- <button class="close-btn phConfirmClose-btn">
+            <span></span>
+        </button>-->
+            <form class="popup-form__login" id="frmConfirmPhone" action="/Account/PhoneConfirm" method="POST">
+                <div class="input__wrap">
+                    <label for="popup-phConfirm__code">Код подтверждения</label>
+                    <input id="popup-phConfirm__code" type="text" name="code" minlength="6" maxlength="6"
+                        placeholder="Код подтверждения" required>
+                </div>
+                <button class="btn" type="submit">Подтвердить</button>
+            </form>
+        </div>
+    </div>
+
+
+
+
+    <script src="/js/custom.js"></script>
+    <script src="/js/image.js"></script>
+    <script src="/js/master.js"></script>
+
+
+
+    <script type="text/javascript">
+        function MasterTimeCheck() {
+            var wFrom = $("#workingTimeFrom").val();
+            var wTo = $("#workingTimeTo").val();
+
+
+            var wBreakFrom = $("#break__start").val();
+            var wBreakTo = $("#break__end").val();
+            if (wFrom !== undefined && wFrom.length > 0 || wTo !== undefined && wTo.length > 0) {
+                if (wFrom.length > 0) {
+                    if (wFrom >= wTo) {
+                        return [false, 'Имя'];
+                    }
+                }
+            }
+
+            if ((wBreakFrom !== undefined && wBreakFrom.length > 0) || (wBreakTo !== undefined && wBreakTo.length > 0)) {
+
+                if (wBreakFrom !== undefined && wBreakTo === undefined) {
+                    return [false, 'break'];
+                }
+
+                if (wBreakFrom === undefined && wBreakTo !== undefined) {
+                    return [false, 'break_0'];
+                }
+
+                if (wBreakFrom.length > 0 && wBreakTo.length <= 0) {
+                    return [false, 'break_1'];
+                }
+
+
+                if (wBreakFrom.length <= 0 && wBreakTo.length >= 0) {
+                    return [false, 'break_2'];
+                }
+
+                if (wBreakFrom > wBreakTo) {
+                    return [false, 'break_3'];
+                }
+
+                if ((wFrom === undefined || wFrom.length <= 0) || wTo === undefined || wTo.length <= 0) {
+                    return [false, 'break_4'];
+                }
+
+                if (wBreakFrom !== undefined &&
+                    wBreakFrom !== null &&
+                    wBreakFrom.length > 0 &&
+                    wBreakTo !== undefined &&
+                    wBreakTo !== null &&
+                    wBreakTo.length > 0) {
+                    if (wBreakFrom >= wBreakTo) {
+                        return [false, 3];
+                    }
+
+                    if (wBreakFrom < wFrom || wBreakTo > wTo) {
+                        return [false, 'Город'];
+                    }
+                }
+            }
+            return [true, 0];
+            //return [false, 'E-mail'];
+        }
+    </script>
+
+    <script type="text/javascript">
+
+        $(document).click(function (e) {
+            if ($(e.target).is('.overlay')) {
+                $.each($('.popup'), function (key, value) {
+                    if ($(value).hasClass("show")) {
+                        $(value).toggleClass("show");
+                    }
+                });
+
+                //$('.popup').toggle();
+                $('.modalImg').fadeOut(500);
+            }
+        });
+
+
+        $(document).ready(function () {
+
+            $.ajaxSetup({
+                headers: { "CustomHeader": "myValue" }
+            });
+
+            var msg = 'Мастер  добавлен!';
+            if (msg !== undefined && msg.length > 0) {
+                successMsg(msg);
+            }
+
+            var msgcenter = '';
+            if (msgcenter !== undefined && msgcenter.length > 0) {
+                successMsgC(msgcenter);
+            }
+            if ('True' === 'True' && '3' === '5' && 'False' === 'False') {
+                $("#phConfirm__popup").toggleClass("show");
+            }
+        });
+
+        $('#popup-login__phone').mask("+38(000)-000-0000", { placeholder: "+38(xxx)xxx-xxxx" });
+        $('#popup-reg__phone').mask("+38(000)-000-0000", { placeholder: "+38(xxx)xxx-xxxx" });
+
+
+        $(".loginnk").click(function (e) {
+            e.preventDefault();
+            if ('True' === 'True') {
+                return;
+            }
+            $("#login__popup").toggleClass("show");
+        });
+
+        $(".popupReg").click(function (e) {
+            e.preventDefault();
+            if ('True' === 'True') {
+                return;
+            }
+            $("#login__popup").toggleClass("show");
+            $("#reg__popup").toggleClass("show");
+        });
+
+        $(".popupLogin").click(function (e) {
+            e.preventDefault();
+            if ('True' === 'True') {
+                return;
+            }
+            $("#reg__popup").toggleClass("show");
+            $("#login__popup").toggleClass("show");
+        });
+
+
+
+
+        $(".loginclose-btn").click(function (e) {
+            $("#login__popup").toggleClass("show");
+        });
+        $(".regclose-btn").click(function (e) {
+            $("#reg__popup").toggleClass("show");
+
+        });
+
+        $(".phConfirmClose-btn").click(function (e) {
+            $("#phConfirm__popup").toggleClass("show");
+
+        });
+
+        $(document).ajaxStart(function () {
+            $("#overlay").show();
+        })
+            .ajaxStop(function () {
+                $("#overlay").hide();
+            });
+
+        $(document).ready(function (e) {
+
+            tz();
+        });
+
+        function tz() {
+            var c = getCookie('VseSaloniTZ');
+            if (c === undefined || c.length <= 0) {
+                setCookie('VseSaloniTZ', new Date().getTimezoneOffset() / 60, 365);
+            }
+        }
+
+        function setCookie(cname, cvalue, exdays) {
+            var d = new Date();
+            d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+            var expires = "expires=" + d.toUTCString();
+            document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+        }
+
+        function getCookie(cname) {
+            var name = cname + "=";
+            var decodedCookie = decodeURIComponent(document.cookie);
+            var ca = decodedCookie.split(';');
+            for (var i = 0; i < ca.length; i++) {
+                var c = ca[i];
+                while (c.charAt(0) === - ' ') {
+                    c = c.substring(1);
+                }
+                if (c.indexOf(name) === 0) {
+                    return c.substring(name.length, c.length);
+                }
+            }
+        }
+
+
+
+
+    </script>
+</body>
+
+</html>

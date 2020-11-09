@@ -1,0 +1,207 @@
+.page__add-worker
+  margin-top: 20px
+
+.add-worker
+  width: 100%
+  max-width: 1170px
+  padding: 15px
+  margin: 0 auto
+  background: #FFFFFF
+  box-shadow: 0px 2px 25px rgba(0, 0, 0, 0.15)
+  border-radius: 10px
+  @media ( min-width: 992px )
+    padding: 30px 50px
+  h1,
+  h2
+    width: 100%
+    margin: 0 auto 10px 0
+    font-size: 16px
+  .subtitle
+    width: 100%
+    margin: 0 auto 20px 0
+    font-size: 14px
+    line-height: 1.4
+
+  form
+    width: 100%
+    max-width: 100%
+    display: flex
+    flex-flow: column
+    justify-content: center
+    align-items: center
+    @media ( min-width: 768px )
+      flex-flow: row wrap
+      justify-content: space-between
+      align-items: flex-start
+
+  .flex-column
+    width: 100%
+    max-width: 346px
+    margin-bottom: 30px
+    // align-items: center
+    // @media ( min-width: 539px )
+    //   flex-flow: row
+    @media ( min-width: 768px )
+      max-width: 243px
+      margin-bottom: 0
+    @media ( min-width: 860px )
+      max-width: 346px
+
+
+  .media__add
+    margin: 0 0 10px 0
+    @media ( min-width: 539px )
+      margin: 0 0 10px 0
+    @media ( min-width: 860px )
+      margin-left: 0
+
+  &__input-list
+    width: 100%
+    margin-top: 8px
+    margin-bottom: 20px
+
+  &__services
+    width: 100%
+    @media ( min-width: 768px )
+      max-width: calc(622px - 203px)
+    @media ( min-width: 1150px )
+      max-width: 622px
+
+    .search__services
+      width: 100%
+      margin-bottom: 10px
+      display: flex
+      flex-flow: column
+      align-items: center
+      @media ( min-width: 539px )
+        flex-flow: row
+        justify-content: space-between
+      input
+        width: 100%
+        max-width: 243px
+        @media ( min-width: 539px )
+          max-width: 100%
+          margin-right: 20px
+          margin-bottom: 0
+      button
+        max-width: 243px
+        @media ( min-width: 539px )
+          max-width: 103px
+
+    ul
+      width: 100%
+      height: auto
+      display: grid
+      grid-template-columns: repeat(auto-fill, minmax(auto, 254px))
+      grid-auto-rows: 85px
+      grid-auto-flow: row
+      grid-gap: 10px
+      align-items: center
+      justify-content: center
+      @media ( min-width: 539px )
+        height: 285px
+        overflow-y: auto
+      @media ( min-width: 692px )
+        padding-right: 20px
+        grid-template-columns: repeat(auto-fill, minmax(auto, 193px))
+      li
+        width: 254px
+        height: 85px
+        padding: 12px 18px
+        margin: 10px 0
+        display: flex
+        flex-flow: column
+        justify-content: space-between
+        background: #FFFFFF
+        box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.14)
+        border-radius: 10px
+        border: 2px solid #D0D0D0
+        transition: .3s
+        z-index: 3
+        @media ( min-width: 692px )
+          width: 193px
+          height: 85px
+        &.active
+          border: 2px solid $red
+        div
+          // width: 100px
+          display: flex
+          flex-flow: row
+          justify-content: space-between
+          align-items: center
+        .input__wrap
+          width: 100%
+          display: flex
+          align-items: flex-end
+          justify-content: flex-end
+
+          input
+            width: auto
+            height: auto
+            padding: 0
+            margin: 0 5px
+            background: none
+            border: none
+            border-radius: 0
+            border-bottom: 1px solid #B2B2B2
+            text-align: right
+            color: $red
+            font-weight: 600
+          label
+            margin: 0
+            display: inline-block
+            
+          label
+            color: #4C4C4C
+
+
+.services__header
+  width: 100%
+  .chbx
+    width: 100%
+  label
+    width: 100%
+    padding-bottom: 8px
+    height: auto
+    font-weight: 550
+    color: #4C4C4C
+    &::before,
+    &::after
+      left: unset
+      right: 0
+      transform: translateY(0)
+
+  input[type=checkbox]:checked + label:after
+    left: unset
+    right: 0
+      
+
+
+
+.services__min
+  input
+    width: 23px !important
+    padding-left: 2px !important
+  label
+
+.services__cost
+  .input__wrap
+    color: #4C4C4C
+  input
+    width: 33px !important
+  label
+
+
+.add-worker
+  .submit-registration
+    margin-top: 30px
+    margin-right: 0 !important
+    // @media ( max-width: 768px )
+    //   margin-bottom: 0 !important
+    @media ( max-width: 539px )
+      position: fixed
+      bottom: 20px
+      right: 20px
+      width: 58px
+      height: 58px
+      border-radius: 50%

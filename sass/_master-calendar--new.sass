@@ -1,0 +1,215 @@
+.page__master-calendar--new
+  margin-top: 20px
+
+
+.master-calendar
+  width: 100%
+  height: auto
+  max-width: 970px
+  padding: 20px 15px
+  margin: 0 auto
+  flex-flow: columns
+  justify-content: center
+  align-items: center
+  background: #FFFFFF
+  box-shadow: 0px 2px 25px rgba(0, 0, 0, 0.15)
+  border-radius: 10px
+  @media ( min-width: 768px )
+    padding: 30px 50px
+
+  .title
+    width: 100%
+    height: auto
+    margin-bottom: 20px
+    display: flex
+    align-items: center
+    flex-flow: column
+    @media (min-width: 715px)
+      flex-flow: row
+    h1
+      margin: 0 10px 0 0
+      font-size: 16px
+      font-weight: bold
+      margin-bottom: 10px
+      @media ( min-width: 768px )
+        margin-bottom: 0
+    span
+      font-size: 16px
+      font-weight: bold
+      color: $red
+
+  &>.flex-row
+    flex-flow: column
+    @media (min-width: 715px)
+      flex-flow: row
+
+  .date
+    &__list
+      width: 100%
+      // max-width: 80px
+      padding-bottom: 35px
+      display: flex
+      flex-flow: row
+      justify-content: center
+      overflow: hidden
+      @media (min-width: 715px)
+        padding-right: 64px
+        padding-bottom: 0
+        flex-flow: column
+      li
+        width: 41px
+        height: 53px
+        padding: 8px 12px
+        margin: 2.5px
+        position: relative
+        background: #FFFFFF
+        box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1)
+        border-radius: 10px
+        display: flex
+        flex-flow: column
+        align-items: center
+        justify-content: space-between
+        cursor: pointer
+        &.active
+          background: $red
+          color: #fff !important
+          box-shadow: 0px 10px 19px rgba(236, 64, 93, 0.64)
+
+        &.weekend
+          color: $red
+
+        .notice
+          position: absolute
+          left: 50%
+          bottom: -25px
+          transform: translateX(-50%)
+          font-weight: 500
+          font-size: 14px
+          color: #BEBEBE
+          @media (min-width: 715px)
+            left: unset
+            bottom: unset
+            top: 50%
+            right: -20px
+            transform: translateY(-50%)
+          &.red
+            color: $red
+
+        &:first-child,
+        &:last-child
+          opacity: .25
+        &:nth-of-type(2),
+        &:nth-last-of-type(2)
+          opacity: .5
+        &:nth-of-type(3),
+        &:nth-last-of-type(3)
+          opacity: .75
+
+  .wrap-timetable
+    width: 100%
+    display: flex
+    flex-flow: column
+    align-items: center
+
+  .free-time__list
+    width: 100%
+    max-width: 760px
+    height: auto
+    padding-left: 10px
+    margin-bottom: 5px
+    display: flex
+    align-items: center
+    flex-flow: wrap
+    // @media (min-width: 715px)
+    li
+      button
+        width: 124px
+        height: 40px
+        margin-right: 10px
+        background: #40ECAE
+        box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1)
+        border-radius: 10px
+        font-weight: bold
+        font-size: 14px
+        color: #fff
+        transition: .3s
+        &:hover
+          transform: scale(.98)
+          background-color: darken(#40ECAE, 10%)
+          // box-shadow: 6px 8px 8px 0px rgba(0,0,0,0.30)
+        &:active
+          transform: scale(.97)
+          background-color: darken(#40ECAE, 15%)
+          // box-shadow: 1px 1px 1px 0px rgba(0,0,0,0.30)
+
+  .timetable
+    width: 100%
+    height: auto
+    max-width: 760px
+    max-height: 443px
+    padding: 5px 10px
+    display: flex
+    flex-flow: column
+    overflow-x: auto
+    li
+      width: 100%
+      height: auto
+      padding: 30px 15px 25px
+      margin-bottom: 10px
+      display: flex
+      flex-flow: row wrap
+      background: #FFFFFF
+      box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.15)
+      border-radius: 10px
+
+    .booked-time
+      width: 100%
+      margin-left: 15px
+      margin-bottom: 5px
+      font-weight: bold
+      font-size: 14px
+      color: $red
+
+    .booked
+      width: 100%
+      height: auto
+      max-width: 100%
+      min-height: 34px
+      padding-right: 30px
+      margin: 5px 0
+      padding-left: 15px
+      display: flex
+      align-items: center
+      position: relative
+      font-size: 10px
+      line-height: 12px
+      @media (min-width: 543px)
+        max-width: 225px
+        &:nth-child(2n+3)
+          border-left: 1px solid #E6E6E6
+      @media (min-width: 933px)
+        &:nth-child(3n+3)
+          border-left: 1px solid #E6E6E6
+          border-right: 1px solid #E6E6E6
+      .service
+        margin-bottom: 3px
+        font-weight: 600
+        font-size: 10px
+        color: #BEBEBE
+      .client
+        font-weight: 900
+        color: #888888
+      .delete
+        width: 10px
+        height: 10px
+        padding: 10px
+        box-sizing: content-box
+        position: absolute
+        right: 0
+        mask: url("data:image/svg+xml,%3Csvg width='10' height='10' viewBox='0 0 10 10' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M10 1.00714L8.99286 0L5 3.99286L1.00714 0L0 1.00714L3.99286 5L0 8.99286L1.00714 10L5 6.00714L8.99286 10L10 8.99286L6.00714 5L10 1.00714Z' fill='%23D0D0D0'/%3E%3C/svg%3E%0A") no-repeat center
+        background: #D0D0D0
+        transition: .3s
+        @media (min-width: 543px)
+          right: 15px
+        &:hover
+          background: $red
