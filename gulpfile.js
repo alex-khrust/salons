@@ -1,21 +1,27 @@
 // VARIABLES & PATHS
 
 let preprocessor = 'sass', // Preprocessor (sass, scss, less, styl)
-    fileswatch   = 'html,htm,txt,json,md,woff2', // List of files extensions for watching & hard reload (comma separated)
-    imageswatch  = 'jpg,jpeg,png,webp,svg', // List of images extensions for watching & compression (comma separated)
-    baseDir      = '.', // Base directory path without «/» at the end
-    online       = true; // If «false» - Browsersync will work offline without internet connection
+		fileswatch   = 'html,htm,txt,json,md,woff2', // List of files extensions for watching & hard reload (comma separated)
+		imageswatch  = 'jpg,jpeg,png,webp,svg', // List of images extensions for watching & compression (comma separated)
+		baseDir      = '.', // Base directory path without «/» at the end
+		online       = true; // If «false» - Browsersync will work offline without internet connection
 
 let paths = {
 
-	scripts: {
+	plugins: {
 		src: [
 			'node_modules/jquery/dist/jquery.min.js', // npm vendor example (npm i --save-dev jquery)
 			'node_modules/jquery-confirm/dist/jquery-confirm.min.js',
 			'node_modules/swiper/swiper-bundle.js',
+			'node_modules/@fancyapps/fancybox/dist/jquery.fancybox.min.js',
 			// baseDir + '/js/app.js' // app.js. Always at the end
-		],
-		dest: baseDir + '/js',
+		]
+	},
+
+	userscripts: {
+		src: [
+			baseDir + '/js/app.js' // app.js. Always at the end
+		]
 	},
 
 	styles: {
@@ -36,7 +42,7 @@ let paths = {
 	},
 
 	cssOutputName: 'app.min.css',
-	jsOutputName:  'libs.min.js'
+	jsOutputName:  'app.min.js',
 
 }
 
@@ -50,7 +56,8 @@ const styl         = require('gulp-stylus');
 const cleancss     = require('gulp-clean-css');
 const concat       = require('gulp-concat');
 const browserSync  = require('browser-sync').create();
-const uglify       = require('gulp-uglify-es').default;
+const babel        = require('gulp-babel');
+const uglify       = require('gulp-uglify');
 const autoprefixer = require('gulp-autoprefixer');
 const imagemin     = require('gulp-imagemin');
 const newer        = require('gulp-newer');
@@ -69,12 +76,33 @@ function browsersync() {
 	})
 }
 
+function plugins() {
+	if (paths.plugins.src != '') {
+		return src(paths.plugins.src)
+		.pipe(concat('plugins.tmp.js'))
+		.pipe(dest(baseDir + '/js/_tmp'))
+	} else {
+		async function createFile() {
+			require('fs').writeFileSync(baseDir + '/js/_tmp/plugins.tmp.js', '');
+		}; return createFile();
+	}
+}
+
+function userscripts() {
+	return src(paths.userscripts.src)
+	.pipe(babel({ presets: ['@babel/env'] }))
+	.pipe(concat('userscripts.tmp.js'))
+	.pipe(dest(baseDir + '/js/_tmp'))
+}
+
 function scripts() {
-	return src(paths.scripts.src)
+	return src([
+		baseDir + '/js/_tmp/plugins.tmp.js',
+		baseDir + '/js/_tmp/userscripts.tmp.js'
+	])
 	.pipe(concat(paths.jsOutputName))
 	.pipe(uglify())
-	.pipe(dest(paths.scripts.dest))
-	.pipe(browserSync.stream())
+	.pipe(dest(baseDir + '/js'))
 }
 
 function styles() {
@@ -82,7 +110,7 @@ function styles() {
 	.pipe(eval(preprocessor)())
 	.pipe(concat(paths.cssOutputName))
 	.pipe(autoprefixer({ overrideBrowserslist: ['last 10 versions'], grid: true }))
-	.pipe(cleancss( {level: { 1: { specialComments: 0 } },/* format: 'beautify' */ }))
+	.pipe(cleancss({ level: { 1: { specialComments: 0 } },/* format: 'beautify' */ }))
 	.pipe(dest(paths.styles.dest))
 	.pipe(browserSync.stream())
 }
@@ -114,17 +142,17 @@ function deploy() {
 }
 
 function startwatch() {
-	watch(baseDir  + '/**/' + preprocessor + '/**/*', styles);
-	watch(baseDir  + '/**/*.{' + imageswatch + '}', images);
-	watch(baseDir  + '/**/*.{' + fileswatch + '}').on('change', browserSync.reload);
-	watch([baseDir + '/**/*.js', '!' + paths.scripts.dest + '/*.min.js'], scripts);
+	watch(baseDir  + '/' + preprocessor + '/**/*', {usePolling: true}, styles);
+	watch(baseDir  + '/images/src/**/*.{' + imageswatch + '}', {usePolling: true}, images);
+	watch(baseDir  + '/**/*.{' + fileswatch + '}', {usePolling: true}).on('change', browserSync.reload);
+	watch([baseDir + '/js/**/*.js', '!' + baseDir + '/js/**/*.min.js', '!' + baseDir + '/js/**/*.tmp.js'], {usePolling: true}, series(plugins, userscripts, scripts)).on('change', browserSync.reload);
 }
 
 exports.browsersync = browsersync;
-exports.assets      = series(cleanimg, styles, scripts, images);
+exports.scripts     = series(plugins, userscripts, scripts);
+exports.assets      = series(cleanimg, styles, plugins, userscripts, scripts, images);
 exports.styles      = styles;
-exports.scripts     = scripts;
 exports.images      = images;
 exports.cleanimg    = cleanimg;
 exports.deploy      = deploy;
-exports.default     = parallel(images, styles, scripts, browsersync, startwatch);
+exports.default     = series(plugins, userscripts, scripts, images, styles, parallel(browsersync, startwatch));
