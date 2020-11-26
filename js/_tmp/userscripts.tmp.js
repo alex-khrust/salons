@@ -167,5 +167,25 @@ document.addEventListener("DOMContentLoaded", function () {
       });
     });
   })(document, window, 0); //===================================================
+  // Добавление атрибутов fancybox
 
+
+  $('.gallery-top a').attr('data-fancybox');
+  $('.gallery-top a').attr('data-fancybox', 'gallery'); //===================================================
+  //Инициализация fancybox
+
+  $('.gallery-top a').fancybox({
+    youtube: {
+      controls: 0,
+      showinfo: 0
+    },
+    iframe: {
+      preload: false
+    },
+    buttons: ['zoom', 'close'],
+    thumbs: {
+      autoStart: true,
+      axis: 'x'
+    }
+  }); //===================================================
 });

@@ -69,7 +69,7 @@ function browsersync() {
 		server: { baseDir: baseDir + '/' },
 		notify: false,
 		online: online,
-		// tunnel: true, tunnel: "dev",
+		// tunnel: true, tunnel: "dev",`
 		// socket: {
     //   domain: "localhost:8000"
     // }
