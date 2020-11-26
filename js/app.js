@@ -105,6 +105,39 @@ document.addEventListener("DOMContentLoaded", function () {
       clickable: true,
     },
   });
+
+  // var galleryThumbs = new Swiper('.gallery-thumbs', {
+  //   spaceBetween: 10,
+  //   slidesPerView: 3,
+  //   freeMode: true,
+  //   watchSlidesVisibility: true,
+  //   watchSlidesProgress: true,
+  // });
+  // var galleryTop = new Swiper('.gallery-top', {
+  //   spaceBetween: 10,
+  //   navigation: {
+  //     nextEl: '.swiper-button-next',
+  //     prevEl: '.swiper-button-prev',
+  //   },
+  //   thumbs: {
+  //     swiper: galleryThumbs
+  //   }
+  // });
+
+  var swiper = new Swiper('.gallery-thumbs', {
+    slidesPerView: 3,
+    spaceBetween: 10,
+    pagination: {
+      el: '.swiper-pagination',
+      clickable: true,
+    },
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+    protect : true,
+  });
+
   // Tabs ===================================================
   $('.tab__content').hide();
   $('.tabgroup .tab__content:first-child').show();
@@ -198,12 +231,12 @@ document.addEventListener("DOMContentLoaded", function () {
   }(document, window, 0));
   //===================================================
   // Добавление атрибутов fancybox
-  $('.gallery-top a').attr('data-fancybox');
-  $('.gallery-top a').attr('data-fancybox', 'gallery');
+  $('.gallery-thumbs a').attr('data-fancybox');
+  $('.gallery-thumbs a').attr('data-fancybox', 'gallery');
 
   //===================================================
   //Инициализация fancybox
-  $('.gallery-top a').fancybox({
+  $('.gallery-thumbs a').fancybox({
     youtube : {
       controls : 0,
       showinfo : 0
@@ -221,5 +254,5 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   })
   //===================================================
-  
+
 });

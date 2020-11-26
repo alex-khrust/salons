@@ -156,21 +156,25 @@
             </div>
 
             <div class="salon_gallery">
-              <div class="swiper-container gallery-top">
+              <div class="gallery-top">
+                <iframe width="100%" height="100%" src="https://www.youtube.com/embed/TQzv05xc7pE" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+              </div>
+
+              <div class="gallery-thumbs swiper-container">
                 <div class="swiper-wrapper">
+                  <div class="swiper-slide">
+                    <a href="../images/src/demo/filial.jpg">
+                      <img src="../images/src/demo/filial.jpg" alt="">
+                    </a>
+                  </div>
+                  <div class="swiper-slide">
+                    <a href="https://www.w3schools.com/howto/img_snow.jpg">
+                      <img src="https://www.w3schools.com/howto/img_snow.jpg" alt="">
+                    </a>
+                  </div>
                   <div class="swiper-slide">
                     <a href="https://youtu.be/TQzv05xc7pE">
                       <img class="card-img-top img-fluid" src="http://img.youtube.com/vi/TQzv05xc7pE/mqdefault.jpg" />
-                    </a>
-                  </div>
-                  <div class="swiper-slide">
-                    <a href="../images/src/demo/filial.jpg">
-                      <img src="../images/src/demo/filial.jpg" alt="">
-                    </a>
-                  </div>
-                  <div class="swiper-slide">
-                    <a href="../images/src/demo/filial.jpg">
-                      <img src="../images/src/demo/filial.jpg" alt="">
                     </a>
                   </div>
                   <div class="swiper-slide">
@@ -217,20 +221,6 @@
                 <!-- Add Arrows -->
                 <div class="swiper-button-next swiper-button-white"></div>
                 <div class="swiper-button-prev swiper-button-white"></div>
-              </div>
-              <div class="swiper-container gallery-thumbs">
-                <div class="swiper-wrapper">
-                  <div class="swiper-slide" style="background-image:url(../images/src/demo/filial.jpg)"></div>
-                  <div class="swiper-slide" style="background-image:url(../images/src/demo/filial.jpg)"></div>
-                  <div class="swiper-slide" style="background-image:url(../images/src/demo/filial.jpg)"></div>
-                  <div class="swiper-slide" style="background-image:url(../images/src/demo/filial.jpg)"></div>
-                  <div class="swiper-slide" style="background-image:url(../images/src/demo/filial.jpg)"></div>
-                  <div class="swiper-slide" style="background-image:url(../images/src/demo/filial.jpg)"></div>
-                  <div class="swiper-slide" style="background-image:url(../images/src/demo/filial.jpg)"></div>
-                  <div class="swiper-slide" style="background-image:url(../images/src/demo/filial.jpg)"></div>
-                  <div class="swiper-slide" style="background-image:url(../images/src/demo/filial.jpg)"></div>
-                  <div class="swiper-slide" style="background-image:url(../images/src/demo/filial.jpg)"></div>
-                </div>
               </div>
             </div>
           </div>
@@ -916,7 +906,7 @@
   
 
   <!-- Initialize Swiper -->
-  <script>
+  <!-- <script>
     var galleryThumbs = new Swiper('.gallery-thumbs', {
       spaceBetween: 10,
       slidesPerView: 3,
@@ -934,7 +924,7 @@
         swiper: galleryThumbs
       }
     });
-  </script>
+  </script> -->
   <script>
     // Добавление нумерации для чекбокосов ============================
     $('body').each(function() {

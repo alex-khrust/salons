@@ -10305,19 +10305,15 @@ input[type="file"].has-focus + label {
   }
 }
 
-.salon_gallery .gallery-top a {
-  display: block;
+.salon_gallery .gallery-top a, .salon_gallery .gallery-top img, .salon_gallery .gallery-top iframe {
   width: 100%;
   height: 100%;
   -o-object-fit: cover;
      object-fit: cover;
 }
 
-.salon_gallery .gallery-top img {
-  width: 100%;
-  height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
+.salon_gallery .gallery-top a {
+  display: block;
 }
 
 .salon_gallery .gallery-thumbs {
@@ -10599,7 +10595,22 @@ video {
   height: 30px;
 }
 
+.gallery-top {
+  overflow: hidden;
+}
+
+.gallery-top a, .gallery-top img, .gallery-top iframe {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
 .gallery-top a {
+  display: block;
+}
+
+.gallery-thumbs a {
   display: block;
   width: 100%;
   height: 100%;
@@ -10609,9 +10620,25 @@ video {
   cursor: zoom-in;
 }
 
-.gallery-top img {
+.gallery-thumbs img {
   width: 100%;
   height: 100%;
   -o-object-fit: cover;
      object-fit: cover;
+}
+
+.salon_gallery .gallery-thumbs .swiper-slide {
+  opacity: 1;
+  overflow: hidden;
+}
+
+.salon_gallery .gallery-thumbs {
+  height: 91px;
+  padding: 0;
+  margin: 10px 0 0;
+}
+
+.swiper-button-next::after,
+.swiper-button-prev::after {
+  text-shadow: 0 0 5px #000;
 }
